@@ -1,0 +1,170 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[      5620,        162]
+NotebookOptionsPosition[      4218,        131]
+NotebookOutlinePosition[      4642,        148]
+CellTagsIndexPosition[      4599,        145]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Finding EoS P(\[Epsilon]) for n=1 polytrope", "Section",
+ CellChangeTimes->{{3.9621669907085133`*^9, 3.962167010057609*^9}, {
+  3.962167695052023*^9, 
+  3.962167695428794*^9}},ExpressionUUID->"51db473b-79ba-43e3-a970-\
+dc9f248b5f16"],
+
+Cell["P in \[Rho]", "Text",
+ CellChangeTimes->{{3.962167530653651*^9, 
+  3.96216753221891*^9}},ExpressionUUID->"b1b028c3-4254-47ef-adb3-\
+23d88686a508"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Pin\[Rho]n1", "=", 
+   RowBox[{"K", " ", 
+    SuperscriptBox["\[Rho]", "2"]}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.962167027531365*^9, 3.9621670550767813`*^9}, {
+  3.9621696641847477`*^9, 3.9621696652534857`*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"546c0695-0cdb-400c-89fd-5aefa0ea595b"],
+
+Cell["(4) in https://arxiv.org/pdf/0812.2163", "Text",
+ CellChangeTimes->{{3.962167509146908*^9, 
+  3.96216751476149*^9}},ExpressionUUID->"2a452b9f-a56b-4aec-bcf0-\
+fff74ea7598f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[Epsilon]in\[Rho]", "=", 
+  RowBox[{
+   RowBox[{"\[Rho]", "+", 
+    RowBox[{
+     FractionBox["1", 
+      RowBox[{"\[CapitalGamma]", "-", "1"}]], "Pin\[Rho]n1"}]}], "/.", 
+   RowBox[{"\[CapitalGamma]", "->", "2"}]}]}]], "Input",
+ CellChangeTimes->{{3.962167333067602*^9, 3.9621673556877413`*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"f612613c-38a7-4138-baf4-7ed8413bf146"],
+
+Cell[BoxData[
+ RowBox[{"\[Rho]", "+", 
+  RowBox[{"K", " ", 
+   SuperscriptBox["\[Rho]", "2"]}]}]], "Output",
+ CellChangeTimes->{{3.962167356034012*^9, 3.962167362371541*^9}, 
+   3.9621696685903263`*^9},
+ CellLabel->"Out[2]=",ExpressionUUID->"fb285537-4b9e-4bee-96ec-f8ffafe39e12"]
+}, Open  ]],
+
+Cell["solve for \[Rho] to find P(\[Epsilon])", "Text",
+ CellChangeTimes->{{3.9621676831271772`*^9, 
+  3.962167692434534*^9}},ExpressionUUID->"d7380da8-99ee-4a23-b24f-\
+38debafd3baa"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Solve", "[", 
+   RowBox[{
+    RowBox[{"\[Epsilon]in\[Rho]", "==", "\[Epsilon]"}], ",", "\[Rho]"}], 
+   "]"}], "[", 
+  RowBox[{"[", "2", "]"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Pin\[Epsilon]n1", "=", 
+  RowBox[{
+   RowBox[{"Pin\[Rho]n1", "/.", "%"}], "//", "Simplify"}]}]}], "Input",
+ CellChangeTimes->{{3.962167395366314*^9, 3.962167473920789*^9}, 
+   3.9621677085236197`*^9, 3.962169662876359*^9},
+ CellLabel->"In[3]:=",ExpressionUUID->"e93fb7ec-7c3d-4c88-b00d-a8c4b99e46e7"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\[Rho]", "\[Rule]", 
+   FractionBox[
+    RowBox[{
+     RowBox[{"-", "1"}], "+", 
+     SqrtBox[
+      RowBox[{"1", "+", 
+       RowBox[{"4", " ", "K", " ", "\[Epsilon]"}]}]]}], 
+    RowBox[{"2", " ", "K"}]]}], "}"}]], "Output",
+ CellChangeTimes->{{3.962167407601795*^9, 3.962167474375033*^9}, 
+   3.962167708821941*^9, 3.962169670529675*^9},
+ CellLabel->"Out[3]=",ExpressionUUID->"b94fee7a-964f-4db2-813c-4a794b5c2de2"],
+
+Cell[BoxData[
+ FractionBox[
+  SuperscriptBox[
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"-", "1"}], "+", 
+     SqrtBox[
+      RowBox[{"1", "+", 
+       RowBox[{"4", " ", "K", " ", "\[Epsilon]"}]}]]}], ")"}], "2"], 
+  RowBox[{"4", " ", "K"}]]], "Output",
+ CellChangeTimes->{{3.962167407601795*^9, 3.962167474375033*^9}, 
+   3.962167708821941*^9, 3.96216967053063*^9},
+ CellLabel->"Out[4]=",ExpressionUUID->"89ec748d-1b01-482f-944a-2fd1c79d2d3a"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{"Series", "[", 
+   RowBox[{"Pin\[Epsilon]n1", ",", 
+    RowBox[{"{", 
+     RowBox[{"\[Epsilon]", ",", "0", ",", "3"}], "}"}]}], "]"}], 
+  "*)"}]], "Input",
+ CellChangeTimes->{{3.962167475943482*^9, 3.96216749032933*^9}},
+ CellLabel->
+  "In[423]:=",ExpressionUUID->"8982c54c-87af-402f-89c3-f61b0b478929"]
+}, Open  ]]
+},
+WindowSize->{808, 858},
+WindowMargins->{{124, Automatic}, {9, Automatic}},
+Magnification:>1.25 Inherited,
+FrontEndVersion->"14.1 for Mac OS X ARM (64-bit) (July 16, 2024)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"26bafb78-bc1e-4c8e-975d-b6279a311c74"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 239, 4, 82, "Section",ExpressionUUID->"51db473b-79ba-43e3-a970-dc9f248b5f16"],
+Cell[818, 28, 152, 3, 42, "Text",ExpressionUUID->"b1b028c3-4254-47ef-adb3-23d88686a508"],
+Cell[973, 33, 331, 7, 36, "Input",ExpressionUUID->"546c0695-0cdb-400c-89fd-5aefa0ea595b"],
+Cell[1307, 42, 179, 3, 42, "Text",ExpressionUUID->"2a452b9f-a56b-4aec-bcf0-fff74ea7598f"],
+Cell[CellGroupData[{
+Cell[1511, 49, 399, 9, 53, "Input",ExpressionUUID->"f612613c-38a7-4138-baf4-7ed8413bf146"],
+Cell[1913, 60, 280, 6, 41, "Output",ExpressionUUID->"fb285537-4b9e-4bee-96ec-f8ffafe39e12"]
+}, Open  ]],
+Cell[2208, 69, 182, 3, 42, "Text",ExpressionUUID->"d7380da8-99ee-4a23-b24f-38debafd3baa"],
+Cell[CellGroupData[{
+Cell[2415, 76, 520, 12, 62, "Input",ExpressionUUID->"e93fb7ec-7c3d-4c88-b00d-a8c4b99e46e7"],
+Cell[2938, 90, 458, 12, 60, "Output",ExpressionUUID->"b94fee7a-964f-4db2-813c-4a794b5c2de2"],
+Cell[3399, 104, 445, 12, 63, "Output",ExpressionUUID->"89ec748d-1b01-482f-944a-2fd1c79d2d3a"]
+}, Open  ]],
+Cell[3859, 119, 343, 9, 36, "Input",ExpressionUUID->"8982c54c-87af-402f-89c3-f61b0b478929"]
+}, Open  ]]
+}
+]
+*)
+
