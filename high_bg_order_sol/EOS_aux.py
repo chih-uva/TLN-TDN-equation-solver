@@ -26,12 +26,12 @@ class EOS(ABC):
     
 
 @dataclass(frozen=True)
-class PolytropeEOS(EOS):
+class PolytropeEOS_n1(EOS):
     """
     Your current two mappings packaged as one EOS object.
     You can rename to match your conventions.
     """
-    n: float
+    # n: float
     K: float
 
     def energy_density(self, p: float) -> float:
