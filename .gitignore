@@ -1,3 +1,4 @@
 *.png
 *.pkl
 *.npz
+.DS_Store

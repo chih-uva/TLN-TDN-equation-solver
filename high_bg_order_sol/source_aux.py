@@ -28,6 +28,7 @@ _FULL_PATH = _SRC_DIR / "source_full.txt"
 _R3_PATH = _SRC_DIR / "source_r3.txt"
 _R5_PATH = _SRC_DIR / "source_r5.txt"
 _R7_PATH = _SRC_DIR / "source_r7.txt"
+_R9_PATH = _SRC_DIR / "source_r9.txt"
 
 
 def _read_expr(path: Path) -> str:
@@ -145,6 +146,15 @@ def _get_r7_fn() -> Callable:
     return _lambdify_expr(expr_str, args)
 
 
+@lru_cache(maxsize=1)
+def _get_r9_fn() -> Callable:
+    raw = _read_expr(_R9_PATH)
+    expr_str = _normalize_whitespace(raw)
+    expr_str = _sanitize_series_expr(expr_str)
+    args = ("r", "K", "pc", "a0", "nu_c", "T")
+    return _lambdify_expr(expr_str, args)
+
+
 class _CallableArray:
     """
     Wrap an array/scalar so it behaves both as a callable f(rho) and a numeric value.
@@ -227,6 +237,13 @@ def source_r7(r, K, pc, a0=1.0, nu_c=0.0, T=1.0):
     fn = _get_r7_fn()
     return fn(r, K, pc, a0, nu_c, T)
 
+def source_r9(r, K, pc, a0=1.0, nu_c=0.0, T=1.0):
+    """
+    Analytic series source term up to r^9.
+    """
+    fn = _get_r9_fn()
+    return fn(r, K, pc, a0, nu_c, T)
+
 
 def source_series(r, K, pc, a0=1.0, nu_c=0.0, T=1.0, order=3):
     """
@@ -239,4 +256,7 @@ def source_series(r, K, pc, a0=1.0, nu_c=0.0, T=1.0, order=3):
         return source_r5(r, K, pc, a0=a0, nu_c=nu_c, T=T)
     if order == 7:
         return source_r7(r, K, pc, a0=a0, nu_c=nu_c, T=T)
-    raise ValueError(f"Unsupported order={order}, expected 3, 5, or 7.")
+    if order == 9:
+        return source_r9(r, K, pc, a0=a0, nu_c=nu_c, T=T)
+    
+    raise ValueError(f"Unsupported order={order}, expected 3, 5, 7, or 9.")
