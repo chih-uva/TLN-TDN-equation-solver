@@ -1,0 +1,452 @@
+-((E^(-\[Lambda][r] - \[Nu][r]/
+      2) \[Pi] (r (-1 + E^\[Lambda][r] + 
+          8 E^\[Lambda][r] \[Pi] r^2 p0[r]) Derivative[1][h00][
+         r] (-2 r (-1 + E^\[Lambda][r] + 
+             8 E^\[Lambda][r] \[Pi] r^2 p0[r]) (-8 E^\[Lambda][
+               r] r (-1 + E^\[Lambda][r] + 
+                8 E^\[Lambda][r] \[Pi] r^2 p0[r]) (-1 + E^(
+                2 \[Lambda][r]) + 
+                8 E^\[Lambda][r] (-3 + 2 E^\[Lambda][r]) \[Pi] r^2 p0[
+                  r] + 64 E^(2 \[Lambda][r]) \[Pi]^2 r^4 p0[r]^2 - 
+                8 E^\[Lambda][r] \[Pi] r^2 \[Rho]0[r]) Derivative[
+               1][\[Rho]0][
+               r]^2 (\[Eta]^\[Prime]\[Prime])[\[Rho]0[r]] + 
+             Derivative[
+               1][\[Eta]][\[Rho]0[
+                r]] (((-1 + E^\[Lambda][r])^2 (1 - 
+                    44 E^\[Lambda][r] - 66 E^(2 \[Lambda][r]) + 
+                    4 E^(3 \[Lambda][r]) + E^(4 \[Lambda][r])) + 
+                   12288 E^(
+                    4 \[Lambda][r]) (5 - 6 E^\[Lambda][r] + 
+                    5 E^(2 \[Lambda][r])) \[Pi]^4 r^8 p0[r]^4 + 
+                   196608 E^(
+                    5 \[Lambda][r]) (-1 + 
+                    E^\[Lambda][r]) \[Pi]^5 r^10 p0[r]^5 + 
+                   262144 E^(6 \[Lambda][r]) \[Pi]^6 r^12 p0[r]^6 + 
+                   32 E^(2 \[Lambda][r]) (-37 + 31 E^\[Lambda][r] + 
+                    5 E^(2 \[Lambda][r]) + E^(
+                    3 \[Lambda][r])) \[Pi] r^2 \[Rho]0[r] - 
+                   256 E^(3 \[Lambda][r]) (11 + 
+                    E^\[Lambda][r]) \[Pi]^2 r^4 \[Rho]0[r]^2 + 
+                   2048 E^(3 \[Lambda][r]) \[Pi]^3 r^6 p0[
+                    r]^3 (-5 + 5 E^\[Lambda][r] - 
+                    4 E^(2 \[Lambda][r]) + 5 E^(3 \[Lambda][r]) + 
+                    8 E^(2 \[Lambda][r]) \[Pi] r^2 \[Rho]0[r]) + 
+                   64 E^(2 \[Lambda][r]) \[Pi]^2 r^4 p0[
+                    r]^2 (15 + 28 E^\[Lambda][r] - 
+                    66 E^(2 \[Lambda][r]) + 15 E^(4 \[Lambda][r]) + 
+                    32 E^(2 \[Lambda][r]) (1 + 
+                    3 E^\[Lambda][r]) \[Pi] r^2 \[Rho]0[r]) + 
+                   8 E^\[Lambda][r] \[Pi] r^2 p0[
+                    r] (2 (-1 + E^\[Lambda][r]) (3 + 
+                    214 E^\[Lambda][r] - 66 E^(2 \[Lambda][r]) + 
+                    6 E^(3 \[Lambda][r]) + 3 E^(4 \[Lambda][r])) + 
+                    32 E^(2 \[Lambda][r]) (-37 + 6 E^\[Lambda][r] + 
+                    3 E^(2 \[Lambda][r])) \[Pi] r^2 \[Rho]0[r] - 
+                    256 E^(3 \[Lambda][r]) \[Pi]^2 r^4 \[Rho]0[
+                    r]^2)) Derivative[1][\[Rho]0][r] + 
+                128 E^(2 \[Lambda][r]) \[Pi] r^3 (-1 + 
+                   E^\[Lambda][r] + 
+                   8 E^\[Lambda][r] \[Pi] r^2 p0[r]) Derivative[
+                  1][\[Rho]0][r]^2 - 
+                8 E^\[Lambda][
+                  r] r (-1 + E^\[Lambda][r] + 
+                   8 E^\[Lambda][r] \[Pi] r^2 p0[r]) (-1 + E^(
+                   2 \[Lambda][r]) + 
+                   8 E^\[Lambda][
+                    r] (-3 + 2 E^\[Lambda][r]) \[Pi] r^2 p0[r] + 
+                   64 E^(2 \[Lambda][r]) \[Pi]^2 r^4 p0[r]^2 - 
+                   8 E^\[Lambda][r] \[Pi] r^2 \[Rho]0[
+                    r]) (\[Rho]0^\[Prime]\[Prime])[
+                  r])) + \[Eta][\[Rho]0[
+             r]] (25165824 E^(
+              7 \[Lambda][r]) (-3 + 2 E^\[Lambda][r]) \[Pi]^7 r^14 p0[
+               r]^7 + 50331648 E^(
+              8 \[Lambda][r]) \[Pi]^8 r^16 p0[r]^8 + 
+             2560 E^(3 \[Lambda][r]) (-23 + 22 E^\[Lambda][r] + E^(
+                2 \[Lambda][r])) \[Pi]^2 r^4 \[Rho]0[r]^2 - 
+             98304 E^(4 \[Lambda][r]) \[Pi]^3 r^6 \[Rho]0[r]^3 + 
+             1048576 E^(
+              6 \[Lambda][r]) \[Pi]^6 r^12 p0[
+               r]^6 (39 - 57 E^\[Lambda][r] + 21 E^(2 \[Lambda][r]) - 
+                8 E^\[Lambda][r] \[Pi] r^2 \[Rho]0[r]) + 
+             61440 E^(
+              4 \[Lambda][r]) (-1 + E^\[Lambda][r]) \[Pi]^4 r^8 p0[
+               r]^4 (-30 + 46 E^\[Lambda][r] - 
+                46 E^(2 \[Lambda][r]) + 14 E^(3 \[Lambda][r]) - 
+                32 E^\[Lambda][
+                  r] (-1 + E^\[Lambda][r]) \[Pi] r^2 \[Rho]0[r]) + 
+             196608 E^(
+              5 \[Lambda][r]) \[Pi]^5 r^10 p0[
+               r]^5 (-58 + 124 E^\[Lambda][r] - 
+                102 E^(2 \[Lambda][r]) + 28 E^(3 \[Lambda][r]) - 
+                32 E^\[Lambda][
+                  r] (-1 + E^\[Lambda][r]) \[Pi] r^2 \[Rho]0[r]) + 
+             2048 E^(3 \[Lambda][r]) \[Pi]^3 r^6 p0[
+               r]^3 (3 (-1 + E^\[Lambda][r]) (29 - 
+                   81 E^\[Lambda][r] + 49 E^(2 \[Lambda][r]) - 
+                   51 E^(3 \[Lambda][r]) + 14 E^(4 \[Lambda][r])) - 
+                160 E^\[Lambda][
+                  r] (-1 + E^\[Lambda][r] - 3 E^(2 \[Lambda][r]) + E^(
+                   3 \[Lambda][r])) \[Pi] r^2 \[Rho]0[r] - 
+                64 E^(2 \[Lambda][r]) \[Pi] r^3 Derivative[
+                  1][\[Rho]0][r]) - 
+             32 E^\[Lambda][
+               r] (-1 + E^\[Lambda][r]) \[Pi] r^2 \[Rho]0[
+               r] ((-1 + E^\[Lambda][r]) (1 + 264 E^\[Lambda][r] + 
+                   42 E^(2 \[Lambda][r]) - 4 E^(3 \[Lambda][r]) + E^(
+                   4 \[Lambda][r])) - 
+                16 E^(2 \[Lambda][r]) (17 + 
+                   E^\[Lambda][r]) \[Pi] r^3 Derivative[1][\[Rho]0][
+                  r]) + (-1 + 
+                E^\[Lambda][
+                 r])^2 (3 (-1 + E^\[Lambda][r]) (-1 + 
+                   25 E^\[Lambda][r] + 58 E^(2 \[Lambda][r]) - 
+                   18 E^(3 \[Lambda][r]) - E^(4 \[Lambda][r]) + E^(
+                   5 \[Lambda][r])) - 
+                64 E^(2 \[Lambda][r]) (31 + 
+                   5 E^\[Lambda][r]) \[Pi] r^3 Derivative[1][\[Rho]0][
+                  r] - 128 E^(
+                 2 \[Lambda][r]) \[Pi] r^4 (\[Rho]0^\[Prime]\[Prime])[
+                  r]) + 
+             256 E^(2 \[Lambda][r]) \[Pi]^2 r^4 p0[
+               r]^2 (39 - 753 E^\[Lambda][r] + 
+                879 E^(2 \[Lambda][r]) - 192 E^(3 \[Lambda][r]) + 
+                105 E^(4 \[Lambda][r]) - 99 E^(5 \[Lambda][r]) + 
+                21 E^(6 \[Lambda][r]) + 
+                640 E^(3 \[Lambda][r]) \[Pi]^2 r^4 \[Rho]0[r]^2 - 
+                16 E^(2 \[Lambda][r]) (-31 + 
+                   13 E^\[Lambda][r]) \[Pi] r^3 Derivative[
+                  1][\[Rho]0][r] - 
+                8 E^\[Lambda][r] \[Pi] r^2 \[Rho]0[
+                  r] (15 + 144 E^\[Lambda][r] + 
+                   46 E^(2 \[Lambda][r]) - 60 E^(3 \[Lambda][r]) + 
+                   15 E^(4 \[Lambda][r]) - 
+                   16 E^(2 \[Lambda][r]) \[Pi] r^3 Derivative[
+                    1][\[Rho]0][r]) - 
+                32 E^(2 \[Lambda][
+                   r]) \[Pi] r^4 (\[Rho]0^\[Prime]\[Prime])[r]) + 
+             16 E^\[Lambda][r] \[Pi] r^2 p0[
+               r] (512 E^(
+                 3 \[Lambda][r]) (-53 + 
+                   5 E^\[Lambda][r]) \[Pi]^2 r^4 \[Rho]0[r]^2 - 
+                32 E^\[Lambda][r] \[Pi] r^2 \[Rho]0[
+                  r] ((-1 + E^\[Lambda][r]) (3 - 444 E^\[Lambda][r] + 
+                    34 E^(2 \[Lambda][r]) - 12 E^(3 \[Lambda][r]) + 
+                    3 E^(4 \[Lambda][r])) - 
+                   16 E^(2 \[Lambda][r]) (8 + 
+                    E^\[Lambda][r]) \[Pi] r^3 Derivative[1][\[Rho]0][
+                    r]) + (-1 + 
+                   E^\[Lambda][
+                    r]) (6 (-1 + E^\[Lambda][r]) (-3 - 
+                    240 E^\[Lambda][r] + 4 E^(2 \[Lambda][r]) - 
+                    14 E^(3 \[Lambda][r]) - 5 E^(4 \[Lambda][r]) + 
+                    2 E^(5 \[Lambda][r])) - 
+                   64 E^(2 \[Lambda][r]) (2 + 
+                    7 E^\[Lambda][r]) \[Pi] r^3 Derivative[
+                    1][\[Rho]0][r] - 
+                   128 E^(2 \[Lambda][
+                    r]) \[Pi] r^4 (\[Rho]0^\[Prime]\[Prime])[r])))) + 
+       h00[r] (-2 r (-1 + E^\[Lambda][r] + 
+             8 E^\[Lambda][r] \[Pi] r^2 p0[r]) (-8 E^\[Lambda][
+               r] r (-1 + E^\[Lambda][r] + 
+                8 E^\[Lambda][r] \[Pi] r^2 p0[
+                  r]) ((-1 + E^\[Lambda][r])^2 (1 + 6 E^\[Lambda][r] +
+                    E^(2 \[Lambda][r])) + 
+                1024 E^(3 \[Lambda][r]) (-3 + 
+                   2 E^\[Lambda][r]) \[Pi]^3 r^6 p0[r]^3 + 
+                4096 E^(4 \[Lambda][r]) \[Pi]^4 r^8 p0[r]^4 - 
+                16 E^\[Lambda][
+                  r] (-1 + E^(2 \[Lambda][r])) \[Pi] r^2 \[Rho]0[r] + 
+                64 E^(2 \[Lambda][r]) \[Pi]^2 r^4 \[Rho]0[r]^2 + 
+                64 E^(2 \[Lambda][r]) \[Pi]^2 r^4 p0[
+                  r]^2 (7 - 8 E^\[Lambda][r] + 6 E^(2 \[Lambda][r]) - 
+                   16 E^\[Lambda][r] \[Pi] r^2 \[Rho]0[r]) + 
+                16 E^\[Lambda][r] \[Pi] r^2 p0[
+                  r] (3 - 6 E^\[Lambda][r] + E^(2 \[Lambda][r]) + 
+                   2 E^(3 \[Lambda][r]) - 
+                   8 E^\[Lambda][
+                    r] (-3 + 2 E^\[Lambda][r]) \[Pi] r^2 \[Rho]0[
+                    r])) Derivative[1][\[Rho]0][
+               r]^2 (\[Eta]^\[Prime]\[Prime])[\[Rho]0[r]] + 
+             Derivative[
+               1][\[Eta]][\[Rho]0[
+                r]] (((-1 + E^\[Lambda][r])^3 (1 - 
+                    39 E^\[Lambda][r] - 290 E^(2 \[Lambda][r]) - 
+                    50 E^(3 \[Lambda][r]) + 9 E^(4 \[Lambda][r]) + E^(
+                    5 \[Lambda][r])) + 
+                   2097152 E^(
+                    7 \[Lambda][r]) (-9 + 
+                    8 E^\[Lambda][r]) \[Pi]^7 r^14 p0[r]^7 + 
+                   16777216 E^(8 \[Lambda][r]) \[Pi]^8 r^16 p0[r]^8 + 
+                   8 E^\[Lambda][
+                    r] (-1 + E^\[Lambda][r])^2 (-1 + 
+                    192 E^\[Lambda][r] + 286 E^(2 \[Lambda][r]) + 
+                    40 E^(3 \[Lambda][r]) + 
+                    3 E^(4 \[Lambda][r])) \[Pi] r^2 \[Rho]0[r] - 
+                   512 E^(3 \[Lambda][r]) (-24 + 15 E^\[Lambda][r] + 
+                    8 E^(2 \[Lambda][r]) + E^(
+                    3 \[Lambda][r])) \[Pi]^2 r^4 \[Rho]0[r]^2 + 
+                   2048 E^(4 \[Lambda][r]) (11 + 
+                    E^\[Lambda][r]) \[Pi]^3 r^6 \[Rho]0[r]^3 + 
+                   1048576 E^(
+                    6 \[Lambda][r]) \[Pi]^6 r^12 p0[
+                    r]^6 (8 - 11 E^\[Lambda][r] + 
+                    7 E^(2 \[Lambda][r]) - 
+                    2 E^\[Lambda][r] \[Pi] r^2 \[Rho]0[r]) + 
+                   32768 E^(
+                    5 \[Lambda][r]) \[Pi]^5 r^10 p0[
+                    r]^5 (-59 + 82 E^\[Lambda][r] - 
+                    79 E^(2 \[Lambda][r]) + 56 E^(3 \[Lambda][r]) - 
+                    16 E^\[Lambda][
+                    r] (-3 + E^\[Lambda][r]) \[Pi] r^2 \[Rho]0[r]) + 
+                   8192 E^(4 \[Lambda][r]) \[Pi]^4 r^8 p0[
+                    r]^4 (30 - 17 E^\[Lambda][r] - 
+                    13 E^(2 \[Lambda][r]) - 25 E^(3 \[Lambda][r]) + 
+                    35 E^(4 \[Lambda][r]) + 
+                    20 E^\[Lambda][
+                    r] (-3 + 2 E^\[Lambda][r] + E^(
+                    2 \[Lambda][r])) \[Pi] r^2 \[Rho]0[r]) + 
+                   512 E^(3 \[Lambda][r]) \[Pi]^3 r^6 p0[
+                    r]^3 (-31 - 496 E^\[Lambda][r] + 
+                    810 E^(2 \[Lambda][r]) - 324 E^(3 \[Lambda][r]) + 
+                    25 E^(4 \[Lambda][r]) + 56 E^(5 \[Lambda][r]) + 
+                    32 E^\[Lambda][
+                    r] (5 - 46 E^\[Lambda][r] + 
+                    7 E^(2 \[Lambda][r]) + 
+                    5 E^(3 \[Lambda][r])) \[Pi] r^2 \[Rho]0[r] - 
+                    512 E^(3 \[Lambda][r]) \[Pi]^2 r^4 \[Rho]0[
+                    r]^2) + 256 E^(
+                    2 \[Lambda][r]) \[Pi]^2 r^4 p0[
+                    r]^2 (1 + 290 E^\[Lambda][r] - 
+                    545 E^(2 \[Lambda][r]) + 352 E^(3 \[Lambda][r]) - 
+                    119 E^(4 \[Lambda][r]) + 14 E^(5 \[Lambda][r]) + 
+                    7 E^(6 \[Lambda][r]) + 
+                    2 E^\[Lambda][
+                    r] (-15 + 264 E^\[Lambda][r] - 
+                    174 E^(2 \[Lambda][r]) + 84 E^(3 \[Lambda][r]) + 
+                    25 E^(4 \[Lambda][r])) \[Pi] r^2 \[Rho]0[r] - 
+                    192 E^(3 \[Lambda][r]) (3 + 
+                    2 E^\[Lambda][r]) \[Pi]^2 r^4 \[Rho]0[r]^2) + 
+                   8 E^\[Lambda][r] \[Pi] r^2 p0[
+                    r] ((-1 + E^\[Lambda][r])^2 (3 + 
+                    584 E^\[Lambda][r] + 30 E^(2 \[Lambda][r]) - 
+                    216 E^(3 \[Lambda][r]) + 47 E^(4 \[Lambda][r]) + 
+                    8 E^(5 \[Lambda][r])) + 
+                    16 E^\[Lambda][
+                    r] (3 + 507 E^\[Lambda][r] - 
+                    666 E^(2 \[Lambda][r]) + 102 E^(3 \[Lambda][r]) + 
+                    47 E^(4 \[Lambda][r]) + 
+                    7 E^(5 \[Lambda][r])) \[Pi] r^2 \[Rho]0[r] - 
+                    256 E^(3 \[Lambda][r]) (-71 + 25 E^\[Lambda][r] + 
+                    6 E^(2 \[Lambda][r])) \[Pi]^2 r^4 \[Rho]0[r]^2 + 
+                    2048 E^(4 \[Lambda][r]) \[Pi]^3 r^6 \[Rho]0[
+                    r]^3)) Derivative[1][\[Rho]0][r] + 
+                128 E^(2 \[Lambda][r]) \[Pi] r^3 (-1 + 
+                   E^\[Lambda][r] + 
+                   8 E^\[Lambda][r] \[Pi] r^2 p0[r]) (-1 + E^(
+                   2 \[Lambda][r]) + 
+                   8 E^\[Lambda][
+                    r] (-3 + 2 E^\[Lambda][r]) \[Pi] r^2 p0[r] + 
+                   64 E^(2 \[Lambda][r]) \[Pi]^2 r^4 p0[r]^2 - 
+                   8 E^\[Lambda][r] \[Pi] r^2 \[Rho]0[r]) Derivative[
+                  1][\[Rho]0][r]^2 - 
+                8 E^\[Lambda][
+                  r] r (-1 + E^\[Lambda][r] + 
+                   8 E^\[Lambda][r] \[Pi] r^2 p0[
+                    r]) ((-1 + E^\[Lambda][r])^2 (1 + 
+                    6 E^\[Lambda][r] + E^(2 \[Lambda][r])) + 
+                   1024 E^(3 \[Lambda][r]) (-3 + 
+                    2 E^\[Lambda][r]) \[Pi]^3 r^6 p0[r]^3 + 
+                   4096 E^(4 \[Lambda][r]) \[Pi]^4 r^8 p0[r]^4 - 
+                   16 E^\[Lambda][
+                    r] (-1 + E^(2 \[Lambda][r])) \[Pi] r^2 \[Rho]0[
+                    r] + 64 E^(
+                    2 \[Lambda][r]) \[Pi]^2 r^4 \[Rho]0[r]^2 + 
+                   64 E^(2 \[Lambda][r]) \[Pi]^2 r^4 p0[
+                    r]^2 (7 - 8 E^\[Lambda][r] + 
+                    6 E^(2 \[Lambda][r]) - 
+                    16 E^\[Lambda][r] \[Pi] r^2 \[Rho]0[r]) + 
+                   16 E^\[Lambda][r] \[Pi] r^2 p0[
+                    r] (3 - 6 E^\[Lambda][r] + E^(2 \[Lambda][r]) + 
+                    2 E^(3 \[Lambda][r]) - 
+                    8 E^\[Lambda][
+                    r] (-3 + 2 E^\[Lambda][r]) \[Pi] r^2 \[Rho]0[
+                    r])) (\[Rho]0^\[Prime]\[Prime])[
+                  r])) + \[Eta][\[Rho]0[
+             r]] (2013265920 E^(
+              9 \[Lambda][r]) (-3 + 2 E^\[Lambda][r]) \[Pi]^9 r^18 p0[
+               r]^9 + 3221225472 E^(
+              10 \[Lambda][r]) \[Pi]^10 r^20 p0[r]^10 - 
+             4096 E^(4 \[Lambda][r]) (-139 + 110 E^\[Lambda][r] + 
+                29 E^(2 \[Lambda][r])) \[Pi]^3 r^6 \[Rho]0[r]^3 + 
+             786432 E^(5 \[Lambda][r]) \[Pi]^4 r^8 \[Rho]0[r]^4 + 
+             16777216 E^(
+              8 \[Lambda][r]) \[Pi]^8 r^16 p0[
+               r]^8 (9 (29 - 40 E^\[Lambda][r] + 
+                   15 E^(2 \[Lambda][r])) - 
+                56 E^\[Lambda][r] \[Pi] r^2 \[Rho]0[r]) + 
+             8388608 E^(
+              7 \[Lambda][r]) \[Pi]^7 r^14 p0[
+               r]^7 (-195 + 399 E^\[Lambda][r] - 
+                315 E^(2 \[Lambda][r]) + 90 E^(3 \[Lambda][r]) - 
+                16 E^\[Lambda][
+                  r] (-9 + 7 E^\[Lambda][r]) \[Pi] r^2 \[Rho]0[r]) + 
+             524288 E^(
+              6 \[Lambda][r]) \[Pi]^6 r^12 p0[
+               r]^6 (3 (223 - 580 E^\[Lambda][r] + 
+                   672 E^(2 \[Lambda][r]) - 420 E^(3 \[Lambda][r]) + 
+                   105 E^(4 \[Lambda][r])) - 
+                16 E^\[Lambda][
+                  r] (71 - 113 E^\[Lambda][r] + 
+                   49 E^(2 \[Lambda][r])) \[Pi] r^2 \[Rho]0[r] + 
+                128 E^(2 \[Lambda][r]) \[Pi]^2 r^4 \[Rho]0[r]^2) + 
+             65536 E^(
+              5 \[Lambda][r]) \[Pi]^5 r^10 p0[
+               r]^5 (3 (-225 + 748 E^\[Lambda][r] - 
+                   1006 E^(2 \[Lambda][r]) + 882 E^(3 \[Lambda][r]) - 
+                   525 E^(4 \[Lambda][r]) + 126 E^(5 \[Lambda][r])) - 
+                32 E^\[Lambda][
+                  r] (-73 + 152 E^\[Lambda][r] - 
+                   150 E^(2 \[Lambda][r]) + 
+                   49 E^(3 \[Lambda][r])) \[Pi] r^2 \[Rho]0[r] + 
+                768 E^(2 \[Lambda][r]) (-1 + 
+                   E^\[Lambda][r]) \[Pi]^2 r^4 \[Rho]0[r]^2 - 
+                128 E^(2 \[Lambda][r]) \[Pi] r^3 Derivative[
+                  1][\[Rho]0][r]) + 
+             256 E^(2 \[Lambda][r]) (-1 + 
+                E^\[Lambda][r]) \[Pi]^2 r^4 \[Rho]0[
+               r]^2 (-1 - 493 E^\[Lambda][r] + 
+                148 E^(2 \[Lambda][r]) + 340 E^(3 \[Lambda][r]) + 
+                5 E^(4 \[Lambda][r]) + E^(5 \[Lambda][r]) - 
+                16 E^(2 \[Lambda][r]) (17 + 
+                   E^\[Lambda][r]) \[Pi] r^3 Derivative[1][\[Rho]0][
+                  r]) - 8 E^\[Lambda][
+               r] (-1 + E^\[Lambda][r])^2 \[Pi] r^2 \[Rho]0[
+               r] (-1 - 1150 E^\[Lambda][r] - 
+                1095 E^(2 \[Lambda][r]) + 2132 E^(3 \[Lambda][r]) + 
+                113 E^(4 \[Lambda][r]) - 6 E^(5 \[Lambda][r]) + 
+                7 E^(6 \[Lambda][r]) - 
+                64 E^(2 \[Lambda][r]) (48 + 23 E^\[Lambda][r] + E^(
+                   2 \[Lambda][r])) \[Pi] r^3 Derivative[1][\[Rho]0][
+                  r] - 128 E^(
+                 2 \[Lambda][r]) \[Pi] r^4 (\[Rho]0^\[Prime]\[Prime])[
+                  r]) + 8192 E^(
+              4 \[Lambda][r]) \[Pi]^4 r^8 p0[
+               r]^4 (375 - 3264 E^\[Lambda][r] + 
+                4365 E^(2 \[Lambda][r]) - 2316 E^(3 \[Lambda][r]) + 
+                1785 E^(4 \[Lambda][r]) - 1260 E^(5 \[Lambda][r]) + 
+                315 E^(6 \[Lambda][r]) + 
+                640 E^(2 \[Lambda][r]) (3 - 4 E^\[Lambda][r] + 
+                   3 E^(2 \[Lambda][r])) \[Pi]^2 r^4 \[Rho]0[r]^2 - 
+                32 E^(2 \[Lambda][r]) (-43 + 
+                   21 E^\[Lambda][r]) \[Pi] r^3 Derivative[
+                  1][\[Rho]0][r] - 
+                8 E^\[Lambda][r] \[Pi] r^2 \[Rho]0[
+                  r] (345 - 382 E^\[Lambda][r] + 
+                   1078 E^(2 \[Lambda][r]) - 870 E^(3 \[Lambda][r]) + 
+                   245 E^(4 \[Lambda][r]) - 
+                   32 E^(2 \[Lambda][r]) \[Pi] r^3 Derivative[
+                    1][\[Rho]0][r]) - 
+                64 E^(2 \[Lambda][
+                   r]) \[Pi] r^4 (\[Rho]0^\[Prime]\[Prime])[r]) + 
+             2048 E^(3 \[Lambda][r]) \[Pi]^3 r^6 p0[
+               r]^3 (-39 + 1407 E^\[Lambda][r] - 
+                2061 E^(2 \[Lambda][r]) + 846 E^(3 \[Lambda][r]) - 
+                117 E^(4 \[Lambda][r]) + 189 E^(5 \[Lambda][r]) - 
+                315 E^(6 \[Lambda][r]) + 90 E^(7 \[Lambda][r]) + 
+                128 E^(2 \[Lambda][r]) (-10 - 111 E^\[Lambda][r] - 
+                   10 E^(2 \[Lambda][r]) + 
+                   10 E^(3 \[Lambda][r])) \[Pi]^2 r^4 \[Rho]0[r]^2 - 
+                16 E^(2 \[Lambda][r]) (85 - 95 E^\[Lambda][r] + 
+                   44 E^(2 \[Lambda][r])) \[Pi] r^3 Derivative[
+                  1][\[Rho]0][r] - 
+                16 E^\[Lambda][r] \[Pi] r^2 \[Rho]0[
+                  r] (-59 + 401 E^\[Lambda][r] - 
+                   634 E^(2 \[Lambda][r]) + 268 E^(3 \[Lambda][r]) - 
+                   185 E^(4 \[Lambda][r]) + 49 E^(5 \[Lambda][r]) - 
+                   8 E^(2 \[Lambda][r]) (17 + 
+                    4 E^\[Lambda][r]) \[Pi] r^3 Derivative[
+                    1][\[Rho]0][r]) + 
+                160 E^(2 \[Lambda][
+                   r]) \[Pi] r^4 (\[Rho]0^\[Prime]\[Prime])[r] - 
+                128 E^(3 \[Lambda][
+                   r]) \[Pi] r^4 (\[Rho]0^\[Prime]\[Prime])[
+                  r]) + (-1 + 
+                E^\[Lambda][
+                 r])^3 (3 (1 - 21 E^\[Lambda][r] - 
+                   183 E^(2 \[Lambda][r]) + 163 E^(3 \[Lambda][r]) + 
+                   51 E^(4 \[Lambda][r]) - 15 E^(5 \[Lambda][r]) + 
+                   3 E^(6 \[Lambda][r]) + E^(7 \[Lambda][r])) - 
+                64 E^(2 \[Lambda][r]) (31 + 52 E^\[Lambda][r] + 
+                   5 E^(2 \[Lambda][r])) \[Pi] r^3 Derivative[
+                  1][\[Rho]0][r] - 
+                128 E^(2 \[Lambda][r]) (1 + 
+                   E^\[Lambda][
+                    r]) \[Pi] r^4 (\[Rho]0^\[Prime]\[Prime])[r]) + 
+             8 E^\[Lambda][r] \[Pi] r^2 p0[
+               r] (-8192 E^(
+                 4 \[Lambda][r]) (-89 + 
+                   29 E^\[Lambda][r]) \[Pi]^3 r^6 \[Rho]0[r]^3 + 
+                512 E^(2 \[Lambda][r]) \[Pi]^2 r^4 \[Rho]0[
+                  r]^2 (-3 + 898 E^\[Lambda][r] - 
+                   1112 E^(2 \[Lambda][r]) + 209 E^(3 \[Lambda][r]) + 
+                   5 E^(4 \[Lambda][r]) + 3 E^(5 \[Lambda][r]) - 
+                   16 E^(2 \[Lambda][r]) (8 + 
+                    E^\[Lambda][r]) \[Pi] r^3 Derivative[1][\[Rho]0][
+                    r]) - 64 E^\[Lambda][
+                  r] (-1 + E^\[Lambda][r]) \[Pi] r^2 \[Rho]0[
+                  r] (3 + 1185 E^\[Lambda][r] - 
+                   1109 E^(2 \[Lambda][r]) - 128 E^(3 \[Lambda][r]) + 
+                   59 E^(4 \[Lambda][r]) - 17 E^(5 \[Lambda][r]) + 
+                   7 E^(6 \[Lambda][r]) - 
+                   8 E^(2 \[Lambda][r]) (-31 + 63 E^\[Lambda][r] + 
+                    4 E^(2 \[Lambda][r])) \[Pi] r^3 Derivative[
+                    1][\[Rho]0][r] - 
+                   32 E^(2 \[Lambda][
+                    r]) \[Pi] r^4 (\[Rho]0^\[Prime]\[Prime])[
+                    r]) + (-1 + 
+                   E^\[Lambda][
+                    r])^2 (3 (9 + 1080 E^\[Lambda][r] + 
+                    339 E^(2 \[Lambda][r]) - 
+                    1534 E^(3 \[Lambda][r]) + 
+                    207 E^(4 \[Lambda][r]) - 116 E^(5 \[Lambda][r]) + 
+                    5 E^(6 \[Lambda][r]) + 10 E^(7 \[Lambda][r])) - 
+                   64 E^(2 \[Lambda][r]) (-89 + 113 E^\[Lambda][r] + 
+                    24 E^(2 \[Lambda][r])) \[Pi] r^3 Derivative[
+                    1][\[Rho]0][r] - 
+                   128 E^(2 \[Lambda][r]) (-1 + 
+                    4 E^\[Lambda][
+                    r]) \[Pi] r^4 (\[Rho]0^\[Prime]\[Prime])[r])) + 
+             64 E^(2 \[Lambda][r]) \[Pi]^2 r^4 p0[
+               r]^2 (-118784 E^(
+                 4 \[Lambda][r]) \[Pi]^3 r^6 \[Rho]0[r]^3 + 
+                256 E^(2 \[Lambda][r]) \[Pi]^2 r^4 \[Rho]0[
+                  r]^2 (15 + 540 E^\[Lambda][r] - 
+                   154 E^(2 \[Lambda][r]) + 15 E^(4 \[Lambda][r]) - 
+                   16 E^(2 \[Lambda][r]) \[Pi] r^3 Derivative[
+                    1][\[Rho]0][r]) - 
+                32 E^\[Lambda][r] \[Pi] r^2 \[Rho]0[
+                  r] (43 - 3349 E^\[Lambda][r] + 
+                   5163 E^(2 \[Lambda][r]) - 
+                   2072 E^(3 \[Lambda][r]) + 349 E^(4 \[Lambda][r]) - 
+                   183 E^(5 \[Lambda][r]) + 49 E^(6 \[Lambda][r]) - 
+                   16 E^(2 \[Lambda][r]) (-97 + 55 E^\[Lambda][r] + 
+                    6 E^(2 \[Lambda][r])) \[Pi] r^3 Derivative[
+                    1][\[Rho]0][r] - 
+                   32 E^(2 \[Lambda][
+                    r]) \[Pi] r^4 (\[Rho]0^\[Prime]\[Prime])[
+                    r]) + (-1 + 
+                   E^\[Lambda][r]) (-128 E^(
+                    2 \[Lambda][r]) (-37 + 11 E^\[Lambda][r] + 
+                    23 E^(2 \[Lambda][r])) \[Pi] r^3 Derivative[
+                    1][\[Rho]0][r] + 
+                   3 (-1 + E^\[Lambda][r]) (-15 + 
+                    3610 E^\[Lambda][r] - 2285 E^(2 \[Lambda][r]) + 
+                    100 E^(3 \[Lambda][r]) - 273 E^(4 \[Lambda][r]) - 
+                    30 E^(5 \[Lambda][r]) + 45 E^(6 \[Lambda][r]) - 
+                    256 E^(
+                    2 \[Lambda][
+                    r]) \[Pi] r^4 (\[Rho]0^\[Prime]\[Prime])[
+                    r])))))))/(3 (-1 + E^\[Lambda][r] + 
+       8 E^\[Lambda][r] \[Pi] r^2 p0[r])^6))

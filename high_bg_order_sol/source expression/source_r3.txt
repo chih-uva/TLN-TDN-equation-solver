@@ -1,0 +1,7 @@
+-1/(25 (4 K pc + Sqrt[K pc])^6)
+ 2 a0 E^(-\[Nu]c/2)
+   K pc^3 (4206592 K^5 pc^5 + 27 (1 + 41 Sqrt[K pc]) + 
+    512 K^4 pc^4 (43919 + 28650 Sqrt[K pc]) + 
+    K pc (18934 + 181425 Sqrt[K pc]) + 
+    4 K^2 pc^2 (272302 + 1076321 Sqrt[K pc]) + 
+    16 K^3 pc^3 (712071 + 1251224 Sqrt[K pc])) \[Pi] r^2 T

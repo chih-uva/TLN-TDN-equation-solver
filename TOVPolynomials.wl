@@ -270,3 +270,6990 @@ Project/Programs/Equation Solver/TOVPolynomials.wl"
                 4*pc)))/(6*pc))*Sqrt[K*pc]*(1 + 2*Sqrt[K*pc]))/2)*r^8)/(4*K)
  
 \[Rho]Sub = r^2*\[Rho]2 + r^4*\[Rho]4 + r^6*\[Rho]6 + r^8*\[Rho]8 + \[Rho]c
+A1[r_] := (-(r^2*p0[r]*\[Gamma][\[Rho]0[r]])^(-1))*
+     (64*Exp[2*\[Lambda][r]]*Pi^2*r^4*p0[r]^3*\[Gamma][\[Rho]0[r]] + 
+      4*Exp[\[Lambda][r]]*Pi*r^2*p0[r]^2*(-1 + (-13 + 4*Exp[\[Lambda][r]])*
+         \[Gamma][\[Rho]0[r]]) - 4*Exp[\[Lambda][r]]*Pi*r^2*\[Rho]0[r]^2 + 
+      p0[r]*(-8*Exp[\[Lambda][r]]*Pi*r^2*\[Rho]0[r] + \[Gamma][\[Rho]0[r]]*
+         (1 + 4*Exp[\[Lambda][r]] + Exp[2*\[Lambda][r]] - 
+          20*Exp[\[Lambda][r]]*Pi*r^2*\[Rho]0[r])))
+ 
+A2[r_] := (1/r)*(1 + Exp[\[Lambda][r]] + 4*Exp[\[Lambda][r]]*Pi*r^2*
+       (p0[r] - \[Rho]0[r]))
+ 
+a2Rule = a2 -> -1/21*(a0*(3 + 26*Sqrt[K*pc] + 8*K*pc*(17 + 40*Sqrt[K*pc]))*
+        Pi)/(K + 4*K*Sqrt[K*pc])
+ 
+A4[r_] := (-(4*Pi*Exp[\[Lambda][r]/2])/(r*p0[r]*\[Gamma][\[Rho]0[r]]))*
+     (8*Exp[\[Lambda][r]]*Pi*r^2*p0[r]^3 + (-1 + Exp[\[Lambda][r]])*
+       \[Rho]0[r]^2 + p0[r]^2*(-1 + Exp[\[Lambda][r]] + 
+        16*Exp[\[Lambda][r]]*Pi*r^2*\[Rho]0[r]) + 
+      2*p0[r]*((-1 + Exp[\[Lambda][r]])*\[Rho]0[r] + 4*Exp[\[Lambda][r]]*Pi*
+         r^2*\[Rho]0[r]^2 + r*\[Gamma][\[Rho]0[r]]*Derivative[1][\[Rho]0][r]))
+ 
+a4Rule = a4 -> (a0*(1687552*K^4*pc^4 + 15*Sqrt[K*pc] + 
+        2*K*pc*(129 + 2480*Sqrt[K*pc]) + 256*K^3*pc^3*
+         (4237 + 7844*Sqrt[K*pc]) + 16*K^2*pc^2*(3497 + 20572*Sqrt[K*pc]))*
+       Pi^2)/(1890*K^2*(12*K*pc + 64*K^2*pc^2 + Sqrt[K*pc] + 48*(K*pc)^(3/2)))
+ 
+a6Rule = a6 -> -1/62370*(a0*(15 - 318*Sqrt[K*pc] + 
+         104*K*pc*(-7 + 2428*Sqrt[K*pc]) + 2097152*K^6*pc^6*
+          (46867 + 20224*Sqrt[K*pc]) + 122880*K^4*pc^4*
+          (80907 + 251804*Sqrt[K*pc]) + 128*K^2*pc^2*
+          (41875 + 458607*Sqrt[K*pc]) + 131072*K^5*pc^5*
+          (529047 + 805940*Sqrt[K*pc]) + 1536*K^3*pc^3*
+          (282803 + 1553124*Sqrt[K*pc]))*Pi^3)/
+       (K^3*(1 + 28*Sqrt[K*pc] + 4096*K^3*pc^3*(7 + 4*Sqrt[K*pc]) + 
+         1792*K^2*pc^2*(5 + 12*Sqrt[K*pc]) + 112*K*pc*(3 + 20*Sqrt[K*pc])))
+ 
+base = "TOVPolynomials"
+ 
+coeffListH00Fifth = {0, 0, 0, 0, 0, 0, 
+     (pc^2*(62370*a6*K^3*(1 + 28*Sqrt[K*pc] + 4096*K^3*pc^3*
+           (7 + 4*Sqrt[K*pc]) + 1792*K^2*pc^2*(5 + 12*Sqrt[K*pc]) + 
+          112*K*pc*(3 + 20*Sqrt[K*pc])) + a0*(15 - 318*Sqrt[K*pc] + 
+          104*K*pc*(-7 + 2428*Sqrt[K*pc]) + 2097152*K^6*pc^6*
+           (46867 + 20224*Sqrt[K*pc]) + 122880*K^4*pc^4*
+           (80907 + 251804*Sqrt[K*pc]) + 128*K^2*pc^2*
+           (41875 + 458607*Sqrt[K*pc]) + 131072*K^5*pc^5*
+           (529047 + 805940*Sqrt[K*pc]) + 1536*K^3*pc^3*
+           (282803 + 1553124*Sqrt[K*pc]))*Pi^3))/
+      (945*K*(4*K*pc + Sqrt[K*pc])^3*(1 + 4*Sqrt[K*pc])*
+       (12*K*pc + 64*K^2*pc^2 + Sqrt[K*pc] + 48*(K*pc)^(3/2)))}
+ 
+coeffListH00Third = {0, 0, (2*(21*a2*K*pc + 84*a2*K*pc*Sqrt[K*pc] + 
+        3*a0*pc*Pi + 136*a0*K*pc^2*Pi + 26*a0*pc*Sqrt[K*pc]*Pi + 
+        320*a0*K*pc^2*Sqrt[K*pc]*Pi))/(3*Sqrt[K*pc]*(4*K*pc + Sqrt[K*pc]))}
+ 
+dir = "/Users/sztk.ch/Work/grad-school/Research/TLN-TDN \
+Project/Programs/Equation Solver/"
+ 
+EOS[p_] := ((1 + (4*K*p)^(1/2))^2 - 1)/(4*K)
+ 
+FullL = (2*(1 + E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+            1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+             (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+              4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+             (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+              4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)) + 
+        4*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*
+              (3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+             15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*
+              r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*
+                K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4))*Pi*
+         r^2*(-pc - pc/Sqrt[K*pc] + ((2*K*pc + Sqrt[K*pc])*
+            (4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc])*Pi*r^2)/
+           (3*K^2*Sqrt[K*pc]) - ((1 + 4*K*pc + 4*Sqrt[K*pc])*
+            (34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*
+            r^4)/(90*K^3) + ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 
+             25632*K^2*pc^2 + 57344*K^3*pc^3 + 24*Sqrt[K*pc] + 
+             5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) - 
+          ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 3050*
+                Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*Sqrt[K*pc]) + 
+             384*K^3*pc^3*(13745 + 61476*Sqrt[K*pc]) + 8*K^2*pc^2*
+              (4313 + 83508*Sqrt[K*pc]))*Pi^4*r^8)/(340200*K^5) + 
+          (pc*(3*(64 + 279*Sqrt[K*pc])*Pi^4*r^8 + 2*K*Pi^3*r^6*
+              (-270*(4 + 53*Sqrt[K*pc]) + pc*(6275 + 85548*Sqrt[K*pc])*Pi*
+                r^2) + 12*K^2*Pi^2*r^4*(315*(4 + 45*Sqrt[K*pc]) - 30*pc*
+                (649 + 3488*Sqrt[K*pc])*Pi*r^2 + 8*pc^2*(12435 + 
+                 53804*Sqrt[K*pc])*Pi^2*r^4) + 36*K^3*Pi*r^2*
+              (-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 252*Sqrt[K*pc])*Pi*
+                r^2 - 80*pc^2*(1389 + 2444*Sqrt[K*pc])*Pi^2*r^4 + 32*pc^3*
+                (11897 + 18020*Sqrt[K*pc])*Pi^3*r^6) + 
+             14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 368640*
+                pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*r^8)))/(85050*K^4)))*
+       \[Epsilon]*(a0 + 2*a2*\[Epsilon]^2 + 3*a4*\[Epsilon]^4 + 
+        4*a6*\[Epsilon]^6 + 5*a8*\[Epsilon]^8))/r + 
+     2*(a0 + 6*a2*\[Epsilon]^2 + 15*a4*\[Epsilon]^4 + 28*a6*\[Epsilon]^6 + 
+       45*a8*\[Epsilon]^8) - 
+     (340200*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+           1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*
+            Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 
+             160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*
+                Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 
+             256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*
+                Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+         (42525*K^4))*K^4*Pi*\[Epsilon]^2*(a0 + a2*\[Epsilon]^2 + 
+        a4*\[Epsilon]^4 + a6*\[Epsilon]^6 + a8*\[Epsilon]^8)*
+       ((-1 + E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[
+                K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+              15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                 (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^
+                4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                 (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)))*
+         (pc + pc/Sqrt[K*pc] - ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*
+             (1 + 2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+           ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+              3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+           ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+              57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+              62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+           ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*Sqrt[K*pc]) + 
+              384*K^3*pc^3*(13745 + 61476*Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 
+                83508*Sqrt[K*pc]))*Pi^4*r^8)/(340200*K^5))^2 + 
+        (E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(
+                3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+              15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                 (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^
+                4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                 (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4))*
+          pc^3*Pi*r^2*(3*(64 + 279*Sqrt[K*pc])*Pi^4*r^8 + 
+            2*K*Pi^3*r^6*(-270*(4 + 53*Sqrt[K*pc]) + pc*(6275 + 
+                85548*Sqrt[K*pc])*Pi*r^2) + 12*K^2*Pi^2*r^4*
+             (315*(4 + 45*Sqrt[K*pc]) - 30*pc*(649 + 3488*Sqrt[K*pc])*Pi*r^
+                2 + 8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 
+            36*K^3*Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 
+                252*Sqrt[K*pc])*Pi*r^2 - 80*pc^2*(1389 + 2444*Sqrt[K*pc])*Pi^
+                2*r^4 + 32*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*r^6) + 
+            14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 
+              368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*r^8))^3)/
+         (76901173453125*K^12) + (pc^2*(3*(64 + 279*Sqrt[K*pc])*Pi^4*r^8 + 
+            2*K*Pi^3*r^6*(-270*(4 + 53*Sqrt[K*pc]) + pc*(6275 + 
+                85548*Sqrt[K*pc])*Pi*r^2) + 12*K^2*Pi^2*r^4*
+             (315*(4 + 45*Sqrt[K*pc]) - 30*pc*(649 + 3488*Sqrt[K*pc])*Pi*r^
+                2 + 8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 
+            36*K^3*Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 
+                252*Sqrt[K*pc])*Pi*r^2 - 80*pc^2*(1389 + 2444*Sqrt[K*pc])*Pi^
+                2*r^4 + 32*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*r^6) + 
+            14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 
+              368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*r^8))^2*
+          (-1 + E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*
+                r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                  (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*
+                r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                  (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+             (42525*K^4)) + 16*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                    7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                  594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                  4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                 (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                     Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                  32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+              (42525*K^4))*Pi*r^2*(pc + pc/Sqrt[K*pc] - 
+             ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc])*
+               Pi*r^2)/(3*K^2*Sqrt[K*pc]) + ((1 + 4*K*pc + 4*Sqrt[K*pc])*(
+                34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^
+                2*r^4)/(90*K^3) - ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 
+                25632*K^2*pc^2 + 57344*K^3*pc^3 + 24*Sqrt[K*pc] + 
+                5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*Pi^3*r^6)/
+              (1890*K^4) + ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 
+                2*K*pc*(669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 
+                  10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*
+                   Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*r^
+                8)/(340200*K^5))))/(7233502500*K^8) + 
+        (pc*(3*(64 + 279*Sqrt[K*pc])*Pi^4*r^8 + 2*K*Pi^3*r^6*
+            (-270*(4 + 53*Sqrt[K*pc]) + pc*(6275 + 85548*Sqrt[K*pc])*Pi*
+              r^2) + 12*K^2*Pi^2*r^4*(315*(4 + 45*Sqrt[K*pc]) - 
+             30*pc*(649 + 3488*Sqrt[K*pc])*Pi*r^2 + 8*pc^2*(12435 + 53804*
+                Sqrt[K*pc])*Pi^2*r^4) + 36*K^3*Pi*r^2*
+            (-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 252*Sqrt[K*pc])*Pi*
+              r^2 - 80*pc^2*(1389 + 2444*Sqrt[K*pc])*Pi^2*r^4 + 
+             32*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*r^6) + 
+           14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 
+             368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*r^8))*
+          ((-1 + E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                  Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*
+                  Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*
+                    pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                  Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                    (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                   32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*
+                K^4)))*(pc + pc/Sqrt[K*pc] - ((2*K*pc + Sqrt[K*pc])*(4*K*pc + 
+                Sqrt[K*pc])*(1 + 2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+             ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+             ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+             ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                  3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                   Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[K*pc]) + 
+                8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*r^8)/
+              (340200*K^5)) + 4*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                    7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                  594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                  4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                 (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                     Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                  32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+              (42525*K^4))*Pi*r^2*(pc + pc/Sqrt[K*pc] - 
+              ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc])*
+                Pi*r^2)/(3*K^2*Sqrt[K*pc]) + ((1 + 4*K*pc + 4*Sqrt[K*pc])*
+                (34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*
+                Pi^2*r^4)/(90*K^3) - ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 
+                 25632*K^2*pc^2 + 57344*K^3*pc^3 + 24*Sqrt[K*pc] + 
+                 5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*
+                K^4) + ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*
+                  (669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 
+                   10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*
+                    Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*
+                r^8)/(340200*K^5))^2 + 
+           (Pi*r^2*((-28350*K^3*(2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*
+                (1 + 2*Sqrt[K*pc]))/Sqrt[K*pc] + 1890*K^2*(1 + 4*K*pc + 
+                4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 
+                200*(K*pc)^(3/2))*Pi*r^2 - 135*K*(2*K*pc + Sqrt[K*pc])*(3 + 
+                580*K*pc + 25632*K^2*pc^2 + 57344*K^3*pc^3 + 24*Sqrt[K*pc] + 
+                5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*Pi^2*r^4 + 
+              (54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                  3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                   Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[K*pc]) + 
+                8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^3*r^6)*
+             \[Gamma][pc + pc/Sqrt[K*pc] - ((2*K*pc + Sqrt[K*pc])*
+                 (4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc])*Pi*r^2)/
+                (3*K^2*Sqrt[K*pc]) + ((1 + 4*K*pc + 4*Sqrt[K*pc])*
+                 (34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*
+                 Pi^2*r^4)/(90*K^3) - ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 
+                  25632*K^2*pc^2 + 57344*K^3*pc^3 + 24*Sqrt[K*pc] + 
+                  5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*Pi^3*r^6)/
+                (1890*K^4) + ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 
+                  2*K*pc*(669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 
+                    10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*
+                     Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*
+                 r^8)/(340200*K^5)])/(42525*K^5)))/(42525*K^4)))/
+      (pc*(3*(64 + 279*Sqrt[K*pc])*Pi^4*r^8 + 2*K*Pi^3*r^6*
+         (-270*(4 + 53*Sqrt[K*pc]) + pc*(6275 + 85548*Sqrt[K*pc])*Pi*r^2) + 
+        12*K^2*Pi^2*r^4*(315*(4 + 45*Sqrt[K*pc]) - 
+          30*pc*(649 + 3488*Sqrt[K*pc])*Pi*r^2 + 
+          8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 
+        36*K^3*Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 
+          210*pc*(107 + 252*Sqrt[K*pc])*Pi*r^2 - 
+          80*pc^2*(1389 + 2444*Sqrt[K*pc])*Pi^2*r^4 + 
+          32*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*r^6) + 
+        14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 
+          368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*r^8))*
+       (-1 + E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+            1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+             (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+              4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+             (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+              4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)) + 
+        (4*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(
+                3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+              15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                 (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^
+                4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                 (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4))*
+          pc*Pi*r^2*(3*(64 + 279*Sqrt[K*pc])*Pi^4*r^8 + 2*K*Pi^3*r^6*
+            (-270*(4 + 53*Sqrt[K*pc]) + pc*(6275 + 85548*Sqrt[K*pc])*Pi*
+              r^2) + 12*K^2*Pi^2*r^4*(315*(4 + 45*Sqrt[K*pc]) - 
+             30*pc*(649 + 3488*Sqrt[K*pc])*Pi*r^2 + 8*pc^2*(12435 + 53804*
+                Sqrt[K*pc])*Pi^2*r^4) + 36*K^3*Pi*r^2*
+            (-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 252*Sqrt[K*pc])*Pi*
+              r^2 - 80*pc^2*(1389 + 2444*Sqrt[K*pc])*Pi^2*r^4 + 
+             32*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*r^6) + 
+           14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 
+             368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*r^8)))/(42525*K^4))*
+       \[Gamma][pc + pc/Sqrt[K*pc] - ((2*K*pc + Sqrt[K*pc])*
+           (4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc])*Pi*r^2)/
+          (3*K^2*Sqrt[K*pc]) + ((1 + 4*K*pc + 4*Sqrt[K*pc])*
+           (34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*
+           r^4)/(90*K^3) - ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 
+            25632*K^2*pc^2 + 57344*K^3*pc^3 + 24*Sqrt[K*pc] + 
+            5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+         ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*
+             (669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 
+              10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[K*pc]) + 
+            8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*r^8)/(340200*K^5)]) - 
+     (85050*K^4*\[Epsilon]^2*(a0 + a2*\[Epsilon]^2 + a4*\[Epsilon]^4 + 
+        a6*\[Epsilon]^6 + a8*\[Epsilon]^8)*
+       (-4*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*
+              (3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+             15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*
+              r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*
+                K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4))*Pi*
+         r^2*(pc + pc/Sqrt[K*pc] - ((2*K*pc + Sqrt[K*pc])*
+             (4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc])*Pi*r^2)/
+            (3*K^2*Sqrt[K*pc]) + ((1 + 4*K*pc + 4*Sqrt[K*pc])*
+             (34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*
+             r^4)/(90*K^3) - ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 
+              25632*K^2*pc^2 + 57344*K^3*pc^3 + 24*Sqrt[K*pc] + 
+              5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+           ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*Sqrt[K*pc]) + 
+              384*K^3*pc^3*(13745 + 61476*Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 
+                83508*Sqrt[K*pc]))*Pi^4*r^8)/(340200*K^5))^2 + 
+        (8*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(
+                3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+              15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                 (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^
+                4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                 (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4))*
+          pc^3*Pi^2*r^4*(3*(64 + 279*Sqrt[K*pc])*Pi^4*r^8 + 
+            2*K*Pi^3*r^6*(-270*(4 + 53*Sqrt[K*pc]) + pc*(6275 + 
+                85548*Sqrt[K*pc])*Pi*r^2) + 12*K^2*Pi^2*r^4*
+             (315*(4 + 45*Sqrt[K*pc]) - 30*pc*(649 + 3488*Sqrt[K*pc])*Pi*r^
+                2 + 8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 
+            36*K^3*Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 
+                252*Sqrt[K*pc])*Pi*r^2 - 80*pc^2*(1389 + 2444*Sqrt[K*pc])*Pi^
+                2*r^4 + 32*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*r^6) + 
+            14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 
+              368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*r^8))^3*
+          \[Gamma][pc + pc/Sqrt[K*pc] - ((2*K*pc + Sqrt[K*pc])*
+              (4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc])*Pi*r^2)/
+             (3*K^2*Sqrt[K*pc]) + ((1 + 4*K*pc + 4*Sqrt[K*pc])*
+              (34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*
+              r^4)/(90*K^3) - ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*
+                K^2*pc^2 + 57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*
+                (K*pc)^(3/2) + 62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+            ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*Sqrt[K*pc]) + 
+               384*K^3*pc^3*(13745 + 61476*Sqrt[K*pc]) + 8*K^2*pc^2*
+                (4313 + 83508*Sqrt[K*pc]))*Pi^4*r^8)/(340200*K^5)])/
+         (76901173453125*K^12) + 
+        (E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(
+                3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+              15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                 (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^
+                4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                 (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4))*
+          pc^2*Pi*r^2*(3*(64 + 279*Sqrt[K*pc])*Pi^4*r^8 + 
+            2*K*Pi^3*r^6*(-270*(4 + 53*Sqrt[K*pc]) + pc*(6275 + 
+                85548*Sqrt[K*pc])*Pi*r^2) + 12*K^2*Pi^2*r^4*
+             (315*(4 + 45*Sqrt[K*pc]) - 30*pc*(649 + 3488*Sqrt[K*pc])*Pi*r^
+                2 + 8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 
+            36*K^3*Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 
+                252*Sqrt[K*pc])*Pi*r^2 - 80*pc^2*(1389 + 2444*Sqrt[K*pc])*Pi^
+                2*r^4 + 32*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*r^6) + 
+            14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 
+              368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*r^8))^2*
+          (-1 + (-13 + 4*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                  1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                      7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                    594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                    4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                   (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                       Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                    32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                (42525*K^4)))*\[Gamma][pc + pc/Sqrt[K*pc] - 
+              ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc])*
+                Pi*r^2)/(3*K^2*Sqrt[K*pc]) + ((1 + 4*K*pc + 4*Sqrt[K*pc])*
+                (34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*
+                Pi^2*r^4)/(90*K^3) - ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 
+                 25632*K^2*pc^2 + 57344*K^3*pc^3 + 24*Sqrt[K*pc] + 
+                 5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*
+                K^4) + ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*
+                  (669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 
+                   10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*
+                    Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*
+                r^8)/(340200*K^5)]))/(1808375625*K^8) + 
+        (pc*(3*(64 + 279*Sqrt[K*pc])*Pi^4*r^8 + 2*K*Pi^3*r^6*
+            (-270*(4 + 53*Sqrt[K*pc]) + pc*(6275 + 85548*Sqrt[K*pc])*Pi*
+              r^2) + 12*K^2*Pi^2*r^4*(315*(4 + 45*Sqrt[K*pc]) - 
+             30*pc*(649 + 3488*Sqrt[K*pc])*Pi*r^2 + 8*pc^2*(12435 + 53804*
+                Sqrt[K*pc])*Pi^2*r^4) + 36*K^3*Pi*r^2*
+            (-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 252*Sqrt[K*pc])*Pi*
+              r^2 - 80*pc^2*(1389 + 2444*Sqrt[K*pc])*Pi^2*r^4 + 
+             32*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*r^6) + 
+           14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 
+             368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*r^8))*
+          (-8*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                 Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*
+                 r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                   (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*
+                 r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                   (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                  32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+              (42525*K^4))*Pi*r^2*(pc + pc/Sqrt[K*pc] - 
+             ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc])*
+               Pi*r^2)/(3*K^2*Sqrt[K*pc]) + ((1 + 4*K*pc + 4*Sqrt[K*pc])*(
+                34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^
+                2*r^4)/(90*K^3) - ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 
+                25632*K^2*pc^2 + 57344*K^3*pc^3 + 24*Sqrt[K*pc] + 
+                5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*Pi^3*r^6)/
+              (1890*K^4) + ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 
+                2*K*pc*(669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 
+                  10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*
+                   Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*r^
+                8)/(340200*K^5)) + 
+           (1 + 4*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                   Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*
+                   Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*
+                     pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                        K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 
+                    256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 
+                      818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*
+                   Pi^3*r^6))/(42525*K^4)) + E^((8*Pi*r^2*
+                (28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*
+                  (3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                    (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*
+                  r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                    (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                   32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*
+                K^4)) - 20*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                  1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                      7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                    594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                    4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                   (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                       Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                    32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                (42525*K^4))*Pi*r^2*(pc + pc/Sqrt[K*pc] - ((2*K*pc + 
+                  Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc])*Pi*
+                 r^2)/(3*K^2*Sqrt[K*pc]) + ((1 + 4*K*pc + 4*Sqrt[K*pc])*
+                 (34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*
+                 Pi^2*r^4)/(90*K^3) - ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 
+                  25632*K^2*pc^2 + 57344*K^3*pc^3 + 24*Sqrt[K*pc] + 
+                  5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*Pi^3*r^6)/
+                (1890*K^4) + ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 
+                  2*K*pc*(669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 
+                    10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*
+                     Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*
+                 r^8)/(340200*K^5)))*\[Gamma][pc + pc/Sqrt[K*pc] - 
+              ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc])*
+                Pi*r^2)/(3*K^2*Sqrt[K*pc]) + ((1 + 4*K*pc + 4*Sqrt[K*pc])*
+                (34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*
+                Pi^2*r^4)/(90*K^3) - ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 
+                 25632*K^2*pc^2 + 57344*K^3*pc^3 + 24*Sqrt[K*pc] + 
+                 5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*
+                K^4) + ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*
+                  (669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 
+                   10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*
+                    Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*
+                r^8)/(340200*K^5)]))/(85050*K^4)))/
+      (pc*r^2*(3*(64 + 279*Sqrt[K*pc])*Pi^4*r^8 + 2*K*Pi^3*r^6*
+         (-270*(4 + 53*Sqrt[K*pc]) + pc*(6275 + 85548*Sqrt[K*pc])*Pi*r^2) + 
+        12*K^2*Pi^2*r^4*(315*(4 + 45*Sqrt[K*pc]) - 
+          30*pc*(649 + 3488*Sqrt[K*pc])*Pi*r^2 + 
+          8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 
+        36*K^3*Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 
+          210*pc*(107 + 252*Sqrt[K*pc])*Pi*r^2 - 
+          80*pc^2*(1389 + 2444*Sqrt[K*pc])*Pi^2*r^4 + 
+          32*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*r^6) + 
+        14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 
+          368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*r^8))*
+       \[Gamma][pc + pc/Sqrt[K*pc] - ((2*K*pc + Sqrt[K*pc])*
+           (4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc])*Pi*r^2)/
+          (3*K^2*Sqrt[K*pc]) + ((1 + 4*K*pc + 4*Sqrt[K*pc])*
+           (34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*
+           r^4)/(90*K^3) - ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 
+            25632*K^2*pc^2 + 57344*K^3*pc^3 + 24*Sqrt[K*pc] + 
+            5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+         ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*
+             (669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 
+              10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[K*pc]) + 
+            8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*r^8)/(340200*K^5)])
+ 
+h00ppSub = 2*(a0 + 6*a2*\[Epsilon]^2 + 15*a4*\[Epsilon]^4 + 
+      28*a6*\[Epsilon]^6 + 45*a8*\[Epsilon]^8)
+ 
+h00ppSubA = 2*a0 - (4*a0*(3 + 26*Sqrt[K*pc] + 8*K*pc*(17 + 40*Sqrt[K*pc]))*Pi*
+       r^2)/(7*(K + 4*K*Sqrt[K*pc])) + 
+     (a0*(1687552*K^4*pc^4 + 15*Sqrt[K*pc] + 2*K*pc*(129 + 2480*Sqrt[K*pc]) + 
+        256*K^3*pc^3*(4237 + 7844*Sqrt[K*pc]) + 16*K^2*pc^2*
+         (3497 + 20572*Sqrt[K*pc]))*Pi^2*r^4)/
+      (63*K^2*(12*K*pc + 64*K^2*pc^2 + Sqrt[K*pc] + 48*(K*pc)^(3/2))) - 
+     (4*a0*(15 - 318*Sqrt[K*pc] + 104*K*pc*(-7 + 2428*Sqrt[K*pc]) + 
+        2097152*K^6*pc^6*(46867 + 20224*Sqrt[K*pc]) + 
+        122880*K^4*pc^4*(80907 + 251804*Sqrt[K*pc]) + 
+        128*K^2*pc^2*(41875 + 458607*Sqrt[K*pc]) + 131072*K^5*pc^5*
+         (529047 + 805940*Sqrt[K*pc]) + 1536*K^3*pc^3*
+         (282803 + 1553124*Sqrt[K*pc]))*Pi^3*r^6)/
+      (4455*K^3*(1 + 28*Sqrt[K*pc] + 4096*K^3*pc^3*(7 + 4*Sqrt[K*pc]) + 
+        1792*K^2*pc^2*(5 + 12*Sqrt[K*pc]) + 112*K*pc*(3 + 20*Sqrt[K*pc]))) + 
+     90*a8*r^8
+ 
+h00pSub = 2*\[Epsilon]*(a0 + 2*a2*\[Epsilon]^2 + 3*a4*\[Epsilon]^4 + 
+      4*a6*\[Epsilon]^6 + 5*a8*\[Epsilon]^8)
+ 
+h00pSubA = 2*a0*r - (4*a0*(3 + 26*Sqrt[K*pc] + 8*K*pc*(17 + 40*Sqrt[K*pc]))*
+       Pi*r^3)/(21*(K + 4*K*Sqrt[K*pc])) + 
+     (a0*(1687552*K^4*pc^4 + 15*Sqrt[K*pc] + 2*K*pc*(129 + 2480*Sqrt[K*pc]) + 
+        256*K^3*pc^3*(4237 + 7844*Sqrt[K*pc]) + 16*K^2*pc^2*
+         (3497 + 20572*Sqrt[K*pc]))*Pi^2*r^5)/
+      (315*K^2*(12*K*pc + 64*K^2*pc^2 + Sqrt[K*pc] + 48*(K*pc)^(3/2))) - 
+     (4*a0*(15 - 318*Sqrt[K*pc] + 104*K*pc*(-7 + 2428*Sqrt[K*pc]) + 
+        2097152*K^6*pc^6*(46867 + 20224*Sqrt[K*pc]) + 
+        122880*K^4*pc^4*(80907 + 251804*Sqrt[K*pc]) + 
+        128*K^2*pc^2*(41875 + 458607*Sqrt[K*pc]) + 131072*K^5*pc^5*
+         (529047 + 805940*Sqrt[K*pc]) + 1536*K^3*pc^3*
+         (282803 + 1553124*Sqrt[K*pc]))*Pi^3*r^7)/
+      (31185*K^3*(1 + 28*Sqrt[K*pc] + 4096*K^3*pc^3*(7 + 4*Sqrt[K*pc]) + 
+        1792*K^2*pc^2*(5 + 12*Sqrt[K*pc]) + 112*K*pc*(3 + 20*Sqrt[K*pc]))) + 
+     10*a8*r^9
+ 
+h00Sub = \[Epsilon]^2*(a0 + a2*\[Epsilon]^2 + a4*\[Epsilon]^4 + 
+      a6*\[Epsilon]^6 + a8*\[Epsilon]^8)
+ 
+h00SubA = r^2*(a0 - (a0*(3 + 26*Sqrt[K*pc] + 8*K*pc*(17 + 40*Sqrt[K*pc]))*Pi*
+        r^2)/(21*(K + 4*K*Sqrt[K*pc])) + 
+      (a0*(1687552*K^4*pc^4 + 15*Sqrt[K*pc] + 
+         2*K*pc*(129 + 2480*Sqrt[K*pc]) + 256*K^3*pc^3*
+          (4237 + 7844*Sqrt[K*pc]) + 16*K^2*pc^2*(3497 + 20572*Sqrt[K*pc]))*
+        Pi^2*r^4)/(1890*K^2*(12*K*pc + 64*K^2*pc^2 + Sqrt[K*pc] + 
+         48*(K*pc)^(3/2))) - (a0*(15 - 318*Sqrt[K*pc] + 
+         104*K*pc*(-7 + 2428*Sqrt[K*pc]) + 2097152*K^6*pc^6*
+          (46867 + 20224*Sqrt[K*pc]) + 122880*K^4*pc^4*
+          (80907 + 251804*Sqrt[K*pc]) + 128*K^2*pc^2*
+          (41875 + 458607*Sqrt[K*pc]) + 131072*K^5*pc^5*
+          (529047 + 805940*Sqrt[K*pc]) + 1536*K^3*pc^3*
+          (282803 + 1553124*Sqrt[K*pc]))*Pi^3*r^6)/
+       (62370*K^3*(1 + 28*Sqrt[K*pc] + 4096*K^3*pc^3*(7 + 4*Sqrt[K*pc]) + 
+         1792*K^2*pc^2*(5 + 12*Sqrt[K*pc]) + 112*K*pc*(3 + 20*Sqrt[K*pc]))) + 
+      a8*r^8)
+ 
+lambdaFromm = -Log[1 - (4*Pi*r^2*(5670*K^3*(K*pc + Sqrt[K*pc]) - 
+          (1134*K^2*(2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*
+            (1 + 2*Sqrt[K*pc])*Pi*r^2)/Sqrt[K*pc] + 
+          27*K*(1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+            3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4 - (2*K*pc + Sqrt[K*pc])*
+           (3 + 580*K*pc + 25632*K^2*pc^2 + 57344*K^3*pc^3 + 24*Sqrt[K*pc] + 
+            5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*Pi^3*r^6))/(8505*K^4)]
+ 
+lambdaMatchEq = {\[Lambda]c == 0, True, 
+     (-8*Sqrt[K*pc]*(1 + Sqrt[K*pc])*Pi)/(3*K) + \[Lambda]2 == 0, True, 
+     (8*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc])*Pi^2)/(45*K^2) + 
+       (32*pc*Sqrt[K*pc]*(5 + 7*Sqrt[K*pc])*Pi^2)/(45*K) + \[Lambda]4 == 0, 
+     True, (4*Sqrt[K*pc]*(-1 + 22*Sqrt[K*pc])*Pi^3)/(105*K^3) - 
+       (128*pc^2*Sqrt[K*pc]*(3 + 28*Sqrt[K*pc])*Pi^3)/(567*K) + 
+       (16*pc*Sqrt[K*pc]*(365 + 582*Sqrt[K*pc])*Pi^3)/(2835*K^2) + 
+       \[Lambda]6 == 0, True, (4*Sqrt[K*pc]*(5 - 814*Sqrt[K*pc])*Pi^4)/
+        (14175*K^4) + (1024*pc^3*Sqrt[K*pc]*(-310 + 203*Sqrt[K*pc])*Pi^4)/
+        (42525*K) + (16*pc*Sqrt[K*pc]*(407 + 818*Sqrt[K*pc])*Pi^4)/
+        (42525*K^3) - (128*pc^2*Sqrt[K*pc]*(557 + 2576*Sqrt[K*pc])*Pi^4)/
+        (42525*K^2) + \[Lambda]8 == 0}
+ 
+lambdaPoly = (4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+       1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*
+        r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+       Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+         32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)
+ 
+lambdaPolyp = (-8*Pi*(60*Sqrt[K*pc]*Pi^3*r^7 + 
+       K*Pi^2*r^5*(-1215*Sqrt[K*pc] + 3256*pc*(-3 + 2*Sqrt[K*pc])*Pi*r^2) + 
+       2*K^2*Pi*r^3*(5670*Sqrt[K*pc] + 45*pc*(297 + 730*Sqrt[K*pc])*Pi*r^2 + 
+         16*pc^2*(409 - 2228*Sqrt[K*pc])*Pi^2*r^4) + 
+       14*K^4*pc*r*(-2025 + 7560*pc*Pi*r^2 - 14400*pc^2*Pi^2*r^4 + 
+         14848*pc^3*Pi^3*r^6) - 2*K^3*(14175*Sqrt[K*pc]*r - 
+         7560*pc*(1 + 5*Sqrt[K*pc])*Pi*r^3 + 540*pc^2*(-97 + 20*Sqrt[K*pc])*
+          Pi^2*r^5 + 1024*pc^3*(161 + 155*Sqrt[K*pc])*Pi^3*r^7)))/(42525*K^4)
+ 
+lambdaPolypp = (-8*Pi*(420*Sqrt[K*pc]*Pi^3*r^6 + 
+       K*Pi^2*r^4*(-6075*Sqrt[K*pc] + 22792*pc*(-3 + 2*Sqrt[K*pc])*Pi*r^2) + 
+       2*K^2*Pi*r^2*(17010*Sqrt[K*pc] + 225*pc*(297 + 730*Sqrt[K*pc])*Pi*
+          r^2 - 112*pc^2*(-409 + 2228*Sqrt[K*pc])*Pi^2*r^4) + 
+       14*K^4*pc*(-2025 + 22680*pc*Pi*r^2 - 72000*pc^2*Pi^2*r^4 + 
+         103936*pc^3*Pi^3*r^6) - 2*K^3*(14175*Sqrt[K*pc] - 
+         22680*pc*(1 + 5*Sqrt[K*pc])*Pi*r^2 + 2700*pc^2*(-97 + 20*Sqrt[K*pc])*
+          Pi^2*r^4 + 7168*pc^3*(161 + 155*Sqrt[K*pc])*Pi^3*r^6)))/(42525*K^4)
+ 
+lambdaSeries = (-4*Sqrt[K*pc]*Pi*r^2*(3*(5 - 814*Sqrt[K*pc])*Pi^3*r^6 + 
+       K*Pi^2*r^4*(405*(-1 + 22*Sqrt[K*pc]) + 4*pc*(407 + 818*Sqrt[K*pc])*Pi*
+          r^2) + 2*K^2*Pi*r^2*(945*(3 + 4*Sqrt[K*pc]) + 
+         30*pc*(365 + 582*Sqrt[K*pc])*Pi*r^2 - 
+         16*pc^2*(557 + 2576*Sqrt[K*pc])*Pi^2*r^4) + 
+       K^3*(-28350*(1 + Sqrt[K*pc]) + 7560*pc*(5 + 7*Sqrt[K*pc])*Pi*r^2 - 
+         2400*pc^2*(3 + 28*Sqrt[K*pc])*Pi^2*r^4 + 
+         256*pc^3*(-310 + 203*Sqrt[K*pc])*Pi^3*r^6)))/(42525*K^4)
+ 
+lambdaSol = {\[Lambda]c -> 0, \[Lambda]2 -> (8*(K*pc + Sqrt[K*pc])*Pi)/(3*K), 
+     \[Lambda]4 -> (-8*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+         4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi^2)/(45*K^2), 
+     \[Lambda]6 -> (4*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 
+         160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+        Pi^3)/(2835*K^3), \[Lambda]8 -> 
+      (-4*Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+         32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^4)/(42525*K^4)}
+ 
+lamEQ = m[r] == ((1 - E^\[Lambda][r])*r)/2
+ 
+LHSmassEqnPoly = {0, 0, 12*mc*Pi, 0, 20*m2*Pi, 0, 28*m4*Pi, 0, 36*m6*Pi}
+ 
+m2Sub = m2 -> \[Rho]2/5
+ 
+m4Sub = m4 -> \[Rho]4/7
+ 
+m6Sub = m6 -> \[Rho]6/9
+ 
+massEQ = Derivative[1][m][r] == 4*Pi*r^2*\[Rho][r]
+ 
+MCoeffSubFull = {mc -> (K*pc + Sqrt[K*pc])/(3*K), 
+     m2 -> -1/15*((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*
+         (1 + 2*Sqrt[K*pc])*Pi)/(K^2*Sqrt[K*pc]), 
+     m4 -> ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+         3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2)/(630*K^3), 
+     m6 -> -1/17010*((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+          57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+          62080*(K*pc)^(5/2))*Pi^3)/K^4}
+ 
+mcSub = mc -> \[Rho]c/3
+ 
+mSeries = (2*Pi*r^3*(5670*K^3*(K*pc + Sqrt[K*pc]) - 
+       (1134*K^2*(2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*
+         (1 + 2*Sqrt[K*pc])*Pi*r^2)/Sqrt[K*pc] + 
+       27*K*(1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+         3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4 - (2*K*pc + Sqrt[K*pc])*
+        (3 + 580*K*pc + 25632*K^2*pc^2 + 57344*K^3*pc^3 + 24*Sqrt[K*pc] + 
+         5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*Pi^3*r^6))/(8505*K^4)
+ 
+mSub = 4*Pi*r^3*(mc + m2*r^2 + m4*r^4 + m6*r^6)
+ 
+mxFile = "/Users/sztk.ch/Work/grad-school/Research/TLN-TDN \
+Project/Programs/Equation Solver/TOVPolynomials.mx"
+ 
+nuEQ = Derivative[1][\[Nu]][r] == (2*(m[r] + 4*Pi*r^3*p[r]))/(r*(r - 2*m[r]))
+ 
+nuLHS = 2*r*\[Nu]2 + 4*r^3*\[Nu]4 + 6*r^5*\[Nu]6 + 8*r^7*\[Nu]8
+ 
+nuMatchEq = {True, (-8*pc*(Pi + 4*Sqrt[K*pc]*Pi))/(3*Sqrt[K*pc]) + 
+       2*\[Nu]2 == 0, True, (8*pc*(3 + 14*Sqrt[K*pc])*Pi^2)/
+        (45*K*Sqrt[K*pc]) + (64*pc^2*(5 + 16*Sqrt[K*pc])*Pi^2)/
+        (45*Sqrt[K*pc]) + 4*\[Nu]4 == 0, True, 
+     (4*pc*(-1 + 22*Sqrt[K*pc])*Pi^3)/(105*K^2*Sqrt[K*pc]) - 
+       (256*pc^3*(-15 + 112*Sqrt[K*pc])*Pi^3)/(945*Sqrt[K*pc]) + 
+       (32*pc^2*(139 + 174*Sqrt[K*pc])*Pi^3)/(945*K*Sqrt[K*pc]) + 6*\[Nu]6 == 
+      0, True, (4*pc*(5 - 958*Sqrt[K*pc])*Pi^4)/(14175*K^3*Sqrt[K*pc]) + 
+       (2048*pc^4*(-785 + 448*Sqrt[K*pc])*Pi^4)/(42525*Sqrt[K*pc]) - 
+       (512*pc^3*(326 + 1103*Sqrt[K*pc])*Pi^4)/(42525*K*Sqrt[K*pc]) + 
+       (32*pc^2*(-593 + 2398*Sqrt[K*pc])*Pi^4)/(42525*K^2*Sqrt[K*pc]) + 
+       8*\[Nu]8 == 0}
+ 
+nuPoly = (4*(4*K*pc + Sqrt[K*pc])*Pi*r^2)/(3*K) - 
+     (2*pc^2*(3 + 14*Sqrt[K*pc] + 8*K*pc*(5 + 16*Sqrt[K*pc]))*Pi^2*r^4)/
+      (45*(K*pc)^(3/2)) + (2*Sqrt[K*pc]*(9 - 198*Sqrt[K*pc] + 
+        64*K^2*pc^2*(-15 + 112*Sqrt[K*pc]) - 8*K*pc*(139 + 174*Sqrt[K*pc]))*
+       Pi^3*r^6)/(2835*K^3) - (Sqrt[K*pc]*(15 - 2874*Sqrt[K*pc] + 
+        512*K^3*pc^3*(-785 + 448*Sqrt[K*pc]) - 128*K^2*pc^2*
+         (326 + 1103*Sqrt[K*pc]) + 8*K*pc*(-593 + 2398*Sqrt[K*pc]))*Pi^4*r^8)/
+      (85050*K^4) + \[Nu]c
+ 
+nuPolyp = (4*Pi*r*(28350*K^2*Sqrt[K*pc]*(4*K*pc + Sqrt[K*pc]) - 
+       1890*K^2*pc*(3 + 14*Sqrt[K*pc] + 8*K*pc*(5 + 16*Sqrt[K*pc]))*Pi*r^2 + 
+       45*K*pc*(9 - 198*Sqrt[K*pc] + 64*K^2*pc^2*(-15 + 112*Sqrt[K*pc]) - 
+         8*K*pc*(139 + 174*Sqrt[K*pc]))*Pi^2*r^4 - 
+       pc*(15 - 2874*Sqrt[K*pc] + 512*K^3*pc^3*(-785 + 448*Sqrt[K*pc]) - 
+         128*K^2*pc^2*(326 + 1103*Sqrt[K*pc]) + 
+         8*K*pc*(-593 + 2398*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^3*Sqrt[K*pc])
+ 
+nuPolypp = (4*Pi*(28350*K^2*Sqrt[K*pc]*(4*K*pc + Sqrt[K*pc]) - 
+       5670*K^2*pc*(3 + 14*Sqrt[K*pc] + 8*K*pc*(5 + 16*Sqrt[K*pc]))*Pi*r^2 + 
+       225*K*pc*(9 - 198*Sqrt[K*pc] + 64*K^2*pc^2*(-15 + 112*Sqrt[K*pc]) - 
+         8*K*pc*(139 + 174*Sqrt[K*pc]))*Pi^2*r^4 - 
+       7*pc*(15 - 2874*Sqrt[K*pc] + 512*K^3*pc^3*(-785 + 448*Sqrt[K*pc]) - 
+         128*K^2*pc^2*(326 + 1103*Sqrt[K*pc]) + 
+         8*K*pc*(-593 + 2398*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^3*Sqrt[K*pc])
+ 
+nuRHS = (4*pc*Pi*r*(192*Sqrt[K*pc]*Pi^4*r^8 + K*Pi^3*r^6*
+        (-15*(1 + 154*Sqrt[K*pc]) + pc*(837 + 12550*Sqrt[K*pc])*Pi*r^2) + 
+       K^2*Pi^2*r^4*(135*(3 + 158*Sqrt[K*pc]) - 80*pc*(397 + 3340*Sqrt[K*pc])*
+          Pi*r^2 + 24*pc^2*(7129 + 49740*Sqrt[K*pc])*Pi^2*r^4) + 
+       2*K^3*Pi*r^2*(-2835*(1 + 18*Sqrt[K*pc]) + 
+         540*pc*(201 + 922*Sqrt[K*pc])*Pi*r^2 - 
+         320*pc^2*(2249 + 7136*Sqrt[K*pc])*Pi^2*r^4 + 
+         192*pc^3*(13451 + 35691*Sqrt[K*pc])*Pi^3*r^6) + 
+       2*K^4*(14175*(1 + 4*Sqrt[K*pc]) - 45360*pc*(5 + 6*Sqrt[K*pc])*Pi*r^2 + 
+         4320*pc^2*(261 + 224*Sqrt[K*pc])*Pi^2*r^4 - 
+         40960*pc^3*(97 + 70*Sqrt[K*pc])*Pi^3*r^6 + 
+         4352*pc^4*(2385 + 1568*Sqrt[K*pc])*Pi^4*r^8)))/
+     (5*K*(12*pc*(1 + 10*Sqrt[K*pc])*Pi^4*r^8 + 4*K*pc*Pi^3*r^6*
+        (-27*(3 + 46*Sqrt[K*pc]) + 4*pc*(157 + 1678*Sqrt[K*pc])*Pi*r^2) + 
+       8*K^2*pc*Pi^2*r^4*(567*(1 + 8*Sqrt[K*pc]) - 
+         54*pc*(87 + 346*Sqrt[K*pc])*Pi*r^2 + 224*pc^2*(82 + 253*Sqrt[K*pc])*
+          Pi^2*r^4) + K^3*(8505*Sqrt[K*pc] - 22680*pc*(1 + Sqrt[K*pc])*Pi*
+          r^2 + 18144*pc^2*(5 + 4*Sqrt[K*pc])*Pi^2*r^4 - 
+         3456*pc^3*(81 + 56*Sqrt[K*pc])*Pi^3*r^6 + 
+         1024*pc^4*(709 + 448*Sqrt[K*pc])*Pi^4*r^8)))
+ 
+nuSeriesEq = (2*(6*pc*(5 - 958*Sqrt[K*pc])*Pi^4*r^7 + 
+       2*K*pc*Pi^3*r^5*(405*(-1 + 22*Sqrt[K*pc]) + 
+         8*pc*(-593 + 2398*Sqrt[K*pc])*Pi*r^2) - 4*K^2*pc*Pi^2*r^3*
+        (-945*(3 + 14*Sqrt[K*pc]) - 180*pc*(139 + 174*Sqrt[K*pc])*Pi*r^2 + 
+         64*pc^2*(326 + 1103*Sqrt[K*pc])*Pi^2*r^4) + 
+       K^3*r*(-56700*pc*(Pi + 4*Sqrt[K*pc]*Pi) + 30240*pc^2*
+          (5 + 16*Sqrt[K*pc])*Pi^2*r^2 - 5760*pc^3*(-15 + 112*Sqrt[K*pc])*
+          Pi^3*r^4 + 1024*pc^4*(-785 + 448*Sqrt[K*pc])*Pi^4*r^6 + 
+         42525*Sqrt[K*pc]*(\[Nu]2 + 2*r^2*\[Nu]4 + 3*r^4*\[Nu]6 + 
+           4*r^6*\[Nu]8))))/(42525*K^3*Sqrt[K*pc])
+ 
+nuSol = {\[Nu]2 -> (4*(4*K*pc + Sqrt[K*pc])*Pi)/(3*K), 
+     \[Nu]4 -> (-2*pc^2*(3 + 14*Sqrt[K*pc] + 8*K*pc*(5 + 16*Sqrt[K*pc]))*
+        Pi^2)/(45*(K*pc)^(3/2)), \[Nu]6 -> 
+      (2*Sqrt[K*pc]*(9 - 198*Sqrt[K*pc] + 64*K^2*pc^2*
+          (-15 + 112*Sqrt[K*pc]) - 8*K*pc*(139 + 174*Sqrt[K*pc]))*Pi^3)/
+       (2835*K^3), \[Nu]8 -> -1/85050*(Sqrt[K*pc]*(15 - 2874*Sqrt[K*pc] + 
+          512*K^3*pc^3*(-785 + 448*Sqrt[K*pc]) - 128*K^2*pc^2*
+           (326 + 1103*Sqrt[K*pc]) + 8*K*pc*(-593 + 2398*Sqrt[K*pc]))*Pi^4)/
+        K^4}
+ 
+p2Sub = p2 -> (-2*Pi*(pc + \[Rho]c)*(3*pc + \[Rho]c))/3
+ 
+p4Sub = p4 -> (2*Pi*(30*pc^3*Pi - 9*pc*\[Rho]2 + 40*pc^2*Pi*\[Rho]c - 
+        4*\[Rho]2*\[Rho]c + 10*pc*Pi*\[Rho]c^2))/15
+ 
+p6Sub = p6 -> (-2*Pi*(3780*pc^4*Pi^2 - 1008*pc^2*Pi*\[Rho]2 + 63*\[Rho]2^2 + 
+        360*pc*\[Rho]4 + 5040*pc^3*Pi^2*\[Rho]c - 168*pc*Pi*\[Rho]2*\[Rho]c + 
+        150*\[Rho]4*\[Rho]c + 1680*pc^2*Pi^2*\[Rho]c^2 + 
+        140*Pi*\[Rho]2*\[Rho]c^2 + 560*pc*Pi^2*\[Rho]c^3 + 
+        140*Pi^2*\[Rho]c^4))/945
+ 
+p8Sub = p8 -> (Pi*(226800*pc^5*Pi^3 - 52920*pc^3*Pi^2*\[Rho]2 - 
+        1512*pc*Pi*\[Rho]2^2 + 18900*pc^2*Pi*\[Rho]4 - 2430*\[Rho]2*\[Rho]4 - 
+        7875*pc*\[Rho]6 + 302400*pc^4*Pi^3*\[Rho]c - 10080*pc^2*Pi^2*\[Rho]2*
+         \[Rho]c - 4032*Pi*\[Rho]2^2*\[Rho]c + 900*pc*Pi*\[Rho]4*\[Rho]c - 
+        3150*\[Rho]6*\[Rho]c + 126000*pc^3*Pi^3*\[Rho]c^2 - 
+        16800*pc*Pi^2*\[Rho]2*\[Rho]c^2 - 3300*Pi*\[Rho]4*\[Rho]c^2 + 
+        50400*pc^2*Pi^3*\[Rho]c^3 - 10640*Pi^2*\[Rho]2*\[Rho]c^3 - 
+        5600*pc*Pi^3*\[Rho]c^4 - 5600*Pi^3*\[Rho]c^5))/14175
+ 
+pSeries = (pc*(3*(64 + 279*Sqrt[K*pc])*Pi^4*r^8 + 
+       2*K*Pi^3*r^6*(-270*(4 + 53*Sqrt[K*pc]) + pc*(6275 + 85548*Sqrt[K*pc])*
+          Pi*r^2) + 12*K^2*Pi^2*r^4*(315*(4 + 45*Sqrt[K*pc]) - 
+         30*pc*(649 + 3488*Sqrt[K*pc])*Pi*r^2 + 
+         8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 
+       36*K^3*Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 
+         210*pc*(107 + 252*Sqrt[K*pc])*Pi*r^2 - 
+         80*pc^2*(1389 + 2444*Sqrt[K*pc])*Pi^2*r^4 + 
+         32*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*r^6) + 
+       14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 
+         368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*r^8)))/(85050*K^4)
+ 
+pSeriesp = (4*pc*Pi*r*(3*(64 + 279*Sqrt[K*pc])*Pi^3*r^6 + 
+       K*Pi^2*r^4*(-405*(4 + 53*Sqrt[K*pc]) + 2*pc*(6275 + 85548*Sqrt[K*pc])*
+          Pi*r^2) + 6*K^2*Pi*r^2*(315*(4 + 45*Sqrt[K*pc]) - 
+         45*pc*(649 + 3488*Sqrt[K*pc])*Pi*r^2 + 
+         16*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 
+       56*K^4*pc*(-2025 + 15120*pc*Pi*r^2 - 69120*pc^2*Pi^2*r^4 + 
+         243712*pc^3*Pi^3*r^6) + 9*K^3*(-1575*(1 + 6*Sqrt[K*pc]) + 
+         420*pc*(107 + 252*Sqrt[K*pc])*Pi*r^2 - 
+         240*pc^2*(1389 + 2444*Sqrt[K*pc])*Pi^2*r^4 + 
+         128*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*r^6)))/(42525*K^4)
+ 
+pSeriespp = (4*pc*Pi*(21*(64 + 279*Sqrt[K*pc])*Pi^3*r^6 + 
+       K*Pi^2*r^4*(-2025*(4 + 53*Sqrt[K*pc]) + 
+         14*pc*(6275 + 85548*Sqrt[K*pc])*Pi*r^2) + 
+       6*K^2*Pi*r^2*(945*(4 + 45*Sqrt[K*pc]) - 225*pc*(649 + 3488*Sqrt[K*pc])*
+          Pi*r^2 + 112*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 
+       56*K^4*pc*(-2025 + 45360*pc*Pi*r^2 - 345600*pc^2*Pi^2*r^4 + 
+         1705984*pc^3*Pi^3*r^6) + 9*K^3*(-1575*(1 + 6*Sqrt[K*pc]) + 
+         1260*pc*(107 + 252*Sqrt[K*pc])*Pi*r^2 - 1200*pc^2*
+          (1389 + 2444*Sqrt[K*pc])*Pi^2*r^4 + 896*pc^3*
+          (11897 + 18020*Sqrt[K*pc])*Pi^3*r^6)))/(42525*K^4)
+ 
+pSub = pc + p2*r^2 + p4*r^4 + p6*r^6 + p8*r^8
+ 
+rhoSeries = pc + pc/Sqrt[K*pc] - ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*
+       (1 + 2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+     ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 
+        200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+     ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 57344*K^3*pc^3 + 
+        24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*Pi^3*r^6)/
+      (1890*K^4) + ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 
+        2*K*pc*(669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*
+         (7215 + 10492*Sqrt[K*pc]) + 384*K^3*pc^3*
+         (13745 + 61476*Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*
+       Pi^4*r^8)/(340200*K^5)
+ 
+rhoSeriesp = (Pi*r*((-28350*K^3*(2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*
+         (1 + 2*Sqrt[K*pc]))/Sqrt[K*pc] + 1890*K^2*(1 + 4*K*pc + 
+         4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 
+         200*(K*pc)^(3/2))*Pi*r^2 - 135*K*(2*K*pc + Sqrt[K*pc])*
+        (3 + 580*K*pc + 25632*K^2*pc^2 + 57344*K^3*pc^3 + 24*Sqrt[K*pc] + 
+         5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*Pi^2*r^4 + 
+       (54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 3050*Sqrt[K*pc]) + 
+         8704*K^4*pc^4*(7215 + 10492*Sqrt[K*pc]) + 384*K^3*pc^3*
+          (13745 + 61476*Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*
+        Pi^3*r^6))/(42525*K^5)
+ 
+rhoSeriespp = (Pi*((-28350*K^3*(2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*
+         (1 + 2*Sqrt[K*pc]))/Sqrt[K*pc] + 5670*K^2*(1 + 4*K*pc + 
+         4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 
+         200*(K*pc)^(3/2))*Pi*r^2 - 675*K*(2*K*pc + Sqrt[K*pc])*
+        (3 + 580*K*pc + 25632*K^2*pc^2 + 57344*K^3*pc^3 + 24*Sqrt[K*pc] + 
+         5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*Pi^2*r^4 + 
+       7*(54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 
+         2*K*pc*(669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*
+          (7215 + 10492*Sqrt[K*pc]) + 384*K^3*pc^3*
+          (13745 + 61476*Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*
+        Pi^3*r^6))/(42525*K^5)
+ 
+RHSmassEqnPoly = {0, 0, 4*Pi*\[Rho]c, 0, 4*Pi*\[Rho]2, 0, 4*Pi*\[Rho]4, 0, 
+     4*Pi*\[Rho]6, 0, 4*Pi*\[Rho]8}
+ 
+solw0 = w0[r] -> (E^(\[Lambda][r]/2)*r*h00[r])/(-1 + E^\[Lambda][r] + 
+       8*E^\[Lambda][r]*Pi*r^2*p0[r])
+ 
+S\[Eta]2 = ((-1/3*I)*E^(-\[Lambda][r] - \[Nu][r]/2)*Pi*
+      (r*(-1 + E^\[Lambda][r] + 8*E^\[Lambda][r]*Pi*r^2*p0[r])*
+        Derivative[1][h00][r]*(-2*r*(-1 + E^\[Lambda][r] + 
+           8*E^\[Lambda][r]*Pi*r^2*p0[r])*(-8*E^\[Lambda][r]*r*
+            (-1 + E^\[Lambda][r] + 8*E^\[Lambda][r]*Pi*r^2*p0[r])*
+            (-1 + E^(2*\[Lambda][r]) + 8*E^\[Lambda][r]*(-3 + 2*
+                E^\[Lambda][r])*Pi*r^2*p0[r] + 64*E^(2*\[Lambda][r])*Pi^2*r^4*
+              p0[r]^2 - 8*E^\[Lambda][r]*Pi*r^2*\[Rho]0[r])*
+            Derivative[1][\[Rho]0][r]^2*Derivative[2][\[Eta]][\[Rho]0[r]] + 
+           Derivative[1][\[Eta]][\[Rho]0[r]]*(((-1 + E^\[Lambda][r])^2*
+                (1 - 44*E^\[Lambda][r] - 66*E^(2*\[Lambda][r]) + 
+                 4*E^(3*\[Lambda][r]) + E^(4*\[Lambda][r])) + 12288*
+                E^(4*\[Lambda][r])*(5 - 6*E^\[Lambda][r] + 
+                 5*E^(2*\[Lambda][r]))*Pi^4*r^8*p0[r]^4 + 196608*
+                E^(5*\[Lambda][r])*(-1 + E^\[Lambda][r])*Pi^5*r^10*p0[r]^5 + 
+               262144*E^(6*\[Lambda][r])*Pi^6*r^12*p0[r]^6 + 32*
+                E^(2*\[Lambda][r])*(-37 + 31*E^\[Lambda][r] + 
+                 5*E^(2*\[Lambda][r]) + E^(3*\[Lambda][r]))*Pi*r^2*
+                \[Rho]0[r] - 256*E^(3*\[Lambda][r])*(11 + E^\[Lambda][r])*
+                Pi^2*r^4*\[Rho]0[r]^2 + 2048*E^(3*\[Lambda][r])*Pi^3*r^6*
+                p0[r]^3*(-5 + 5*E^\[Lambda][r] - 4*E^(2*\[Lambda][r]) + 
+                 5*E^(3*\[Lambda][r]) + 8*E^(2*\[Lambda][r])*Pi*r^2*
+                  \[Rho]0[r]) + 64*E^(2*\[Lambda][r])*Pi^2*r^4*p0[r]^2*
+                (15 + 28*E^\[Lambda][r] - 66*E^(2*\[Lambda][r]) + 
+                 15*E^(4*\[Lambda][r]) + 32*E^(2*\[Lambda][r])*
+                  (1 + 3*E^\[Lambda][r])*Pi*r^2*\[Rho]0[r]) + 8*
+                E^\[Lambda][r]*Pi*r^2*p0[r]*(2*(-1 + E^\[Lambda][r])*
+                  (3 + 214*E^\[Lambda][r] - 66*E^(2*\[Lambda][r]) + 
+                   6*E^(3*\[Lambda][r]) + 3*E^(4*\[Lambda][r])) + 
+                 32*E^(2*\[Lambda][r])*(-37 + 6*E^\[Lambda][r] + 
+                   3*E^(2*\[Lambda][r]))*Pi*r^2*\[Rho]0[r] - 
+                 256*E^(3*\[Lambda][r])*Pi^2*r^4*\[Rho]0[r]^2))*
+              Derivative[1][\[Rho]0][r] + 128*E^(2*\[Lambda][r])*Pi*r^3*
+              (-1 + E^\[Lambda][r] + 8*E^\[Lambda][r]*Pi*r^2*p0[r])*
+              Derivative[1][\[Rho]0][r]^2 - 8*E^\[Lambda][r]*r*
+              (-1 + E^\[Lambda][r] + 8*E^\[Lambda][r]*Pi*r^2*p0[r])*
+              (-1 + E^(2*\[Lambda][r]) + 8*E^\[Lambda][r]*(-3 + 
+                 2*E^\[Lambda][r])*Pi*r^2*p0[r] + 64*E^(2*\[Lambda][r])*Pi^2*
+                r^4*p0[r]^2 - 8*E^\[Lambda][r]*Pi*r^2*\[Rho]0[r])*
+              Derivative[2][\[Rho]0][r])) + \[Eta][\[Rho]0[r]]*
+          (25165824*E^(7*\[Lambda][r])*(-3 + 2*E^\[Lambda][r])*Pi^7*r^14*
+            p0[r]^7 + 50331648*E^(8*\[Lambda][r])*Pi^8*r^16*p0[r]^8 + 
+           2560*E^(3*\[Lambda][r])*(-23 + 22*E^\[Lambda][r] + 
+             E^(2*\[Lambda][r]))*Pi^2*r^4*\[Rho]0[r]^2 - 
+           98304*E^(4*\[Lambda][r])*Pi^3*r^6*\[Rho]0[r]^3 + 
+           1048576*E^(6*\[Lambda][r])*Pi^6*r^12*p0[r]^6*
+            (39 - 57*E^\[Lambda][r] + 21*E^(2*\[Lambda][r]) - 
+             8*E^\[Lambda][r]*Pi*r^2*\[Rho]0[r]) + 61440*E^(4*\[Lambda][r])*
+            (-1 + E^\[Lambda][r])*Pi^4*r^8*p0[r]^4*(-30 + 46*E^\[Lambda][r] - 
+             46*E^(2*\[Lambda][r]) + 14*E^(3*\[Lambda][r]) - 
+             32*E^\[Lambda][r]*(-1 + E^\[Lambda][r])*Pi*r^2*\[Rho]0[r]) + 
+           196608*E^(5*\[Lambda][r])*Pi^5*r^10*p0[r]^5*
+            (-58 + 124*E^\[Lambda][r] - 102*E^(2*\[Lambda][r]) + 
+             28*E^(3*\[Lambda][r]) - 32*E^\[Lambda][r]*(-1 + E^\[Lambda][r])*
+              Pi*r^2*\[Rho]0[r]) + 2048*E^(3*\[Lambda][r])*Pi^3*r^6*p0[r]^3*
+            (3*(-1 + E^\[Lambda][r])*(29 - 81*E^\[Lambda][r] + 49*
+                E^(2*\[Lambda][r]) - 51*E^(3*\[Lambda][r]) + 14*
+                E^(4*\[Lambda][r])) - 160*E^\[Lambda][r]*(-1 + E^
+                \[Lambda][r] - 3*E^(2*\[Lambda][r]) + E^(3*\[Lambda][r]))*Pi*
+              r^2*\[Rho]0[r] - 64*E^(2*\[Lambda][r])*Pi*r^3*Derivative[1][
+                \[Rho]0][r]) - 32*E^\[Lambda][r]*(-1 + E^\[Lambda][r])*Pi*r^2*
+            \[Rho]0[r]*((-1 + E^\[Lambda][r])*(1 + 264*E^\[Lambda][r] + 42*
+                E^(2*\[Lambda][r]) - 4*E^(3*\[Lambda][r]) + E^
+                (4*\[Lambda][r])) - 16*E^(2*\[Lambda][r])*
+              (17 + E^\[Lambda][r])*Pi*r^3*Derivative[1][\[Rho]0][r]) + 
+           (-1 + E^\[Lambda][r])^2*(3*(-1 + E^\[Lambda][r])*
+              (-1 + 25*E^\[Lambda][r] + 58*E^(2*\[Lambda][r]) - 18*
+                E^(3*\[Lambda][r]) - E^(4*\[Lambda][r]) + E^
+                (5*\[Lambda][r])) - 64*E^(2*\[Lambda][r])*
+              (31 + 5*E^\[Lambda][r])*Pi*r^3*Derivative[1][\[Rho]0][r] - 
+             128*E^(2*\[Lambda][r])*Pi*r^4*Derivative[2][\[Rho]0][r]) + 
+           256*E^(2*\[Lambda][r])*Pi^2*r^4*p0[r]^2*(39 - 753*E^\[Lambda][r] + 
+             879*E^(2*\[Lambda][r]) - 192*E^(3*\[Lambda][r]) + 
+             105*E^(4*\[Lambda][r]) - 99*E^(5*\[Lambda][r]) + 
+             21*E^(6*\[Lambda][r]) + 640*E^(3*\[Lambda][r])*Pi^2*r^4*
+              \[Rho]0[r]^2 - 16*E^(2*\[Lambda][r])*(-31 + 13*E^\[Lambda][r])*
+              Pi*r^3*Derivative[1][\[Rho]0][r] - 8*E^\[Lambda][r]*Pi*r^2*
+              \[Rho]0[r]*(15 + 144*E^\[Lambda][r] + 46*E^(2*\[Lambda][r]) - 
+               60*E^(3*\[Lambda][r]) + 15*E^(4*\[Lambda][r]) - 16*
+                E^(2*\[Lambda][r])*Pi*r^3*Derivative[1][\[Rho]0][r]) - 
+             32*E^(2*\[Lambda][r])*Pi*r^4*Derivative[2][\[Rho]0][r]) + 
+           16*E^\[Lambda][r]*Pi*r^2*p0[r]*(512*E^(3*\[Lambda][r])*
+              (-53 + 5*E^\[Lambda][r])*Pi^2*r^4*\[Rho]0[r]^2 - 
+             32*E^\[Lambda][r]*Pi*r^2*\[Rho]0[r]*((-1 + E^\[Lambda][r])*
+                (3 - 444*E^\[Lambda][r] + 34*E^(2*\[Lambda][r]) - 
+                 12*E^(3*\[Lambda][r]) + 3*E^(4*\[Lambda][r])) - 16*
+                E^(2*\[Lambda][r])*(8 + E^\[Lambda][r])*Pi*r^3*
+                Derivative[1][\[Rho]0][r]) + (-1 + E^\[Lambda][r])*
+              (6*(-1 + E^\[Lambda][r])*(-3 - 240*E^\[Lambda][r] + 
+                 4*E^(2*\[Lambda][r]) - 14*E^(3*\[Lambda][r]) - 
+                 5*E^(4*\[Lambda][r]) + 2*E^(5*\[Lambda][r])) - 64*
+                E^(2*\[Lambda][r])*(2 + 7*E^\[Lambda][r])*Pi*r^3*
+                Derivative[1][\[Rho]0][r] - 128*E^(2*\[Lambda][r])*Pi*r^4*
+                Derivative[2][\[Rho]0][r])))) + 
+       h00[r]*(-2*r*(-1 + E^\[Lambda][r] + 8*E^\[Lambda][r]*Pi*r^2*p0[r])*
+          (-8*E^\[Lambda][r]*r*(-1 + E^\[Lambda][r] + 8*E^\[Lambda][r]*Pi*r^2*
+              p0[r])*((-1 + E^\[Lambda][r])^2*(1 + 6*E^\[Lambda][r] + E^
+                (2*\[Lambda][r])) + 1024*E^(3*\[Lambda][r])*
+              (-3 + 2*E^\[Lambda][r])*Pi^3*r^6*p0[r]^3 + 
+             4096*E^(4*\[Lambda][r])*Pi^4*r^8*p0[r]^4 - 16*E^\[Lambda][r]*
+              (-1 + E^(2*\[Lambda][r]))*Pi*r^2*\[Rho]0[r] + 
+             64*E^(2*\[Lambda][r])*Pi^2*r^4*\[Rho]0[r]^2 + 
+             64*E^(2*\[Lambda][r])*Pi^2*r^4*p0[r]^2*(7 - 8*E^\[Lambda][r] + 6*
+                E^(2*\[Lambda][r]) - 16*E^\[Lambda][r]*Pi*r^2*\[Rho]0[r]) + 
+             16*E^\[Lambda][r]*Pi*r^2*p0[r]*(3 - 6*E^\[Lambda][r] + E^
+                (2*\[Lambda][r]) + 2*E^(3*\[Lambda][r]) - 8*E^\[Lambda][r]*
+                (-3 + 2*E^\[Lambda][r])*Pi*r^2*\[Rho]0[r]))*
+            Derivative[1][\[Rho]0][r]^2*Derivative[2][\[Eta]][\[Rho]0[r]] + 
+           Derivative[1][\[Eta]][\[Rho]0[r]]*(((-1 + E^\[Lambda][r])^3*
+                (1 - 39*E^\[Lambda][r] - 290*E^(2*\[Lambda][r]) - 
+                 50*E^(3*\[Lambda][r]) + 9*E^(4*\[Lambda][r]) + 
+                 E^(5*\[Lambda][r])) + 2097152*E^(7*\[Lambda][r])*
+                (-9 + 8*E^\[Lambda][r])*Pi^7*r^14*p0[r]^7 + 16777216*
+                E^(8*\[Lambda][r])*Pi^8*r^16*p0[r]^8 + 8*E^\[Lambda][r]*
+                (-1 + E^\[Lambda][r])^2*(-1 + 192*E^\[Lambda][r] + 
+                 286*E^(2*\[Lambda][r]) + 40*E^(3*\[Lambda][r]) + 
+                 3*E^(4*\[Lambda][r]))*Pi*r^2*\[Rho]0[r] - 512*
+                E^(3*\[Lambda][r])*(-24 + 15*E^\[Lambda][r] + 
+                 8*E^(2*\[Lambda][r]) + E^(3*\[Lambda][r]))*Pi^2*r^4*
+                \[Rho]0[r]^2 + 2048*E^(4*\[Lambda][r])*(11 + E^\[Lambda][r])*
+                Pi^3*r^6*\[Rho]0[r]^3 + 1048576*E^(6*\[Lambda][r])*Pi^6*r^12*
+                p0[r]^6*(8 - 11*E^\[Lambda][r] + 7*E^(2*\[Lambda][r]) - 
+                 2*E^\[Lambda][r]*Pi*r^2*\[Rho]0[r]) + 32768*
+                E^(5*\[Lambda][r])*Pi^5*r^10*p0[r]^5*(-59 + 
+                 82*E^\[Lambda][r] - 79*E^(2*\[Lambda][r]) + 
+                 56*E^(3*\[Lambda][r]) - 16*E^\[Lambda][r]*(-3 + 
+                   E^\[Lambda][r])*Pi*r^2*\[Rho]0[r]) + 8192*
+                E^(4*\[Lambda][r])*Pi^4*r^8*p0[r]^4*(30 - 17*E^\[Lambda][r] - 
+                 13*E^(2*\[Lambda][r]) - 25*E^(3*\[Lambda][r]) + 
+                 35*E^(4*\[Lambda][r]) + 20*E^\[Lambda][r]*(-3 + 
+                   2*E^\[Lambda][r] + E^(2*\[Lambda][r]))*Pi*r^2*\[Rho]0[
+                   r]) + 512*E^(3*\[Lambda][r])*Pi^3*r^6*p0[r]^3*
+                (-31 - 496*E^\[Lambda][r] + 810*E^(2*\[Lambda][r]) - 
+                 324*E^(3*\[Lambda][r]) + 25*E^(4*\[Lambda][r]) + 
+                 56*E^(5*\[Lambda][r]) + 32*E^\[Lambda][r]*(5 - 
+                   46*E^\[Lambda][r] + 7*E^(2*\[Lambda][r]) + 
+                   5*E^(3*\[Lambda][r]))*Pi*r^2*\[Rho]0[r] - 
+                 512*E^(3*\[Lambda][r])*Pi^2*r^4*\[Rho]0[r]^2) + 256*
+                E^(2*\[Lambda][r])*Pi^2*r^4*p0[r]^2*(1 + 290*E^\[Lambda][r] - 
+                 545*E^(2*\[Lambda][r]) + 352*E^(3*\[Lambda][r]) - 
+                 119*E^(4*\[Lambda][r]) + 14*E^(5*\[Lambda][r]) + 
+                 7*E^(6*\[Lambda][r]) + 2*E^\[Lambda][r]*(-15 + 
+                   264*E^\[Lambda][r] - 174*E^(2*\[Lambda][r]) + 
+                   84*E^(3*\[Lambda][r]) + 25*E^(4*\[Lambda][r]))*Pi*r^2*
+                  \[Rho]0[r] - 192*E^(3*\[Lambda][r])*(3 + 2*E^\[Lambda][r])*
+                  Pi^2*r^4*\[Rho]0[r]^2) + 8*E^\[Lambda][r]*Pi*r^2*p0[r]*
+                ((-1 + E^\[Lambda][r])^2*(3 + 584*E^\[Lambda][r] + 
+                   30*E^(2*\[Lambda][r]) - 216*E^(3*\[Lambda][r]) + 
+                   47*E^(4*\[Lambda][r]) + 8*E^(5*\[Lambda][r])) + 
+                 16*E^\[Lambda][r]*(3 + 507*E^\[Lambda][r] - 
+                   666*E^(2*\[Lambda][r]) + 102*E^(3*\[Lambda][r]) + 
+                   47*E^(4*\[Lambda][r]) + 7*E^(5*\[Lambda][r]))*Pi*r^2*
+                  \[Rho]0[r] - 256*E^(3*\[Lambda][r])*(-71 + 
+                   25*E^\[Lambda][r] + 6*E^(2*\[Lambda][r]))*Pi^2*r^4*
+                  \[Rho]0[r]^2 + 2048*E^(4*\[Lambda][r])*Pi^3*r^6*\[Rho]0[r]^
+                   3))*Derivative[1][\[Rho]0][r] + 128*E^(2*\[Lambda][r])*Pi*
+              r^3*(-1 + E^\[Lambda][r] + 8*E^\[Lambda][r]*Pi*r^2*p0[r])*
+              (-1 + E^(2*\[Lambda][r]) + 8*E^\[Lambda][r]*(-3 + 
+                 2*E^\[Lambda][r])*Pi*r^2*p0[r] + 64*E^(2*\[Lambda][r])*Pi^2*
+                r^4*p0[r]^2 - 8*E^\[Lambda][r]*Pi*r^2*\[Rho]0[r])*
+              Derivative[1][\[Rho]0][r]^2 - 8*E^\[Lambda][r]*r*
+              (-1 + E^\[Lambda][r] + 8*E^\[Lambda][r]*Pi*r^2*p0[r])*
+              ((-1 + E^\[Lambda][r])^2*(1 + 6*E^\[Lambda][r] + 
+                 E^(2*\[Lambda][r])) + 1024*E^(3*\[Lambda][r])*
+                (-3 + 2*E^\[Lambda][r])*Pi^3*r^6*p0[r]^3 + 4096*
+                E^(4*\[Lambda][r])*Pi^4*r^8*p0[r]^4 - 16*E^\[Lambda][r]*
+                (-1 + E^(2*\[Lambda][r]))*Pi*r^2*\[Rho]0[r] + 64*
+                E^(2*\[Lambda][r])*Pi^2*r^4*\[Rho]0[r]^2 + 64*
+                E^(2*\[Lambda][r])*Pi^2*r^4*p0[r]^2*(7 - 8*E^\[Lambda][r] + 
+                 6*E^(2*\[Lambda][r]) - 16*E^\[Lambda][r]*Pi*r^2*\[Rho]0[
+                   r]) + 16*E^\[Lambda][r]*Pi*r^2*p0[r]*(3 - 
+                 6*E^\[Lambda][r] + E^(2*\[Lambda][r]) + 
+                 2*E^(3*\[Lambda][r]) - 8*E^\[Lambda][r]*(-3 + 
+                   2*E^\[Lambda][r])*Pi*r^2*\[Rho]0[r]))*Derivative[2][
+                \[Rho]0][r])) + \[Eta][\[Rho]0[r]]*
+          (2013265920*E^(9*\[Lambda][r])*(-3 + 2*E^\[Lambda][r])*Pi^9*r^18*
+            p0[r]^9 + 3221225472*E^(10*\[Lambda][r])*Pi^10*r^20*p0[r]^10 - 
+           4096*E^(4*\[Lambda][r])*(-139 + 110*E^\[Lambda][r] + 
+             29*E^(2*\[Lambda][r]))*Pi^3*r^6*\[Rho]0[r]^3 + 
+           786432*E^(5*\[Lambda][r])*Pi^4*r^8*\[Rho]0[r]^4 + 
+           16777216*E^(8*\[Lambda][r])*Pi^8*r^16*p0[r]^8*
+            (9*(29 - 40*E^\[Lambda][r] + 15*E^(2*\[Lambda][r])) - 
+             56*E^\[Lambda][r]*Pi*r^2*\[Rho]0[r]) + 
+           8388608*E^(7*\[Lambda][r])*Pi^7*r^14*p0[r]^7*
+            (-195 + 399*E^\[Lambda][r] - 315*E^(2*\[Lambda][r]) + 
+             90*E^(3*\[Lambda][r]) - 16*E^\[Lambda][r]*(-9 + 7*
+                E^\[Lambda][r])*Pi*r^2*\[Rho]0[r]) + 
+           524288*E^(6*\[Lambda][r])*Pi^6*r^12*p0[r]^6*
+            (3*(223 - 580*E^\[Lambda][r] + 672*E^(2*\[Lambda][r]) - 420*
+                E^(3*\[Lambda][r]) + 105*E^(4*\[Lambda][r])) - 
+             16*E^\[Lambda][r]*(71 - 113*E^\[Lambda][r] + 49*
+                E^(2*\[Lambda][r]))*Pi*r^2*\[Rho]0[r] + 
+             128*E^(2*\[Lambda][r])*Pi^2*r^4*\[Rho]0[r]^2) + 
+           65536*E^(5*\[Lambda][r])*Pi^5*r^10*p0[r]^5*
+            (3*(-225 + 748*E^\[Lambda][r] - 1006*E^(2*\[Lambda][r]) + 882*
+                E^(3*\[Lambda][r]) - 525*E^(4*\[Lambda][r]) + 126*
+                E^(5*\[Lambda][r])) - 32*E^\[Lambda][r]*(-73 + 152*
+                E^\[Lambda][r] - 150*E^(2*\[Lambda][r]) + 49*
+                E^(3*\[Lambda][r]))*Pi*r^2*\[Rho]0[r] + 
+             768*E^(2*\[Lambda][r])*(-1 + E^\[Lambda][r])*Pi^2*r^4*
+              \[Rho]0[r]^2 - 128*E^(2*\[Lambda][r])*Pi*r^3*Derivative[1][
+                \[Rho]0][r]) + 256*E^(2*\[Lambda][r])*(-1 + E^\[Lambda][r])*
+            Pi^2*r^4*\[Rho]0[r]^2*(-1 - 493*E^\[Lambda][r] + 
+             148*E^(2*\[Lambda][r]) + 340*E^(3*\[Lambda][r]) + 
+             5*E^(4*\[Lambda][r]) + E^(5*\[Lambda][r]) - 
+             16*E^(2*\[Lambda][r])*(17 + E^\[Lambda][r])*Pi*r^3*
+              Derivative[1][\[Rho]0][r]) - 8*E^\[Lambda][r]*
+            (-1 + E^\[Lambda][r])^2*Pi*r^2*\[Rho]0[r]*
+            (-1 - 1150*E^\[Lambda][r] - 1095*E^(2*\[Lambda][r]) + 
+             2132*E^(3*\[Lambda][r]) + 113*E^(4*\[Lambda][r]) - 
+             6*E^(5*\[Lambda][r]) + 7*E^(6*\[Lambda][r]) - 
+             64*E^(2*\[Lambda][r])*(48 + 23*E^\[Lambda][r] + E^
+                (2*\[Lambda][r]))*Pi*r^3*Derivative[1][\[Rho]0][r] - 
+             128*E^(2*\[Lambda][r])*Pi*r^4*Derivative[2][\[Rho]0][r]) + 
+           8192*E^(4*\[Lambda][r])*Pi^4*r^8*p0[r]^4*
+            (375 - 3264*E^\[Lambda][r] + 4365*E^(2*\[Lambda][r]) - 
+             2316*E^(3*\[Lambda][r]) + 1785*E^(4*\[Lambda][r]) - 
+             1260*E^(5*\[Lambda][r]) + 315*E^(6*\[Lambda][r]) + 
+             640*E^(2*\[Lambda][r])*(3 - 4*E^\[Lambda][r] + 3*
+                E^(2*\[Lambda][r]))*Pi^2*r^4*\[Rho]0[r]^2 - 
+             32*E^(2*\[Lambda][r])*(-43 + 21*E^\[Lambda][r])*Pi*r^3*
+              Derivative[1][\[Rho]0][r] - 8*E^\[Lambda][r]*Pi*r^2*\[Rho]0[r]*
+              (345 - 382*E^\[Lambda][r] + 1078*E^(2*\[Lambda][r]) - 870*
+                E^(3*\[Lambda][r]) + 245*E^(4*\[Lambda][r]) - 32*
+                E^(2*\[Lambda][r])*Pi*r^3*Derivative[1][\[Rho]0][r]) - 
+             64*E^(2*\[Lambda][r])*Pi*r^4*Derivative[2][\[Rho]0][r]) + 
+           2048*E^(3*\[Lambda][r])*Pi^3*r^6*p0[r]^3*
+            (-39 + 1407*E^\[Lambda][r] - 2061*E^(2*\[Lambda][r]) + 
+             846*E^(3*\[Lambda][r]) - 117*E^(4*\[Lambda][r]) + 
+             189*E^(5*\[Lambda][r]) - 315*E^(6*\[Lambda][r]) + 
+             90*E^(7*\[Lambda][r]) + 128*E^(2*\[Lambda][r])*(-10 - 111*
+                E^\[Lambda][r] - 10*E^(2*\[Lambda][r]) + 10*
+                E^(3*\[Lambda][r]))*Pi^2*r^4*\[Rho]0[r]^2 - 
+             16*E^(2*\[Lambda][r])*(85 - 95*E^\[Lambda][r] + 44*
+                E^(2*\[Lambda][r]))*Pi*r^3*Derivative[1][\[Rho]0][r] - 
+             16*E^\[Lambda][r]*Pi*r^2*\[Rho]0[r]*(-59 + 401*E^\[Lambda][r] - 
+               634*E^(2*\[Lambda][r]) + 268*E^(3*\[Lambda][r]) - 185*
+                E^(4*\[Lambda][r]) + 49*E^(5*\[Lambda][r]) - 8*
+                E^(2*\[Lambda][r])*(17 + 4*E^\[Lambda][r])*Pi*r^3*
+                Derivative[1][\[Rho]0][r]) + 160*E^(2*\[Lambda][r])*Pi*r^4*
+              Derivative[2][\[Rho]0][r] - 128*E^(3*\[Lambda][r])*Pi*r^4*
+              Derivative[2][\[Rho]0][r]) + (-1 + E^\[Lambda][r])^3*
+            (3*(1 - 21*E^\[Lambda][r] - 183*E^(2*\[Lambda][r]) + 163*
+                E^(3*\[Lambda][r]) + 51*E^(4*\[Lambda][r]) - 15*
+                E^(5*\[Lambda][r]) + 3*E^(6*\[Lambda][r]) + E^
+                (7*\[Lambda][r])) - 64*E^(2*\[Lambda][r])*(31 + 52*
+                E^\[Lambda][r] + 5*E^(2*\[Lambda][r]))*Pi*r^3*
+              Derivative[1][\[Rho]0][r] - 128*E^(2*\[Lambda][r])*
+              (1 + E^\[Lambda][r])*Pi*r^4*Derivative[2][\[Rho]0][r]) + 
+           8*E^\[Lambda][r]*Pi*r^2*p0[r]*(-8192*E^(4*\[Lambda][r])*
+              (-89 + 29*E^\[Lambda][r])*Pi^3*r^6*\[Rho]0[r]^3 + 
+             512*E^(2*\[Lambda][r])*Pi^2*r^4*\[Rho]0[r]^2*(-3 + 898*
+                E^\[Lambda][r] - 1112*E^(2*\[Lambda][r]) + 209*
+                E^(3*\[Lambda][r]) + 5*E^(4*\[Lambda][r]) + 3*
+                E^(5*\[Lambda][r]) - 16*E^(2*\[Lambda][r])*
+                (8 + E^\[Lambda][r])*Pi*r^3*Derivative[1][\[Rho]0][r]) - 
+             64*E^\[Lambda][r]*(-1 + E^\[Lambda][r])*Pi*r^2*\[Rho]0[r]*
+              (3 + 1185*E^\[Lambda][r] - 1109*E^(2*\[Lambda][r]) - 128*
+                E^(3*\[Lambda][r]) + 59*E^(4*\[Lambda][r]) - 17*
+                E^(5*\[Lambda][r]) + 7*E^(6*\[Lambda][r]) - 8*
+                E^(2*\[Lambda][r])*(-31 + 63*E^\[Lambda][r] + 
+                 4*E^(2*\[Lambda][r]))*Pi*r^3*Derivative[1][\[Rho]0][r] - 32*
+                E^(2*\[Lambda][r])*Pi*r^4*Derivative[2][\[Rho]0][r]) + 
+             (-1 + E^\[Lambda][r])^2*(3*(9 + 1080*E^\[Lambda][r] + 
+                 339*E^(2*\[Lambda][r]) - 1534*E^(3*\[Lambda][r]) + 
+                 207*E^(4*\[Lambda][r]) - 116*E^(5*\[Lambda][r]) + 
+                 5*E^(6*\[Lambda][r]) + 10*E^(7*\[Lambda][r])) - 64*
+                E^(2*\[Lambda][r])*(-89 + 113*E^\[Lambda][r] + 
+                 24*E^(2*\[Lambda][r]))*Pi*r^3*Derivative[1][\[Rho]0][r] - 
+               128*E^(2*\[Lambda][r])*(-1 + 4*E^\[Lambda][r])*Pi*r^4*
+                Derivative[2][\[Rho]0][r])) + 64*E^(2*\[Lambda][r])*Pi^2*r^4*
+            p0[r]^2*(-118784*E^(4*\[Lambda][r])*Pi^3*r^6*\[Rho]0[r]^3 + 
+             256*E^(2*\[Lambda][r])*Pi^2*r^4*\[Rho]0[r]^2*(15 + 540*
+                E^\[Lambda][r] - 154*E^(2*\[Lambda][r]) + 15*
+                E^(4*\[Lambda][r]) - 16*E^(2*\[Lambda][r])*Pi*r^3*
+                Derivative[1][\[Rho]0][r]) - 32*E^\[Lambda][r]*Pi*r^2*
+              \[Rho]0[r]*(43 - 3349*E^\[Lambda][r] + 5163*
+                E^(2*\[Lambda][r]) - 2072*E^(3*\[Lambda][r]) + 349*
+                E^(4*\[Lambda][r]) - 183*E^(5*\[Lambda][r]) + 49*
+                E^(6*\[Lambda][r]) - 16*E^(2*\[Lambda][r])*(-97 + 
+                 55*E^\[Lambda][r] + 6*E^(2*\[Lambda][r]))*Pi*r^3*
+                Derivative[1][\[Rho]0][r] - 32*E^(2*\[Lambda][r])*Pi*r^4*
+                Derivative[2][\[Rho]0][r]) + (-1 + E^\[Lambda][r])*
+              (-128*E^(2*\[Lambda][r])*(-37 + 11*E^\[Lambda][r] + 
+                 23*E^(2*\[Lambda][r]))*Pi*r^3*Derivative[1][\[Rho]0][r] + 3*
+                (-1 + E^\[Lambda][r])*(-15 + 3610*E^\[Lambda][r] - 
+                 2285*E^(2*\[Lambda][r]) + 100*E^(3*\[Lambda][r]) - 
+                 273*E^(4*\[Lambda][r]) - 30*E^(5*\[Lambda][r]) + 
+                 45*E^(6*\[Lambda][r]) - 256*E^(2*\[Lambda][r])*Pi*r^4*
+                  Derivative[2][\[Rho]0][r])))))))/
+     (-1 + E^\[Lambda][r] + 8*E^\[Lambda][r]*Pi*r^2*p0[r])^6
+ 
+S\[Eta]2A = ((-1/3*I)*E^((-4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+           1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*
+            Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 
+             160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*
+                Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 
+             256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*
+                Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+         (42525*K^4) + ((-4*(4*K*pc + Sqrt[K*pc])*Pi*r^2)/(3*K) + 
+          (2*pc^2*(3 + 14*Sqrt[K*pc] + 8*K*pc*(5 + 16*Sqrt[K*pc]))*Pi^2*r^4)/
+           (45*(K*pc)^(3/2)) - (2*Sqrt[K*pc]*(9 - 198*Sqrt[K*pc] + 
+             64*K^2*pc^2*(-15 + 112*Sqrt[K*pc]) - 8*K*pc*(139 + 174*
+                Sqrt[K*pc]))*Pi^3*r^6)/(2835*K^3) + 
+          (Sqrt[K*pc]*(15 - 2874*Sqrt[K*pc] + 512*K^3*pc^3*(-785 + 448*
+                Sqrt[K*pc]) - 128*K^2*pc^2*(326 + 1103*Sqrt[K*pc]) + 
+             8*K*pc*(-593 + 2398*Sqrt[K*pc]))*Pi^4*r^8)/(85050*K^4) - \[Nu]c)/
+         2)*Pi*(r*(2*a0*r - (4*a0*(3 + 26*Sqrt[K*pc] + 
+            8*K*pc*(17 + 40*Sqrt[K*pc]))*Pi*r^3)/(21*(K + 4*K*Sqrt[K*pc])) + 
+         (a0*(1687552*K^4*pc^4 + 15*Sqrt[K*pc] + 2*K*pc*
+             (129 + 2480*Sqrt[K*pc]) + 256*K^3*pc^3*(4237 + 
+              7844*Sqrt[K*pc]) + 16*K^2*pc^2*(3497 + 20572*Sqrt[K*pc]))*Pi^2*
+           r^5)/(315*K^2*(12*K*pc + 64*K^2*pc^2 + Sqrt[K*pc] + 
+            48*(K*pc)^(3/2))) - (4*a0*(15 - 318*Sqrt[K*pc] + 
+            104*K*pc*(-7 + 2428*Sqrt[K*pc]) + 2097152*K^6*pc^6*
+             (46867 + 20224*Sqrt[K*pc]) + 122880*K^4*pc^4*
+             (80907 + 251804*Sqrt[K*pc]) + 128*K^2*pc^2*
+             (41875 + 458607*Sqrt[K*pc]) + 131072*K^5*pc^5*
+             (529047 + 805940*Sqrt[K*pc]) + 1536*K^3*pc^3*
+             (282803 + 1553124*Sqrt[K*pc]))*Pi^3*r^7)/
+          (31185*K^3*(1 + 28*Sqrt[K*pc] + 4096*K^3*pc^3*(7 + 4*Sqrt[K*pc]) + 
+            1792*K^2*pc^2*(5 + 12*Sqrt[K*pc]) + 112*K*pc*
+             (3 + 20*Sqrt[K*pc]))) + 10*a8*r^9)*
+        (-1 + E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+             1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*
+                (5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+              (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*
+                pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+              (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+               4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                 2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)) + 
+         (4*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*
+                (3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*
+                Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                  (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*
+                r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                  (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4))*
+           pc*Pi*r^2*(3*(64 + 279*Sqrt[K*pc])*Pi^4*r^8 + 2*K*Pi^3*r^6*
+             (-270*(4 + 53*Sqrt[K*pc]) + pc*(6275 + 85548*Sqrt[K*pc])*Pi*r^
+                2) + 12*K^2*Pi^2*r^4*(315*(4 + 45*Sqrt[K*pc]) - 
+              30*pc*(649 + 3488*Sqrt[K*pc])*Pi*r^2 + 8*pc^2*(12435 + 
+                53804*Sqrt[K*pc])*Pi^2*r^4) + 36*K^3*Pi*r^2*
+             (-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 252*Sqrt[K*pc])*Pi*r^
+                2 - 80*pc^2*(1389 + 2444*Sqrt[K*pc])*Pi^2*r^4 + 
+              32*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*r^6) + 
+            14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 
+              368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*r^8)))/(42525*K^4))*
+        ((pc + pc/Sqrt[K*pc] - ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*
+              (1 + 2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+            ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 3*
+                Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+            ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 57344*K^3*
+                pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 62080*
+                (K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+            ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*Sqrt[K*pc]) + 
+               384*K^3*pc^3*(13745 + 61476*Sqrt[K*pc]) + 8*K^2*pc^2*
+                (4313 + 83508*Sqrt[K*pc]))*Pi^4*r^8)/(340200*K^5))^2*
+          (2560*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                 Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*
+                 r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                   (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*
+                 r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                   (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                  32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+              (14175*K^4))*(-23 + 22*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                    Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                    4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                   (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                    4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                   (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                       Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                    32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                (42525*K^4)) + E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                     7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                   594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                   4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                  (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                      Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                   32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*
+                K^4)))*Pi^2*r^4*(pc + pc/Sqrt[K*pc] - ((2*K*pc + Sqrt[K*pc])*
+                (4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*
+                Sqrt[K*pc]) + ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 
+                 448*K^2*pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(
+                90*K^3) - ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*
+                  pc^2 + 57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                 62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+              ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                   3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                    Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[K*pc]) + 
+                 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*r^8)/(340200*
+                K^5))^2 - 98304*E^((16*Pi*r^2*(28350*K^3*(K*pc + 
+                  Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                  4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                 (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                  4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                 (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                     Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                  32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+              (42525*K^4))*Pi^3*r^6*(pc + pc/Sqrt[K*pc] - 
+              ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc])*
+                Pi*r^2)/(3*K^2*Sqrt[K*pc]) + ((1 + 4*K*pc + 4*Sqrt[K*pc])*
+                (34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*
+                Pi^2*r^4)/(90*K^3) - ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 
+                 25632*K^2*pc^2 + 57344*K^3*pc^3 + 24*Sqrt[K*pc] + 
+                 5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*
+                K^4) + ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*
+                  (669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 
+                   10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*
+                    Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*
+                r^8)/(340200*K^5))^3 - 
+           32*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                 Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*
+                 r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                   (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*
+                 r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                   (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                  32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+              (42525*K^4))*(-1 + E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                   Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                   4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                  (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                   4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                  (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                      Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                   32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*
+                K^4)))*Pi*r^2*(pc + pc/Sqrt[K*pc] - ((2*K*pc + Sqrt[K*pc])*(
+                4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc])*Pi*r^2)/
+              (3*K^2*Sqrt[K*pc]) + ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 
+                448*K^2*pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/
+              (90*K^3) - ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*
+                 pc^2 + 57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+             ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                  3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                   Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[K*pc]) + 
+                8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*r^8)/(340200*K^5))*
+            ((-1 + E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                    Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*
+                    Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 
+                     160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 
+                       582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 
+                     2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                     4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                       2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)))*
+              (1 + 264*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                    1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*
+                       (5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                     (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                    Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                        203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                      32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                  (42525*K^4)) + 42*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                      Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                      4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                     (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                    Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                        203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                      32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                  (42525*K^4)) - 4*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                      Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                      4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                     (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                    Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                        203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                      32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                  (14175*K^4)) + E^((16*Pi*r^2*(28350*K^3*(K*pc + 
+                     Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                     4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                    (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (42525*K^4))) - (16*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                     Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                     4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                    (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (42525*K^4))*(17 + E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                      Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                      4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                     (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                    Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                        203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                      32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                  (42525*K^4)))*Pi^2*r^4*((-28350*K^3*(2*K*pc + Sqrt[K*pc])*
+                  (4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc]))/Sqrt[K*pc] + 
+                1890*K^2*(1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*
+                   pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi*r^2 - 
+                135*K*(2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                  57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                  62080*(K*pc)^(5/2))*Pi^2*r^4 + (54591488*K^5*pc^5 + 
+                  15*Sqrt[K*pc] - 2*K*pc*(669 + 3050*Sqrt[K*pc]) + 
+                  8704*K^4*pc^4*(7215 + 10492*Sqrt[K*pc]) + 384*K^3*pc^3*
+                   (13745 + 61476*Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 
+                    83508*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^5)) + 
+           (-1 + E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                   Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*
+                   Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*
+                     pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                        K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 
+                    256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 
+                      818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*
+                   Pi^3*r^6))/(42525*K^4)))^2*
+            (3*(-1 + E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                   1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                       7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                     594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (42525*K^4)))*(-1 + 25*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                      Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                      4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                     (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                    Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                        203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                      32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                  (42525*K^4)) + 58*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                      Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                      4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                     (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                    Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                        203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                      32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                  (42525*K^4)) - 18*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                      Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                      4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                     (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                    Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                        203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                      32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                  (14175*K^4)) - E^((16*Pi*r^2*(28350*K^3*(K*pc + 
+                     Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                     4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                    (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (42525*K^4)) + E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                   1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                       7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                     594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (8505*K^4))) - (64*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                     Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                     4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                    (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (42525*K^4))*(31 + 5*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4)))*Pi^2*r^4*((-28350*K^3*(2*K*pc + Sqrt[K*pc])*
+                  (4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc]))/Sqrt[K*pc] + 
+                1890*K^2*(1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*
+                   pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi*r^2 - 
+                135*K*(2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                  57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                  62080*(K*pc)^(5/2))*Pi^2*r^4 + (54591488*K^5*pc^5 + 
+                  15*Sqrt[K*pc] - 2*K*pc*(669 + 3050*Sqrt[K*pc]) + 
+                  8704*K^4*pc^4*(7215 + 10492*Sqrt[K*pc]) + 384*K^3*pc^3*
+                   (13745 + 61476*Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 
+                    83508*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^5) - 
+             (128*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                    Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*
+                    Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 
+                     160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 
+                       582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 
+                     2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                     4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                       2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4))*Pi^2*r^4*(
+                (-28350*K^3*(2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*
+                  (1 + 2*Sqrt[K*pc]))/Sqrt[K*pc] + 5670*K^2*(1 + 4*K*pc + 
+                  4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 
+                  200*(K*pc)^(3/2))*Pi*r^2 - 675*K*(2*K*pc + Sqrt[K*pc])*
+                 (3 + 580*K*pc + 25632*K^2*pc^2 + 57344*K^3*pc^3 + 
+                  24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*
+                 Pi^2*r^4 + 7*(54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 
+                  2*K*pc*(669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 
+                    10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*
+                     Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^3*
+                 r^6))/(42525*K^5)) + 
+           (65536*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                  Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*
+                  Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*
+                    pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                  Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                    (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                   32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/(6075*
+                K^4))*(-3 + 2*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                   1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                       7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                     594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (42525*K^4)))*pc^7*Pi^7*r^14*(3*(64 + 279*Sqrt[K*pc])*Pi^4*
+                r^8 + 2*K*Pi^3*r^6*(-270*(4 + 53*Sqrt[K*pc]) + 
+                 pc*(6275 + 85548*Sqrt[K*pc])*Pi*r^2) + 12*K^2*Pi^2*r^4*
+                (315*(4 + 45*Sqrt[K*pc]) - 30*pc*(649 + 3488*Sqrt[K*pc])*Pi*
+                  r^2 + 8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 36*K^3*
+                Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 
+                   252*Sqrt[K*pc])*Pi*r^2 - 80*pc^2*(1389 + 2444*Sqrt[K*pc])*
+                  Pi^2*r^4 + 32*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*r^6) + 
+               14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 
+                 368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*r^8))^7)/
+            (83827980032278474328411865234375*K^28) + 
+           (65536*E^((32*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                     7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                   594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                   4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                  (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                      Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                   32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*
+                K^4))*pc^8*Pi^8*r^16*(3*(64 + 279*Sqrt[K*pc])*Pi^4*r^8 + 2*K*
+                Pi^3*r^6*(-270*(4 + 53*Sqrt[K*pc]) + pc*(6275 + 85548*
+                    Sqrt[K*pc])*Pi*r^2) + 12*K^2*Pi^2*r^4*
+                (315*(4 + 45*Sqrt[K*pc]) - 30*pc*(649 + 3488*Sqrt[K*pc])*Pi*
+                  r^2 + 8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 36*K^3*
+                Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 
+                   252*Sqrt[K*pc])*Pi*r^2 - 80*pc^2*(1389 + 2444*Sqrt[K*pc])*
+                  Pi^2*r^4 + 32*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*r^6) + 
+               14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 
+                 368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*r^8))^8)/
+            (3564784850872642120815714569091796875*K^32) + 
+           (16384*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                  Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*
+                  Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*
+                    pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                  Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                    (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                   32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/(14175*
+                K^4))*pc^6*Pi^6*r^12*(3*(64 + 279*Sqrt[K*pc])*Pi^4*r^8 + 2*K*
+                Pi^3*r^6*(-270*(4 + 53*Sqrt[K*pc]) + pc*(6275 + 85548*
+                    Sqrt[K*pc])*Pi*r^2) + 12*K^2*Pi^2*r^4*
+                (315*(4 + 45*Sqrt[K*pc]) - 30*pc*(649 + 3488*Sqrt[K*pc])*Pi*
+                  r^2 + 8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 36*K^3*
+                Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 
+                   252*Sqrt[K*pc])*Pi*r^2 - 80*pc^2*(1389 + 2444*Sqrt[K*pc])*
+                  Pi^2*r^4 + 32*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*r^6) + 
+               14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 
+                 368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*r^8))^6*
+             (39 - 57*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                   1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                       7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                     594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (42525*K^4)) + 21*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                     Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                     4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                    (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (42525*K^4)) - 8*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                     Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                     4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                    (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (42525*K^4))*Pi*r^2*(pc + pc/Sqrt[K*pc] - 
+                ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 
+                   2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+                ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                   3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+                ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                   57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                   62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+                ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                     3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                      Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[K*pc]) + 
+                   8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*r^8)/
+                 (340200*K^5))))/(5913790478467617236572265625*K^24) + 
+           (256*E^((16*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                  Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*
+                  Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*
+                    pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                  Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                    (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                   32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*
+                K^4))*(-1 + E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                  1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                      7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                    594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                    4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                   (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                       Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                    32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                (42525*K^4)))*pc^4*Pi^4*r^8*(3*(64 + 279*Sqrt[K*pc])*Pi^4*
+                r^8 + 2*K*Pi^3*r^6*(-270*(4 + 53*Sqrt[K*pc]) + 
+                 pc*(6275 + 85548*Sqrt[K*pc])*Pi*r^2) + 12*K^2*Pi^2*r^4*
+                (315*(4 + 45*Sqrt[K*pc]) - 30*pc*(649 + 3488*Sqrt[K*pc])*Pi*
+                  r^2 + 8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 36*K^3*
+                Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 
+                   252*Sqrt[K*pc])*Pi*r^2 - 80*pc^2*(1389 + 2444*Sqrt[K*pc])*
+                  Pi^2*r^4 + 32*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*r^6) + 
+               14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 
+                 368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*r^8))^4*
+             (-30 + 46*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                   1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                       7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                     594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (42525*K^4)) - 46*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                     Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                     4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                    (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (42525*K^4)) + 14*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                     Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                     4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                    (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (14175*K^4)) - 32*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                     Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                     4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                    (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (42525*K^4))*(-1 + E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                      Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                      4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                     (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                    Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                        203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                      32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                  (42525*K^4)))*Pi*r^2*(pc + pc/Sqrt[K*pc] - 
+                ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 
+                   2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+                ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                   3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+                ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                   57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                   62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+                ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                     3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                      Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[K*pc]) + 
+                   8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*r^8)/
+                 (340200*K^5))))/(218014826739609375*K^16) + 
+           (2048*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                  Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*
+                  Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*
+                    pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                  Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                    (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                   32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/(8505*
+                K^4))*pc^5*Pi^5*r^10*(3*(64 + 279*Sqrt[K*pc])*Pi^4*r^8 + 2*K*
+                Pi^3*r^6*(-270*(4 + 53*Sqrt[K*pc]) + pc*(6275 + 85548*
+                    Sqrt[K*pc])*Pi*r^2) + 12*K^2*Pi^2*r^4*
+                (315*(4 + 45*Sqrt[K*pc]) - 30*pc*(649 + 3488*Sqrt[K*pc])*Pi*
+                  r^2 + 8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 36*K^3*
+                Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 
+                   252*Sqrt[K*pc])*Pi*r^2 - 80*pc^2*(1389 + 2444*Sqrt[K*pc])*
+                  Pi^2*r^4 + 32*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*r^6) + 
+               14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 
+                 368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*r^8))^5*
+             (-58 + 124*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                   1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                       7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                     594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (42525*K^4)) - 102*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                     Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                     4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                    (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (42525*K^4)) + 28*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                     Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                     4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                    (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (14175*K^4)) - 32*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                     Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                     4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                    (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (42525*K^4))*(-1 + E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                      Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                      4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                     (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                    Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                        203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                      32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                  (42525*K^4)))*Pi*r^2*(pc + pc/Sqrt[K*pc] - 
+                ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 
+                   2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+                ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                   3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+                ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                   57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                   62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+                ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                     3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                      Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[K*pc]) + 
+                   8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*r^8)/
+                 (340200*K^5))))/(46355402535509443359375*K^20) + 
+           (256*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                  Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*
+                  Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*
+                    pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                  Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                    (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                   32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/(14175*
+                K^4))*pc^3*Pi^3*r^6*(3*(64 + 279*Sqrt[K*pc])*Pi^4*r^8 + 2*K*
+                Pi^3*r^6*(-270*(4 + 53*Sqrt[K*pc]) + pc*(6275 + 85548*
+                    Sqrt[K*pc])*Pi*r^2) + 12*K^2*Pi^2*r^4*
+                (315*(4 + 45*Sqrt[K*pc]) - 30*pc*(649 + 3488*Sqrt[K*pc])*Pi*
+                  r^2 + 8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 36*K^3*
+                Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 
+                   252*Sqrt[K*pc])*Pi*r^2 - 80*pc^2*(1389 + 2444*Sqrt[K*pc])*
+                  Pi^2*r^4 + 32*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*r^6) + 
+               14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 
+                 368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*r^8))^3*
+             (3*(-1 + E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                    1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*
+                       (5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                     (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                    Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                        203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                      32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                  (42525*K^4)))*(29 - 81*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4)) + 49*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4)) - 51*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (14175*K^4)) + 14*E^((16*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4))) - (64*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                      Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                      4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                     (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                    Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                        203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                      32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                  (42525*K^4))*Pi^2*r^4*((-28350*K^3*(2*K*pc + Sqrt[K*pc])*
+                   (4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc]))/Sqrt[K*pc] + 
+                 1890*K^2*(1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*
+                    pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi*r^2 - 
+                 135*K*(2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                   57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                   62080*(K*pc)^(5/2))*Pi^2*r^4 + (54591488*K^5*pc^5 + 
+                   15*Sqrt[K*pc] - 2*K*pc*(669 + 3050*Sqrt[K*pc]) + 
+                   8704*K^4*pc^4*(7215 + 10492*Sqrt[K*pc]) + 384*K^3*pc^3*
+                    (13745 + 61476*Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 
+                     83508*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^5) - 
+              160*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                    Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*
+                    Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 
+                     160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 
+                       582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 
+                     2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                     4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                       2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4))*(-1 + 
+                E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                     Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                        7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                      594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                      4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                     (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                         Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                      32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                  (42525*K^4)) - 3*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4)) + E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[
+                       K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                      4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                     (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                    Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                        203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                      32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                  (14175*K^4)))*Pi*r^2*(pc + pc/Sqrt[K*pc] - 
+                ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 
+                   2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+                ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                   3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+                ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                   57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                   62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+                ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                     3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                      Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[K*pc]) + 
+                   8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*r^8)/
+                 (340200*K^5))))/(76901173453125*K^12) + 
+           (64*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                  Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*
+                  Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*
+                    pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                  Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                    (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                   32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*
+                K^4))*pc^2*Pi^2*r^4*(3*(64 + 279*Sqrt[K*pc])*Pi^4*r^8 + 2*K*
+                Pi^3*r^6*(-270*(4 + 53*Sqrt[K*pc]) + pc*(6275 + 85548*
+                    Sqrt[K*pc])*Pi*r^2) + 12*K^2*Pi^2*r^4*
+                (315*(4 + 45*Sqrt[K*pc]) - 30*pc*(649 + 3488*Sqrt[K*pc])*Pi*
+                  r^2 + 8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 36*K^3*
+                Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 
+                   252*Sqrt[K*pc])*Pi*r^2 - 80*pc^2*(1389 + 2444*Sqrt[K*pc])*
+                  Pi^2*r^4 + 32*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*r^6) + 
+               14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 
+                 368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*r^8))^2*
+             (39 - 753*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                   1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                       7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                     594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (42525*K^4)) + 879*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                     Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                     4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                    (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (42525*K^4)) - 192*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                     Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                     4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                    (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (14175*K^4)) + 105*E^((16*Pi*r^2*(28350*K^3*(K*pc + 
+                     Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                     4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                    (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (42525*K^4)) - 99*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                     Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                     4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                    (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (8505*K^4)) + 21*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                     Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                     4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                    (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (14175*K^4)) - (16*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                      Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                      4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                     (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                    Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                        203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                      32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                  (42525*K^4))*(-31 + 13*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                        Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                        4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                       (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                      Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                         (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                       r^6))/(42525*K^4)))*Pi^2*r^4*((-28350*K^3*(2*K*pc + 
+                    Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc]))/
+                  Sqrt[K*pc] + 1890*K^2*(1 + 4*K*pc + 4*Sqrt[K*pc])*
+                  (34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*
+                  Pi*r^2 - 135*K*(2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 
+                   25632*K^2*pc^2 + 57344*K^3*pc^3 + 24*Sqrt[K*pc] + 
+                   5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*Pi^2*r^4 + 
+                 (54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                     3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                      Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[K*pc]) + 
+                   8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^3*r^6))/(42525*
+                K^5) - (32*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                    1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*
+                       (5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                     (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                    Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                        203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                      32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                  (42525*K^4))*Pi^2*r^4*((-28350*K^3*(2*K*pc + Sqrt[K*pc])*
+                   (4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc]))/Sqrt[K*pc] + 
+                 5670*K^2*(1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*
+                    pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi*r^2 - 
+                 675*K*(2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                   57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                   62080*(K*pc)^(5/2))*Pi^2*r^4 + 7*(54591488*K^5*pc^5 + 
+                   15*Sqrt[K*pc] - 2*K*pc*(669 + 3050*Sqrt[K*pc]) + 
+                   8704*K^4*pc^4*(7215 + 10492*Sqrt[K*pc]) + 384*K^3*pc^3*
+                    (13745 + 61476*Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 
+                     83508*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^5) + 
+              640*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                    Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*
+                    Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 
+                     160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 
+                       582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 
+                     2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                     4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                       2576*Sqrt[K*pc]))*Pi^3*r^6))/(14175*K^4))*Pi^2*r^
+                4*(pc + pc/Sqrt[K*pc] - ((2*K*pc + Sqrt[K*pc])*(4*K*pc + 
+                    Sqrt[K*pc])*(1 + 2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*
+                   Sqrt[K*pc]) + ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 
+                    448*K^2*pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/
+                  (90*K^3) - ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 
+                    25632*K^2*pc^2 + 57344*K^3*pc^3 + 24*Sqrt[K*pc] + 
+                    5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*Pi^3*r^6)/
+                  (1890*K^4) + ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 
+                    2*K*pc*(669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 
+                      10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*
+                       Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*
+                   Pi^4*r^8)/(340200*K^5))^2 - 8*E^((4*Pi*r^2*
+                  (28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*
+                    (3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                   15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                      (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                    Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*
+                      pc^3*(-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 
+                       818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*
+                    Pi^3*r^6))/(42525*K^4))*Pi*r^2*(pc + pc/Sqrt[K*pc] - 
+                ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 
+                   2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+                ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                   3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+                ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                   57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                   62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+                ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                     3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                      Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[K*pc]) + 
+                   8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*r^8)/
+                 (340200*K^5))*(15 + 144*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4)) + 46*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4)) - 60*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (14175*K^4)) + 15*E^((16*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4)) - (16*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                        Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                        4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                       (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                      Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                         (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                       r^6))/(42525*K^4))*Pi^2*r^4*((-28350*K^3*(2*K*pc + 
+                      Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc]))/
+                    Sqrt[K*pc] + 1890*K^2*(1 + 4*K*pc + 4*Sqrt[K*pc])*
+                    (34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^
+                       (3/2))*Pi*r^2 - 135*K*(2*K*pc + Sqrt[K*pc])*
+                    (3 + 580*K*pc + 25632*K^2*pc^2 + 57344*K^3*pc^3 + 
+                     24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*
+                    Pi^2*r^4 + (54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 
+                     2*K*pc*(669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 
+                       10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*
+                        Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*
+                    Pi^3*r^6))/(42525*K^5))))/(1808375625*K^8) + 
+           (8*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                  Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*
+                  Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*
+                    pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                  Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                    (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                   32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*
+                K^4))*pc*Pi*r^2*(3*(64 + 279*Sqrt[K*pc])*Pi^4*r^8 + 
+              2*K*Pi^3*r^6*(-270*(4 + 53*Sqrt[K*pc]) + pc*(6275 + 
+                  85548*Sqrt[K*pc])*Pi*r^2) + 12*K^2*Pi^2*r^4*(
+                315*(4 + 45*Sqrt[K*pc]) - 30*pc*(649 + 3488*Sqrt[K*pc])*Pi*
+                 r^2 + 8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 
+              36*K^3*Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 
+                  252*Sqrt[K*pc])*Pi*r^2 - 80*pc^2*(1389 + 2444*Sqrt[K*pc])*
+                 Pi^2*r^4 + 32*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*r^6) + 
+              14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 
+                368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*r^8))*
+             (512*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                    Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*
+                    Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 
+                     160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 
+                       582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 
+                     2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                     4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                       2576*Sqrt[K*pc]))*Pi^3*r^6))/(14175*K^4))*(-53 + 
+                5*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                      Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                         7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                       594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                       4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                      (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4)))*Pi^2*r^4*(pc + pc/Sqrt[K*pc] - 
+                 ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 
+                    2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+                 ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                    3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+                 ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                    57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                    62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+                 ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                      3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                       Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[
+                        K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*
+                   r^8)/(340200*K^5))^2 - 32*E^((4*Pi*r^2*(28350*K^3*
+                    (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                     4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                   15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                      (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                    Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*
+                      pc^3*(-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 
+                       818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*
+                    Pi^3*r^6))/(42525*K^4))*Pi*r^2*(pc + pc/Sqrt[K*pc] - 
+                ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 
+                   2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+                ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                   3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+                ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                   57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                   62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+                ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                     3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                      Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[K*pc]) + 
+                   8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*r^8)/
+                 (340200*K^5))*((-1 + E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                        Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                        4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                       (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                      Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                         (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                       r^6))/(42525*K^4)))*(3 - 444*E^((4*Pi*r^2*
+                      (28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*
+                        (3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*
+                        r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*
+                          pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*
+                          Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*
+                          Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                         4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)) + 
+                  34*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                        Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                         594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                         4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                        (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                          203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                         32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                     (42525*K^4)) - 12*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                         Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[
+                          K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                       15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                         4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(14175*K^4)) + 
+                  3*E^((16*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                        Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                         594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                         4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                        (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                          203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                         32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                     (42525*K^4))) - (16*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                        Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                        4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                       (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                      Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                         (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                       r^6))/(42525*K^4))*(8 + E^((4*Pi*r^2*(28350*K^3*
+                        (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                         4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                       15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                         4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)))*Pi^2*r^4*
+                  ((-28350*K^3*(2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*
+                     (1 + 2*Sqrt[K*pc]))/Sqrt[K*pc] + 1890*K^2*(1 + 4*K*pc + 
+                     4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 
+                     200*(K*pc)^(3/2))*Pi*r^2 - 135*K*(2*K*pc + Sqrt[K*pc])*
+                    (3 + 580*K*pc + 25632*K^2*pc^2 + 57344*K^3*pc^3 + 
+                     24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*
+                    Pi^2*r^4 + (54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 
+                     2*K*pc*(669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 
+                       10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*
+                        Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*
+                    Pi^3*r^6))/(42525*K^5)) + (-1 + E^((4*Pi*r^2*
+                   (28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*
+                     (3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                    15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                       (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                     Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*
+                       pc^3*(-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 
+                        818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[
+                          K*pc]))*Pi^3*r^6))/(42525*K^4)))*(
+                6*(-1 + E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                      1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*
+                         (5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                       (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                      Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                         (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                       r^6))/(42525*K^4)))*(-3 - 240*E^((4*Pi*r^2*
+                      (28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*
+                        (3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*
+                        r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*
+                          pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*
+                          Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*
+                          Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                         4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)) + 
+                  4*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                        Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                         594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                         4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                        (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                          203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                         32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                     (42525*K^4)) - 14*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                         Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[
+                          K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                       15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                         4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(14175*K^4)) - 
+                  5*E^((16*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                        Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                         594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                         4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                        (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                          203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                         32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                     (42525*K^4)) + 2*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                         Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[
+                          K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                       15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                         4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(8505*K^4))) - 
+                (64*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                       Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                        594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                        4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                       (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                          203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                        32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                    (42525*K^4))*(2 + 7*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                          Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[
+                          K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                        15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                          4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)))*Pi^2*r^4*
+                  ((-28350*K^3*(2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*
+                     (1 + 2*Sqrt[K*pc]))/Sqrt[K*pc] + 1890*K^2*(1 + 4*K*pc + 
+                     4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 
+                     200*(K*pc)^(3/2))*Pi*r^2 - 135*K*(2*K*pc + Sqrt[K*pc])*
+                    (3 + 580*K*pc + 25632*K^2*pc^2 + 57344*K^3*pc^3 + 
+                     24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*
+                    Pi^2*r^4 + (54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 
+                     2*K*pc*(669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 
+                       10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*
+                        Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*
+                    Pi^3*r^6))/(42525*K^5) - (128*E^((8*Pi*r^2*(28350*K^3*
+                       (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                        4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                      15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                         (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                       Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*
+                         pc^3*(-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 
+                          818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[
+                          K*pc]))*Pi^3*r^6))/(42525*K^4))*Pi^2*r^4*
+                  ((-28350*K^3*(2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*
+                     (1 + 2*Sqrt[K*pc]))/Sqrt[K*pc] + 5670*K^2*(1 + 4*K*pc + 
+                     4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 
+                     200*(K*pc)^(3/2))*Pi*r^2 - 675*K*(2*K*pc + Sqrt[K*pc])*
+                    (3 + 580*K*pc + 25632*K^2*pc^2 + 57344*K^3*pc^3 + 
+                     24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*
+                    Pi^2*r^4 + 7*(54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 
+                     2*K*pc*(669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 
+                       10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*
+                        Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*
+                    Pi^3*r^6))/(42525*K^5))))/(42525*K^4))*T - 
+         2*r*(-1 + E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*
+                r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                  (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*
+                r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                  (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+             (42525*K^4)) + (4*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                     7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                   594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                   4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                  (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                      Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                   32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*
+                K^4))*pc*Pi*r^2*(3*(64 + 279*Sqrt[K*pc])*Pi^4*r^8 + 
+              2*K*Pi^3*r^6*(-270*(4 + 53*Sqrt[K*pc]) + pc*(6275 + 
+                  85548*Sqrt[K*pc])*Pi*r^2) + 12*K^2*Pi^2*r^4*(
+                315*(4 + 45*Sqrt[K*pc]) - 30*pc*(649 + 3488*Sqrt[K*pc])*Pi*
+                 r^2 + 8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 
+              36*K^3*Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 
+                  252*Sqrt[K*pc])*Pi*r^2 - 80*pc^2*(1389 + 2444*Sqrt[K*pc])*
+                 Pi^2*r^4 + 32*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*r^6) + 
+              14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 
+                368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*r^8)))/(42525*K^4))*
+          ((-16*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                  Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*
+                  Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*
+                    pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                  Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                    (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                   32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*
+                K^4))*Pi^2*r^3*((-28350*K^3*(2*K*pc + Sqrt[K*pc])*
+                 (4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc]))/Sqrt[K*pc] + 1890*
+                K^2*(1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi*r^2 - 135*K*
+                (2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                 57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                 62080*(K*pc)^(5/2))*Pi^2*r^4 + (54591488*K^5*pc^5 + 
+                 15*Sqrt[K*pc] - 2*K*pc*(669 + 3050*Sqrt[K*pc]) + 
+                 8704*K^4*pc^4*(7215 + 10492*Sqrt[K*pc]) + 384*K^3*pc^3*
+                  (13745 + 61476*Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 
+                   83508*Sqrt[K*pc]))*Pi^3*r^6)^2*
+             (-1 + E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                   Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*
+                   Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*
+                     pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                        K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 
+                    256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 
+                      818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*
+                   Pi^3*r^6))/(42525*K^4)) + (4*E^((4*Pi*r^2*(28350*K^3*
+                     (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                      4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                    15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                       (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                     Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*
+                       pc^3*(-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 
+                        818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[
+                          K*pc]))*Pi^3*r^6))/(42525*K^4))*pc*Pi*r^2*
+                (3*(64 + 279*Sqrt[K*pc])*Pi^4*r^8 + 2*K*Pi^3*r^6*
+                  (-270*(4 + 53*Sqrt[K*pc]) + pc*(6275 + 85548*Sqrt[K*pc])*Pi*
+                    r^2) + 12*K^2*Pi^2*r^4*(315*(4 + 45*Sqrt[K*pc]) - 
+                   30*pc*(649 + 3488*Sqrt[K*pc])*Pi*r^2 + 8*pc^2*(12435 + 
+                     53804*Sqrt[K*pc])*Pi^2*r^4) + 36*K^3*Pi*r^2*
+                  (-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 252*Sqrt[K*pc])*
+                    Pi*r^2 - 80*pc^2*(1389 + 2444*Sqrt[K*pc])*Pi^2*r^4 + 
+                   32*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*r^6) + 
+                 14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 
+                   368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*r^8)))/(42525*
+                K^4))*(-1 + E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                  1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                      7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                    594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                    4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                   (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                       Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                    32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                (42525*K^4)) - 8*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[
+                      K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                     4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                    (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (42525*K^4))*Pi*r^2*(pc + pc/Sqrt[K*pc] - 
+                ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 
+                   2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+                ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                   3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+                ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                   57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                   62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+                ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                     3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                      Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[K*pc]) + 
+                   8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*r^8)/
+                 (340200*K^5)) + (4*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                      Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                      4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                     (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                    Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                        203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                      32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                  (42525*K^4))*(-3 + 2*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                        Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                        4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                       (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                      Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                         (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                       r^6))/(42525*K^4)))*pc*Pi*r^2*(3*(64 + 279*Sqrt[K*pc])*
+                  Pi^4*r^8 + 2*K*Pi^3*r^6*(-270*(4 + 53*Sqrt[K*pc]) + 
+                   pc*(6275 + 85548*Sqrt[K*pc])*Pi*r^2) + 12*K^2*Pi^2*r^4*
+                  (315*(4 + 45*Sqrt[K*pc]) - 30*pc*(649 + 3488*Sqrt[K*pc])*Pi*
+                    r^2 + 8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 
+                 36*K^3*Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 
+                     252*Sqrt[K*pc])*Pi*r^2 - 80*pc^2*(1389 + 2444*
+                      Sqrt[K*pc])*Pi^2*r^4 + 32*pc^3*(11897 + 18020*
+                      Sqrt[K*pc])*Pi^3*r^6) + 14*K^4*(6075 - 32400*pc*Pi*
+                    r^2 + 120960*pc^2*Pi^2*r^4 - 368640*pc^3*Pi^3*r^6 + 
+                   974848*pc^4*Pi^4*r^8)))/(42525*K^4) + 
+              (16*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                     Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                        7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                      594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                      4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                     (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                         Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                      32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                  (42525*K^4))*pc^2*Pi^2*r^4*(3*(64 + 279*Sqrt[K*pc])*Pi^4*
+                   r^8 + 2*K*Pi^3*r^6*(-270*(4 + 53*Sqrt[K*pc]) + 
+                    pc*(6275 + 85548*Sqrt[K*pc])*Pi*r^2) + 12*K^2*Pi^2*r^4*
+                   (315*(4 + 45*Sqrt[K*pc]) - 30*pc*(649 + 3488*Sqrt[K*pc])*
+                     Pi*r^2 + 8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 
+                  36*K^3*Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 
+                      252*Sqrt[K*pc])*Pi*r^2 - 80*pc^2*(1389 + 2444*
+                       Sqrt[K*pc])*Pi^2*r^4 + 32*pc^3*(11897 + 18020*
+                       Sqrt[K*pc])*Pi^3*r^6) + 14*K^4*(6075 - 32400*pc*Pi*
+                     r^2 + 120960*pc^2*Pi^2*r^4 - 368640*pc^3*Pi^3*r^6 + 
+                    974848*pc^4*Pi^4*r^8))^2)/(1808375625*K^8))*T)/
+            (1808375625*K^10) + 2*(pc + pc/Sqrt[K*pc] - 
+             ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc])*
+               Pi*r^2)/(3*K^2*Sqrt[K*pc]) + ((1 + 4*K*pc + 4*Sqrt[K*pc])*(
+                34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^
+                2*r^4)/(90*K^3) - ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 
+                25632*K^2*pc^2 + 57344*K^3*pc^3 + 24*Sqrt[K*pc] + 
+                5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*Pi^3*r^6)/
+              (1890*K^4) + ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 
+                2*K*pc*(669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 
+                  10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*
+                   Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*r^
+                8)/(340200*K^5))*((128*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                     Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                     4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                    (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (42525*K^4))*Pi^3*r^5*((-28350*K^3*(2*K*pc + Sqrt[K*pc])*
+                   (4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc]))/Sqrt[K*pc] + 
+                 1890*K^2*(1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*
+                    pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi*r^2 - 
+                 135*K*(2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                   57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                   62080*(K*pc)^(5/2))*Pi^2*r^4 + (54591488*K^5*pc^5 + 
+                   15*Sqrt[K*pc] - 2*K*pc*(669 + 3050*Sqrt[K*pc]) + 
+                   8704*K^4*pc^4*(7215 + 10492*Sqrt[K*pc]) + 384*K^3*pc^3*
+                    (13745 + 61476*Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 
+                     83508*Sqrt[K*pc]))*Pi^3*r^6)^2*(-1 + 
+                E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                     Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                        7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                      594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                      4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                     (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                         Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                      32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                  (42525*K^4)) + (4*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                        Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                        4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                       (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                      Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                         (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                       r^6))/(42525*K^4))*pc*Pi*r^2*(3*(64 + 279*Sqrt[K*pc])*
+                    Pi^4*r^8 + 2*K*Pi^3*r^6*(-270*(4 + 53*Sqrt[K*pc]) + 
+                     pc*(6275 + 85548*Sqrt[K*pc])*Pi*r^2) + 12*K^2*Pi^2*r^4*
+                    (315*(4 + 45*Sqrt[K*pc]) - 30*pc*(649 + 3488*Sqrt[K*pc])*
+                      Pi*r^2 + 8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 
+                   36*K^3*Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*
+                      (107 + 252*Sqrt[K*pc])*Pi*r^2 - 80*pc^2*(1389 + 
+                       2444*Sqrt[K*pc])*Pi^2*r^4 + 32*pc^3*(11897 + 
+                       18020*Sqrt[K*pc])*Pi^3*r^6) + 14*K^4*(6075 - 
+                     32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 368640*pc^3*
+                      Pi^3*r^6 + 974848*pc^4*Pi^4*r^8)))/(42525*K^4)))/
+              (1808375625*K^10) - (8*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                     Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                     4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                    (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (42525*K^4))*Pi*r*((-28350*K^3*(2*K*pc + Sqrt[K*pc])*
+                  (4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc]))/Sqrt[K*pc] + 
+                5670*K^2*(1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*
+                   pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi*r^2 - 
+                675*K*(2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                  57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                  62080*(K*pc)^(5/2))*Pi^2*r^4 + 7*(54591488*K^5*pc^5 + 
+                  15*Sqrt[K*pc] - 2*K*pc*(669 + 3050*Sqrt[K*pc]) + 
+                  8704*K^4*pc^4*(7215 + 10492*Sqrt[K*pc]) + 384*K^3*pc^3*
+                   (13745 + 61476*Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 
+                    83508*Sqrt[K*pc]))*Pi^3*r^6)*(-1 + 
+                E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                     Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                        7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                      594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                      4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                     (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                         Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                      32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                  (42525*K^4)) + (4*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                        Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                        4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                       (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                      Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                         (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                       r^6))/(42525*K^4))*pc*Pi*r^2*(3*(64 + 279*Sqrt[K*pc])*
+                    Pi^4*r^8 + 2*K*Pi^3*r^6*(-270*(4 + 53*Sqrt[K*pc]) + 
+                     pc*(6275 + 85548*Sqrt[K*pc])*Pi*r^2) + 12*K^2*Pi^2*r^4*
+                    (315*(4 + 45*Sqrt[K*pc]) - 30*pc*(649 + 3488*Sqrt[K*pc])*
+                      Pi*r^2 + 8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 
+                   36*K^3*Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*
+                      (107 + 252*Sqrt[K*pc])*Pi*r^2 - 80*pc^2*(1389 + 
+                       2444*Sqrt[K*pc])*Pi^2*r^4 + 32*pc^3*(11897 + 
+                       18020*Sqrt[K*pc])*Pi^3*r^6) + 14*K^4*(6075 - 
+                     32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 368640*pc^3*
+                      Pi^3*r^6 + 974848*pc^4*Pi^4*r^8)))/(42525*K^4))*(-1 + 
+                E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                     Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                        7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                      594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                      4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                     (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                         Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                      32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                  (42525*K^4)) - 8*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4))*Pi*r^2*(pc + pc/Sqrt[K*pc] - 
+                  ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 
+                     2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+                  ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                     3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+                  ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                     57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                     62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+                  ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                       3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                        Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[
+                         K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*
+                    r^8)/(340200*K^5)) + (4*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                        Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                        4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                       (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                      Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                         (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                       r^6))/(42525*K^4))*(-3 + 2*E^((4*Pi*r^2*(28350*K^3*
+                         (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                          4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                        15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                          4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)))*pc*Pi*
+                  r^2*(3*(64 + 279*Sqrt[K*pc])*Pi^4*r^8 + 2*K*Pi^3*r^6*
+                    (-270*(4 + 53*Sqrt[K*pc]) + pc*(6275 + 85548*Sqrt[K*pc])*
+                      Pi*r^2) + 12*K^2*Pi^2*r^4*(315*(4 + 45*Sqrt[K*pc]) - 
+                     30*pc*(649 + 3488*Sqrt[K*pc])*Pi*r^2 + 8*pc^2*(12435 + 
+                       53804*Sqrt[K*pc])*Pi^2*r^4) + 36*K^3*Pi*r^2*
+                    (-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 252*Sqrt[K*pc])*
+                      Pi*r^2 - 80*pc^2*(1389 + 2444*Sqrt[K*pc])*Pi^2*r^4 + 
+                     32*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*r^6) + 
+                   14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 
+                     368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*r^8)))/
+                 (42525*K^4) + (16*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[
+                         K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                        4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                       (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                      Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                         (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                       r^6))/(42525*K^4))*pc^2*Pi^2*r^4*
+                  (3*(64 + 279*Sqrt[K*pc])*Pi^4*r^8 + 2*K*Pi^3*r^6*
+                     (-270*(4 + 53*Sqrt[K*pc]) + pc*(6275 + 85548*Sqrt[K*pc])*
+                       Pi*r^2) + 12*K^2*Pi^2*r^4*(315*(4 + 45*Sqrt[K*pc]) - 
+                      30*pc*(649 + 3488*Sqrt[K*pc])*Pi*r^2 + 8*pc^2*(12435 + 
+                        53804*Sqrt[K*pc])*Pi^2*r^4) + 36*K^3*Pi*r^2*
+                     (-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 252*Sqrt[
+                          K*pc])*Pi*r^2 - 80*pc^2*(1389 + 2444*Sqrt[K*pc])*
+                       Pi^2*r^4 + 32*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*
+                       r^6) + 14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*
+                       Pi^2*r^4 - 368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*
+                       r^8))^2)/(1808375625*K^8)))/(42525*K^5) + 
+             (Pi*r*((-28350*K^3*(2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*
+                  (1 + 2*Sqrt[K*pc]))/Sqrt[K*pc] + 1890*K^2*(1 + 4*K*pc + 
+                  4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 
+                  200*(K*pc)^(3/2))*Pi*r^2 - 135*K*(2*K*pc + Sqrt[K*pc])*
+                 (3 + 580*K*pc + 25632*K^2*pc^2 + 57344*K^3*pc^3 + 
+                  24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*
+                 Pi^2*r^4 + (54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 
+                  2*K*pc*(669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 
+                    10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*
+                     Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^3*
+                 r^6)*((-1 + E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                       1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*
+                          (5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                        (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                       Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*
+                          Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*
+                        Pi^3*r^6))/(42525*K^4)))^2*(1 - 
+                  44*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                        Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                         594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                         4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                        (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                          203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                         32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                     (42525*K^4)) - 66*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                         Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[
+                          K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                       15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                         4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)) + 
+                  4*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                        Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                         594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                         4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                        (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                          203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                         32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                     (14175*K^4)) + E^((16*Pi*r^2*(28350*K^3*(K*pc + 
+                        Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                        4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                       (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                      Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                         (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                       r^6))/(42525*K^4))) + 32*E^((8*Pi*r^2*(28350*K^3*
+                      (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                       4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                     15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                        (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                      Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*
+                        pc^3*(-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 
+                         818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[
+                          K*pc]))*Pi^3*r^6))/(42525*K^4))*(-37 + 
+                  31*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                        Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                         594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                         4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                        (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                          203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                         32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                     (42525*K^4)) + 5*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                         Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[
+                          K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                       15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                         4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)) + 
+                  E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                       Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                        594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                        4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                       (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                          203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                        32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                    (14175*K^4)))*Pi*r^2*(pc + pc/Sqrt[K*pc] - 
+                  ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 
+                     2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+                  ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                     3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+                  ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                     57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                     62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+                  ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                       3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                        Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[
+                         K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*
+                    r^8)/(340200*K^5)) - 256*E^((4*Pi*r^2*(28350*K^3*
+                      (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                       4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                     15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                        (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                      Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*
+                        pc^3*(-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 
+                         818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[
+                          K*pc]))*Pi^3*r^6))/(14175*K^4))*(11 + 
+                  E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                       Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                        594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                        4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                       (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                          203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                        32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                    (42525*K^4)))*Pi^2*r^4*(pc + pc/Sqrt[K*pc] - 
+                   ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 
+                      2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+                   ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                      3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+                   ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                      57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                      62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+                   ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                        3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                         Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[
+                          K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*
+                     r^8)/(340200*K^5))^2 + (256*E^((16*Pi*r^2*(28350*K^3*
+                       (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                        4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                      15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                         (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                       Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*
+                         pc^3*(-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 
+                          818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[
+                          K*pc]))*Pi^3*r^6))/(42525*K^4))*(5 - 
+                   6*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                         Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                          594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                          4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                        Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                         r^6))/(42525*K^4)) + 5*E^((8*Pi*r^2*(28350*K^3*
+                         (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                          4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                        15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                          4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)))*pc^4*
+                  Pi^4*r^8*(3*(64 + 279*Sqrt[K*pc])*Pi^4*r^8 + 2*K*Pi^3*r^6*
+                     (-270*(4 + 53*Sqrt[K*pc]) + pc*(6275 + 85548*Sqrt[K*pc])*
+                       Pi*r^2) + 12*K^2*Pi^2*r^4*(315*(4 + 45*Sqrt[K*pc]) - 
+                      30*pc*(649 + 3488*Sqrt[K*pc])*Pi*r^2 + 8*pc^2*(12435 + 
+                        53804*Sqrt[K*pc])*Pi^2*r^4) + 36*K^3*Pi*r^2*
+                     (-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 252*Sqrt[
+                          K*pc])*Pi*r^2 - 80*pc^2*(1389 + 2444*Sqrt[K*pc])*
+                       Pi^2*r^4 + 32*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*
+                       r^6) + 14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*
+                       Pi^2*r^4 - 368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*
+                       r^8))^4)/(1090074133698046875*K^16) + 
+                (2048*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                       Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                        594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                        4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                       (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                          203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                        32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                    (8505*K^4))*(-1 + E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                         Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[
+                          K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                       15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                         4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)))*pc^5*
+                  Pi^5*r^10*(3*(64 + 279*Sqrt[K*pc])*Pi^4*r^8 + 2*K*Pi^3*r^6*
+                     (-270*(4 + 53*Sqrt[K*pc]) + pc*(6275 + 85548*Sqrt[K*pc])*
+                       Pi*r^2) + 12*K^2*Pi^2*r^4*(315*(4 + 45*Sqrt[K*pc]) - 
+                      30*pc*(649 + 3488*Sqrt[K*pc])*Pi*r^2 + 8*pc^2*(12435 + 
+                        53804*Sqrt[K*pc])*Pi^2*r^4) + 36*K^3*Pi*r^2*
+                     (-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 252*Sqrt[
+                          K*pc])*Pi*r^2 - 80*pc^2*(1389 + 2444*Sqrt[K*pc])*
+                       Pi^2*r^4 + 32*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*
+                       r^6) + 14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*
+                       Pi^2*r^4 - 368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*
+                       r^8))^5)/(46355402535509443359375*K^20) + 
+                (4096*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                       Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                        594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                        4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                       (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                          203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                        32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                    (14175*K^4))*pc^6*Pi^6*r^12*(3*(64 + 279*Sqrt[K*pc])*Pi^4*
+                     r^8 + 2*K*Pi^3*r^6*(-270*(4 + 53*Sqrt[K*pc]) + 
+                      pc*(6275 + 85548*Sqrt[K*pc])*Pi*r^2) + 12*K^2*Pi^2*r^4*
+                     (315*(4 + 45*Sqrt[K*pc]) - 30*pc*(649 + 3488*Sqrt[K*pc])*
+                       Pi*r^2 + 8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 
+                    36*K^3*Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*
+                       (107 + 252*Sqrt[K*pc])*Pi*r^2 - 80*pc^2*(1389 + 
+                        2444*Sqrt[K*pc])*Pi^2*r^4 + 32*pc^3*(11897 + 
+                        18020*Sqrt[K*pc])*Pi^3*r^6) + 14*K^4*(6075 - 
+                      32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 368640*pc^3*
+                       Pi^3*r^6 + 974848*pc^4*Pi^4*r^8))^6)/
+                 (5913790478467617236572265625*K^24) + 
+                (256*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                       Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                        594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                        4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                       (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                          203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                        32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                    (14175*K^4))*pc^3*Pi^3*r^6*(3*(64 + 279*Sqrt[K*pc])*Pi^4*
+                     r^8 + 2*K*Pi^3*r^6*(-270*(4 + 53*Sqrt[K*pc]) + 
+                      pc*(6275 + 85548*Sqrt[K*pc])*Pi*r^2) + 12*K^2*Pi^2*r^4*
+                     (315*(4 + 45*Sqrt[K*pc]) - 30*pc*(649 + 3488*Sqrt[K*pc])*
+                       Pi*r^2 + 8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 
+                    36*K^3*Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*
+                       (107 + 252*Sqrt[K*pc])*Pi*r^2 - 80*pc^2*(1389 + 
+                        2444*Sqrt[K*pc])*Pi^2*r^4 + 32*pc^3*(11897 + 
+                        18020*Sqrt[K*pc])*Pi^3*r^6) + 14*K^4*(6075 - 
+                      32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 368640*pc^3*
+                       Pi^3*r^6 + 974848*pc^4*Pi^4*r^8))^3*(-5 + 
+                   5*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                         Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                          594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                          4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                        Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                         r^6))/(42525*K^4)) - 4*E^((8*Pi*r^2*(28350*K^3*
+                         (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                          4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                        15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                          4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)) + 
+                   5*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                         Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                          594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                          4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                        Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                         r^6))/(14175*K^4)) + 8*E^((8*Pi*r^2*(28350*K^3*
+                         (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                          4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                        15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                          4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4))*Pi*r^2*
+                    (pc + pc/Sqrt[K*pc] - ((2*K*pc + Sqrt[K*pc])*(4*K*pc + 
+                        Sqrt[K*pc])*(1 + 2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*
+                       Sqrt[K*pc]) + ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 
+                        448*K^2*pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*
+                       r^4)/(90*K^3) - ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 
+                        25632*K^2*pc^2 + 57344*K^3*pc^3 + 24*Sqrt[K*pc] + 
+                        5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*Pi^3*r^6)/
+                      (1890*K^4) + ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 
+                        2*K*pc*(669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*
+                         (7215 + 10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 
+                          61476*Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*
+                          Sqrt[K*pc]))*Pi^4*r^8)/(340200*K^5))))/
+                 (76901173453125*K^12) + (16*E^((8*Pi*r^2*(28350*K^3*
+                       (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                        4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                      15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                         (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                       Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*
+                         pc^3*(-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 
+                          818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[
+                          K*pc]))*Pi^3*r^6))/(42525*K^4))*pc^2*Pi^2*r^4*
+                  (3*(64 + 279*Sqrt[K*pc])*Pi^4*r^8 + 2*K*Pi^3*r^6*
+                     (-270*(4 + 53*Sqrt[K*pc]) + pc*(6275 + 85548*Sqrt[K*pc])*
+                       Pi*r^2) + 12*K^2*Pi^2*r^4*(315*(4 + 45*Sqrt[K*pc]) - 
+                      30*pc*(649 + 3488*Sqrt[K*pc])*Pi*r^2 + 8*pc^2*(12435 + 
+                        53804*Sqrt[K*pc])*Pi^2*r^4) + 36*K^3*Pi*r^2*
+                     (-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 252*Sqrt[
+                          K*pc])*Pi*r^2 - 80*pc^2*(1389 + 2444*Sqrt[K*pc])*
+                       Pi^2*r^4 + 32*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*
+                       r^6) + 14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*
+                       Pi^2*r^4 - 368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*
+                       r^8))^2*(15 + 28*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                          Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[
+                          K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                        15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                          4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)) - 
+                   66*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                         Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                          594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                          4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                        Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                         r^6))/(42525*K^4)) + 15*E^((16*Pi*r^2*(28350*K^3*
+                         (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                          4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                        15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                          4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)) + 
+                   32*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                         Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                          594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                          4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                        Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                         r^6))/(42525*K^4))*(1 + 3*E^((4*Pi*r^2*(28350*K^3*
+                          (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                          4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                          15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                          4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)))*Pi*r^2*
+                    (pc + pc/Sqrt[K*pc] - ((2*K*pc + Sqrt[K*pc])*(4*K*pc + 
+                        Sqrt[K*pc])*(1 + 2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*
+                       Sqrt[K*pc]) + ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 
+                        448*K^2*pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*
+                       r^4)/(90*K^3) - ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 
+                        25632*K^2*pc^2 + 57344*K^3*pc^3 + 24*Sqrt[K*pc] + 
+                        5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*Pi^3*r^6)/
+                      (1890*K^4) + ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 
+                        2*K*pc*(669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*
+                         (7215 + 10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 
+                          61476*Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*
+                          Sqrt[K*pc]))*Pi^4*r^8)/(340200*K^5))))/(1808375625*
+                  K^8) + (4*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                      1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*
+                         (5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                       (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                      Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                         (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                       r^6))/(42525*K^4))*pc*Pi*r^2*(3*(64 + 279*Sqrt[K*pc])*
+                    Pi^4*r^8 + 2*K*Pi^3*r^6*(-270*(4 + 53*Sqrt[K*pc]) + 
+                     pc*(6275 + 85548*Sqrt[K*pc])*Pi*r^2) + 12*K^2*Pi^2*r^4*
+                    (315*(4 + 45*Sqrt[K*pc]) - 30*pc*(649 + 3488*Sqrt[K*pc])*
+                      Pi*r^2 + 8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 
+                   36*K^3*Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*
+                      (107 + 252*Sqrt[K*pc])*Pi*r^2 - 80*pc^2*(1389 + 
+                       2444*Sqrt[K*pc])*Pi^2*r^4 + 32*pc^3*(11897 + 
+                       18020*Sqrt[K*pc])*Pi^3*r^6) + 14*K^4*(6075 - 
+                     32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 368640*pc^3*
+                      Pi^3*r^6 + 974848*pc^4*Pi^4*r^8))*
+                  (2*(-1 + E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                         1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*
+                          (5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                          (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                         Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                          r^6))/(42525*K^4)))*(3 + 214*E^((4*Pi*r^2*
+                         (28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*
+                          (3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*
+                          r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 
+                          160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 
+                          582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 
+                          2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[
+                          K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*
+                          pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*
+                         K^4)) - 66*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[
+                          K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                          4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                          (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                          Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                          r^6))/(42525*K^4)) + 6*E^((4*Pi*r^2*(28350*K^3*
+                          (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                          4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                          15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                          4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(14175*K^4)) + 
+                     3*E^((16*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                          1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*
+                          (5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                          (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                          Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                          r^6))/(42525*K^4))) + 32*E^((8*Pi*r^2*(28350*K^3*
+                         (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                          4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                        15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                          4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4))*
+                    (-37 + 6*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                          1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*
+                          (5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                          (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                          Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                          r^6))/(42525*K^4)) + 3*E^((8*Pi*r^2*(28350*K^3*
+                          (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                          4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                          15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                          4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)))*Pi*r^2*
+                    (pc + pc/Sqrt[K*pc] - ((2*K*pc + Sqrt[K*pc])*(4*K*pc + 
+                        Sqrt[K*pc])*(1 + 2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*
+                       Sqrt[K*pc]) + ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 
+                        448*K^2*pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*
+                       r^4)/(90*K^3) - ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 
+                        25632*K^2*pc^2 + 57344*K^3*pc^3 + 24*Sqrt[K*pc] + 
+                        5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*Pi^3*r^6)/
+                      (1890*K^4) + ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 
+                        2*K*pc*(669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*
+                         (7215 + 10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 
+                          61476*Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*
+                          Sqrt[K*pc]))*Pi^4*r^8)/(340200*K^5)) - 
+                   256*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                         Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                          594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                          4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                        Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                         r^6))/(14175*K^4))*Pi^2*r^4*(pc + pc/Sqrt[K*pc] - 
+                      ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 
+                         2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+                      ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                         3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/
+                       (90*K^3) - ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 
+                         25632*K^2*pc^2 + 57344*K^3*pc^3 + 24*Sqrt[K*pc] + 
+                         5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*Pi^3*r^6)/
+                       (1890*K^4) + ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 
+                         2*K*pc*(669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*
+                          (7215 + 10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 
+                          61476*Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*
+                          Sqrt[K*pc]))*Pi^4*r^8)/(340200*K^5))^2))/
+                 (42525*K^4)))/(42525*K^5))*T)) + 
+       r^2*(a0 - (a0*(3 + 26*Sqrt[K*pc] + 8*K*pc*(17 + 40*Sqrt[K*pc]))*Pi*
+           r^2)/(21*(K + 4*K*Sqrt[K*pc])) + 
+         (a0*(1687552*K^4*pc^4 + 15*Sqrt[K*pc] + 2*K*pc*
+             (129 + 2480*Sqrt[K*pc]) + 256*K^3*pc^3*(4237 + 
+              7844*Sqrt[K*pc]) + 16*K^2*pc^2*(3497 + 20572*Sqrt[K*pc]))*Pi^2*
+           r^4)/(1890*K^2*(12*K*pc + 64*K^2*pc^2 + Sqrt[K*pc] + 
+            48*(K*pc)^(3/2))) - (a0*(15 - 318*Sqrt[K*pc] + 
+            104*K*pc*(-7 + 2428*Sqrt[K*pc]) + 2097152*K^6*pc^6*
+             (46867 + 20224*Sqrt[K*pc]) + 122880*K^4*pc^4*
+             (80907 + 251804*Sqrt[K*pc]) + 128*K^2*pc^2*
+             (41875 + 458607*Sqrt[K*pc]) + 131072*K^5*pc^5*
+             (529047 + 805940*Sqrt[K*pc]) + 1536*K^3*pc^3*
+             (282803 + 1553124*Sqrt[K*pc]))*Pi^3*r^6)/
+          (62370*K^3*(1 + 28*Sqrt[K*pc] + 4096*K^3*pc^3*(7 + 4*Sqrt[K*pc]) + 
+            1792*K^2*pc^2*(5 + 12*Sqrt[K*pc]) + 112*K*pc*
+             (3 + 20*Sqrt[K*pc]))) + a8*r^8)*
+        ((pc + pc/Sqrt[K*pc] - ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*
+              (1 + 2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+            ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 3*
+                Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+            ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 57344*K^3*
+                pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 62080*
+                (K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+            ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*Sqrt[K*pc]) + 
+               384*K^3*pc^3*(13745 + 61476*Sqrt[K*pc]) + 8*K^2*pc^2*
+                (4313 + 83508*Sqrt[K*pc]))*Pi^4*r^8)/(340200*K^5))^2*
+          (-4096*E^((16*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                    7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                  594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                  4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                 (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                     Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                  32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+              (42525*K^4))*(-139 + 110*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                    Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                    4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                   (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                    4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                   (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                       Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                    32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                (42525*K^4)) + 29*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                    Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                    4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                   (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                    4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                   (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                       Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                    32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                (42525*K^4)))*Pi^3*r^6*(pc + pc/Sqrt[K*pc] - 
+              ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc])*
+                Pi*r^2)/(3*K^2*Sqrt[K*pc]) + ((1 + 4*K*pc + 4*Sqrt[K*pc])*
+                (34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*
+                Pi^2*r^4)/(90*K^3) - ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 
+                 25632*K^2*pc^2 + 57344*K^3*pc^3 + 24*Sqrt[K*pc] + 
+                 5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*
+                K^4) + ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*
+                  (669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 
+                   10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*
+                    Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*
+                r^8)/(340200*K^5))^3 + 786432*
+            E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*
+                 (3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                   (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*
+                 r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                   (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                  32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/(8505*K^4))*
+            Pi^4*r^8*(pc + pc/Sqrt[K*pc] - ((2*K*pc + Sqrt[K*pc])*
+                (4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*
+                Sqrt[K*pc]) + ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 
+                 448*K^2*pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(
+                90*K^3) - ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*
+                  pc^2 + 57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                 62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+              ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                   3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                    Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[K*pc]) + 
+                 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*r^8)/(340200*
+                K^5))^4 + 256*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                    7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                  594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                  4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                 (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                     Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                  32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+              (42525*K^4))*(-1 + E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                   Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                   4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                  (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                   4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                  (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                      Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                   32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*
+                K^4)))*Pi^2*r^4*(pc + pc/Sqrt[K*pc] - ((2*K*pc + Sqrt[K*pc])*
+                (4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*
+                Sqrt[K*pc]) + ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 
+                 448*K^2*pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(
+                90*K^3) - ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*
+                  pc^2 + 57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                 62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+              ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                   3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                    Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[K*pc]) + 
+                 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*r^8)/(340200*
+                K^5))^2*(-1 - 493*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                    Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                    4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                   (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                    4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                   (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                       Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                    32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                (42525*K^4)) + 148*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                    Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                    4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                   (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                    4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                   (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                       Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                    32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                (42525*K^4)) + 340*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                    Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                    4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                   (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                    4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                   (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                       Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                    32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                (14175*K^4)) + 5*E^((16*Pi*r^2*(28350*K^3*(K*pc + 
+                    Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                    4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                   (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                    4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                   (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                       Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                    32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                (42525*K^4)) + E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                     7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                   594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                   4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                  (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                      Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                   32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/(8505*
+                K^4)) - (16*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                   1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                       7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                     594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (42525*K^4))*(17 + E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                      Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                      4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                     (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                    Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                        203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                      32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                  (42525*K^4)))*Pi^2*r^4*((-28350*K^3*(2*K*pc + Sqrt[K*pc])*
+                  (4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc]))/Sqrt[K*pc] + 
+                1890*K^2*(1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*
+                   pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi*r^2 - 
+                135*K*(2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                  57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                  62080*(K*pc)^(5/2))*Pi^2*r^4 + (54591488*K^5*pc^5 + 
+                  15*Sqrt[K*pc] - 2*K*pc*(669 + 3050*Sqrt[K*pc]) + 
+                  8704*K^4*pc^4*(7215 + 10492*Sqrt[K*pc]) + 384*K^3*pc^3*
+                   (13745 + 61476*Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 
+                    83508*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^5)) - 
+           8*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                 Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*
+                 r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                   (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*
+                 r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                   (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                  32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+              (42525*K^4))*(-1 + E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                    Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                    4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                   (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                    4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                   (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                       Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                    32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                (42525*K^4)))^2*Pi*r^2*(pc + pc/Sqrt[K*pc] - 
+             ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc])*
+               Pi*r^2)/(3*K^2*Sqrt[K*pc]) + ((1 + 4*K*pc + 4*Sqrt[K*pc])*(
+                34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^
+                2*r^4)/(90*K^3) - ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 
+                25632*K^2*pc^2 + 57344*K^3*pc^3 + 24*Sqrt[K*pc] + 
+                5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*Pi^3*r^6)/
+              (1890*K^4) + ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 
+                2*K*pc*(669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 
+                  10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*
+                   Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*r^
+                8)/(340200*K^5))*(-1 - 1150*E^((4*Pi*r^2*(28350*K^3*
+                   (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                    4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                  15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                     (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                   Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                     (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                        K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                   r^6))/(42525*K^4)) - 1095*E^((8*Pi*r^2*(28350*K^3*
+                   (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                    4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                  15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                     (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                   Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                     (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                        K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                   r^6))/(42525*K^4)) + 2132*E^((4*Pi*r^2*(28350*K^3*
+                   (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                    4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                  15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                     (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                   Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                     (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                        K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                   r^6))/(14175*K^4)) + 113*E^((16*Pi*r^2*(28350*K^3*
+                   (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                    4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                  15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                     (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                   Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                     (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                        K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                   r^6))/(42525*K^4)) - 6*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                    Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                    4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                   (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                    4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                   (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                       Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                    32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                (8505*K^4)) + 7*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                  1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                      7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                    594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                    4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                   (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                       Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                    32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                (14175*K^4)) - (64*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                     Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                     4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                    (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (42525*K^4))*(48 + 23*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4)) + E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[
+                       K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                      4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                     (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                    Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                        203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                      32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                  (42525*K^4)))*Pi^2*r^4*((-28350*K^3*(2*K*pc + Sqrt[K*pc])*
+                  (4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc]))/Sqrt[K*pc] + 
+                1890*K^2*(1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*
+                   pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi*r^2 - 
+                135*K*(2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                  57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                  62080*(K*pc)^(5/2))*Pi^2*r^4 + (54591488*K^5*pc^5 + 
+                  15*Sqrt[K*pc] - 2*K*pc*(669 + 3050*Sqrt[K*pc]) + 
+                  8704*K^4*pc^4*(7215 + 10492*Sqrt[K*pc]) + 384*K^3*pc^3*
+                   (13745 + 61476*Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 
+                    83508*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^5) - 
+             (128*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                    Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*
+                    Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 
+                     160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 
+                       582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 
+                     2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                     4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                       2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4))*Pi^2*r^4*(
+                (-28350*K^3*(2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*
+                  (1 + 2*Sqrt[K*pc]))/Sqrt[K*pc] + 5670*K^2*(1 + 4*K*pc + 
+                  4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 
+                  200*(K*pc)^(3/2))*Pi*r^2 - 675*K*(2*K*pc + Sqrt[K*pc])*
+                 (3 + 580*K*pc + 25632*K^2*pc^2 + 57344*K^3*pc^3 + 
+                  24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*
+                 Pi^2*r^4 + 7*(54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 
+                  2*K*pc*(669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 
+                    10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*
+                     Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^3*
+                 r^6))/(42525*K^5)) + 
+           (-1 + E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                   Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*
+                   Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*
+                     pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                        K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 
+                    256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 
+                      818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*
+                   Pi^3*r^6))/(42525*K^4)))^3*
+            (3*(1 - 21*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                    1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*
+                       (5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                     (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                    Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                        203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                      32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                  (42525*K^4)) - 183*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                      Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                      4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                     (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                    Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                        203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                      32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                  (42525*K^4)) + 163*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                      Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                      4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                     (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                    Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                        203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                      32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                  (14175*K^4)) + 51*E^((16*Pi*r^2*(28350*K^3*(K*pc + 
+                      Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                      4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                     (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                    Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                        203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                      32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                  (42525*K^4)) - 15*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                      Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                      4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                     (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                    Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                        203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                      32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                  (8505*K^4)) + 3*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[
+                       K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                      4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                     (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                    Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                        203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                      32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                  (14175*K^4)) + E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[
+                      K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                     4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                    (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (6075*K^4))) - (64*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                     Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                     4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                    (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (42525*K^4))*(31 + 52*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4)) + 5*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4)))*Pi^2*r^4*((-28350*K^3*(2*K*pc + Sqrt[K*pc])*
+                  (4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc]))/Sqrt[K*pc] + 
+                1890*K^2*(1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*
+                   pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi*r^2 - 
+                135*K*(2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                  57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                  62080*(K*pc)^(5/2))*Pi^2*r^4 + (54591488*K^5*pc^5 + 
+                  15*Sqrt[K*pc] - 2*K*pc*(669 + 3050*Sqrt[K*pc]) + 
+                  8704*K^4*pc^4*(7215 + 10492*Sqrt[K*pc]) + 384*K^3*pc^3*
+                   (13745 + 61476*Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 
+                    83508*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^5) - 
+             (128*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                    Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*
+                    Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 
+                     160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 
+                       582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 
+                     2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                     4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                       2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4))*(1 + 
+                E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                     Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                        7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                      594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                      4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                     (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                         Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                      32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                  (42525*K^4)))*Pi^2*r^4*((-28350*K^3*(2*K*pc + Sqrt[K*pc])*
+                  (4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc]))/Sqrt[K*pc] + 
+                5670*K^2*(1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*
+                   pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi*r^2 - 
+                675*K*(2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                  57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                  62080*(K*pc)^(5/2))*Pi^2*r^4 + 7*(54591488*K^5*pc^5 + 
+                  15*Sqrt[K*pc] - 2*K*pc*(669 + 3050*Sqrt[K*pc]) + 
+                  8704*K^4*pc^4*(7215 + 10492*Sqrt[K*pc]) + 384*K^3*pc^3*
+                   (13745 + 61476*Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 
+                    83508*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^5)) + 
+           (262144*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                     7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                   594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                   4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                  (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                      Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                   32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/(4725*
+                K^4))*(-3 + 2*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                   1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                       7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                     594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (42525*K^4)))*pc^9*Pi^9*r^18*(3*(64 + 279*Sqrt[K*pc])*Pi^4*
+                r^8 + 2*K*Pi^3*r^6*(-270*(4 + 53*Sqrt[K*pc]) + 
+                 pc*(6275 + 85548*Sqrt[K*pc])*Pi*r^2) + 12*K^2*Pi^2*r^4*
+                (315*(4 + 45*Sqrt[K*pc]) - 30*pc*(649 + 3488*Sqrt[K*pc])*Pi*
+                  r^2 + 8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 36*K^3*
+                Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 
+                   252*Sqrt[K*pc])*Pi*r^2 - 80*pc^2*(1389 + 2444*Sqrt[K*pc])*
+                  Pi^2*r^4 + 32*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*r^6) + 
+               14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 
+                 368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*r^8))^9)/
+            (30318495156671821237537652410125732421875*K^36) + 
+           (1048576*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                     7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                   594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                   4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                  (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                      Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                   32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/(8505*
+                K^4))*pc^10*Pi^10*r^20*(3*(64 + 279*Sqrt[K*pc])*Pi^4*r^8 + 2*
+                K*Pi^3*r^6*(-270*(4 + 53*Sqrt[K*pc]) + pc*(6275 + 
+                   85548*Sqrt[K*pc])*Pi*r^2) + 12*K^2*Pi^2*r^4*
+                (315*(4 + 45*Sqrt[K*pc]) - 30*pc*(649 + 3488*Sqrt[K*pc])*Pi*
+                  r^2 + 8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 36*K^3*
+                Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 
+                   252*Sqrt[K*pc])*Pi*r^2 - 80*pc^2*(1389 + 2444*Sqrt[K*pc])*
+                  Pi^2*r^4 + 32*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*r^6) + 
+               14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 
+                 368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*r^8))^10)/
+            (6446470032687345990631443343702983856201171875*K^40) + 
+           (65536*E^((32*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                     7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                   594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                   4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                  (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                      Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                   32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*
+                K^4))*pc^8*Pi^8*r^16*(3*(64 + 279*Sqrt[K*pc])*Pi^4*r^8 + 2*K*
+                Pi^3*r^6*(-270*(4 + 53*Sqrt[K*pc]) + pc*(6275 + 85548*
+                    Sqrt[K*pc])*Pi*r^2) + 12*K^2*Pi^2*r^4*
+                (315*(4 + 45*Sqrt[K*pc]) - 30*pc*(649 + 3488*Sqrt[K*pc])*Pi*
+                  r^2 + 8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 36*K^3*
+                Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 
+                   252*Sqrt[K*pc])*Pi*r^2 - 80*pc^2*(1389 + 2444*Sqrt[K*pc])*
+                  Pi^2*r^4 + 32*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*r^6) + 
+               14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 
+                 368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*r^8))^8*
+             (9*(29 - 40*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                     1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*
+                        (5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4)) + 15*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4))) - 56*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                     Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                     4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                    (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (42525*K^4))*Pi*r^2*(pc + pc/Sqrt[K*pc] - 
+                ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 
+                   2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+                ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                   3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+                ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                   57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                   62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+                ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                     3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                      Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[K*pc]) + 
+                   8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*r^8)/
+                 (340200*K^5))))/(10694354552617926362447143707275390625*
+             K^32) + (65536*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                     7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                   594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                   4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                  (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                      Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                   32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/(6075*
+                K^4))*pc^7*Pi^7*r^14*(3*(64 + 279*Sqrt[K*pc])*Pi^4*r^8 + 2*K*
+                Pi^3*r^6*(-270*(4 + 53*Sqrt[K*pc]) + pc*(6275 + 85548*
+                    Sqrt[K*pc])*Pi*r^2) + 12*K^2*Pi^2*r^4*
+                (315*(4 + 45*Sqrt[K*pc]) - 30*pc*(649 + 3488*Sqrt[K*pc])*Pi*
+                  r^2 + 8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 36*K^3*
+                Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 
+                   252*Sqrt[K*pc])*Pi*r^2 - 80*pc^2*(1389 + 2444*Sqrt[K*pc])*
+                  Pi^2*r^4 + 32*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*r^6) + 
+               14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 
+                 368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*r^8))^7*
+             (-195 + 399*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                   1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                       7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                     594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (42525*K^4)) - 315*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                     Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                     4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                    (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (42525*K^4)) + 90*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                     Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                     4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                    (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (14175*K^4)) - 16*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                     Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                     4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                    (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (42525*K^4))*(-9 + 7*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4)))*Pi*r^2*(pc + pc/Sqrt[K*pc] - 
+                ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 
+                   2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+                ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                   3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+                ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                   57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                   62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+                ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                     3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                      Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[K*pc]) + 
+                   8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*r^8)/
+                 (340200*K^5))))/(251483940096835422985235595703125*K^28) + 
+           (8192*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                  Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*
+                  Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*
+                    pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                  Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                    (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                   32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/(14175*
+                K^4))*pc^6*Pi^6*r^12*(3*(64 + 279*Sqrt[K*pc])*Pi^4*r^8 + 2*K*
+                Pi^3*r^6*(-270*(4 + 53*Sqrt[K*pc]) + pc*(6275 + 85548*
+                    Sqrt[K*pc])*Pi*r^2) + 12*K^2*Pi^2*r^4*
+                (315*(4 + 45*Sqrt[K*pc]) - 30*pc*(649 + 3488*Sqrt[K*pc])*Pi*
+                  r^2 + 8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 36*K^3*
+                Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 
+                   252*Sqrt[K*pc])*Pi*r^2 - 80*pc^2*(1389 + 2444*Sqrt[K*pc])*
+                  Pi^2*r^4 + 32*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*r^6) + 
+               14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 
+                 368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*r^8))^6*
+             (3*(223 - 580*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                     1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*
+                        (5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4)) + 672*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4)) - 420*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (14175*K^4)) + 105*E^((16*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4))) - 16*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                     Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                     4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                    (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (42525*K^4))*(71 - 113*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4)) + 49*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4)))*Pi*r^2*(pc + pc/Sqrt[K*pc] - 
+                ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 
+                   2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+                ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                   3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+                ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                   57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                   62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+                ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                     3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                      Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[K*pc]) + 
+                   8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*r^8)/
+                 (340200*K^5)) + 128*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                     Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                     4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                    (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (42525*K^4))*Pi^2*r^4*(pc + pc/Sqrt[K*pc] - 
+                 ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 
+                    2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+                 ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                    3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+                 ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                    57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                    62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+                 ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                      3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                       Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[
+                        K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*
+                   r^8)/(340200*K^5))^2))/(5913790478467617236572265625*
+             K^24) + (2048*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                     7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                   594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                   4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                  (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                      Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                   32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/(8505*
+                K^4))*pc^5*Pi^5*r^10*(3*(64 + 279*Sqrt[K*pc])*Pi^4*r^8 + 2*K*
+                Pi^3*r^6*(-270*(4 + 53*Sqrt[K*pc]) + pc*(6275 + 85548*
+                    Sqrt[K*pc])*Pi*r^2) + 12*K^2*Pi^2*r^4*
+                (315*(4 + 45*Sqrt[K*pc]) - 30*pc*(649 + 3488*Sqrt[K*pc])*Pi*
+                  r^2 + 8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 36*K^3*
+                Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 
+                   252*Sqrt[K*pc])*Pi*r^2 - 80*pc^2*(1389 + 2444*Sqrt[K*pc])*
+                  Pi^2*r^4 + 32*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*r^6) + 
+               14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 
+                 368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*r^8))^5*
+             (3*(-225 + 748*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                     1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*
+                        (5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4)) - 1006*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4)) + 882*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (14175*K^4)) - 525*E^((16*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4)) + 126*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (8505*K^4))) - (128*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                      Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                      4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                     (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                    Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                        203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                      32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                  (42525*K^4))*Pi^2*r^4*((-28350*K^3*(2*K*pc + Sqrt[K*pc])*
+                   (4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc]))/Sqrt[K*pc] + 
+                 1890*K^2*(1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*
+                    pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi*r^2 - 
+                 135*K*(2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                   57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                   62080*(K*pc)^(5/2))*Pi^2*r^4 + (54591488*K^5*pc^5 + 
+                   15*Sqrt[K*pc] - 2*K*pc*(669 + 3050*Sqrt[K*pc]) + 
+                   8704*K^4*pc^4*(7215 + 10492*Sqrt[K*pc]) + 384*K^3*pc^3*
+                    (13745 + 61476*Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 
+                     83508*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^5) - 
+              32*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                    Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*
+                    Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 
+                     160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 
+                       582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 
+                     2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                     4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                       2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4))*(-73 + 
+                152*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                      Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                         7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                       594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                       4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                      (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4)) - 150*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4)) + 49*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (14175*K^4)))*Pi*r^2*(pc + pc/Sqrt[K*pc] - 
+                ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 
+                   2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+                ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                   3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+                ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                   57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                   62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+                ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                     3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                      Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[K*pc]) + 
+                   8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*r^8)/
+                 (340200*K^5)) + 768*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                     Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                     4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                    (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (42525*K^4))*(-1 + E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                      Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                      4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                     (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                    Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                        203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                      32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                  (42525*K^4)))*Pi^2*r^4*(pc + pc/Sqrt[K*pc] - 
+                 ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 
+                    2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+                 ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                    3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+                 ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                    57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                    62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+                 ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                      3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                       Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[
+                        K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*
+                   r^8)/(340200*K^5))^2))/(139066207606528330078125*K^20) + 
+           (512*E^((16*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                  Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*
+                  Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*
+                    pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                  Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                    (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                   32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*
+                K^4))*pc^4*Pi^4*r^8*(3*(64 + 279*Sqrt[K*pc])*Pi^4*r^8 + 2*K*
+                Pi^3*r^6*(-270*(4 + 53*Sqrt[K*pc]) + pc*(6275 + 85548*
+                    Sqrt[K*pc])*Pi*r^2) + 12*K^2*Pi^2*r^4*
+                (315*(4 + 45*Sqrt[K*pc]) - 30*pc*(649 + 3488*Sqrt[K*pc])*Pi*
+                  r^2 + 8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 36*K^3*
+                Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 
+                   252*Sqrt[K*pc])*Pi*r^2 - 80*pc^2*(1389 + 2444*Sqrt[K*pc])*
+                  Pi^2*r^4 + 32*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*r^6) + 
+               14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 
+                 368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*r^8))^4*
+             (375 - 3264*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                   1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                       7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                     594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (42525*K^4)) + 4365*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                     Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                     4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                    (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (42525*K^4)) - 2316*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                     Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                     4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                    (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (14175*K^4)) + 1785*E^((16*Pi*r^2*(28350*K^3*(K*pc + 
+                     Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                     4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                    (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (42525*K^4)) - 1260*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                     Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                     4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                    (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (8505*K^4)) + 315*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                     Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                     4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                    (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (14175*K^4)) - (32*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                      Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                      4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                     (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                    Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                        203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                      32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                  (42525*K^4))*(-43 + 21*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                        Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                        4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                       (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                      Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                         (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                       r^6))/(42525*K^4)))*Pi^2*r^4*((-28350*K^3*(2*K*pc + 
+                    Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc]))/
+                  Sqrt[K*pc] + 1890*K^2*(1 + 4*K*pc + 4*Sqrt[K*pc])*
+                  (34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*
+                  Pi*r^2 - 135*K*(2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 
+                   25632*K^2*pc^2 + 57344*K^3*pc^3 + 24*Sqrt[K*pc] + 
+                   5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*Pi^2*r^4 + 
+                 (54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                     3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                      Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[K*pc]) + 
+                   8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^3*r^6))/(42525*
+                K^5) - (64*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                    1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*
+                       (5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                     (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                    Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                        203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                      32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                  (42525*K^4))*Pi^2*r^4*((-28350*K^3*(2*K*pc + Sqrt[K*pc])*
+                   (4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc]))/Sqrt[K*pc] + 
+                 5670*K^2*(1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*
+                    pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi*r^2 - 
+                 675*K*(2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                   57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                   62080*(K*pc)^(5/2))*Pi^2*r^4 + 7*(54591488*K^5*pc^5 + 
+                   15*Sqrt[K*pc] - 2*K*pc*(669 + 3050*Sqrt[K*pc]) + 
+                   8704*K^4*pc^4*(7215 + 10492*Sqrt[K*pc]) + 384*K^3*pc^3*
+                    (13745 + 61476*Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 
+                     83508*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^5) + 
+              640*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                    Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*
+                    Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 
+                     160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 
+                       582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 
+                     2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                     4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                       2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4))*(3 - 
+                4*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                      Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                         7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                       594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                       4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                      (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4)) + 3*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4)))*Pi^2*r^4*(pc + pc/Sqrt[K*pc] - 
+                 ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 
+                    2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+                 ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                    3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+                 ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                    57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                    62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+                 ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                      3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                       Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[
+                        K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*
+                   r^8)/(340200*K^5))^2 - 8*E^((4*Pi*r^2*(28350*K^3*
+                    (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                     4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                   15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                      (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                    Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*
+                      pc^3*(-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 
+                       818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*
+                    Pi^3*r^6))/(42525*K^4))*Pi*r^2*(pc + pc/Sqrt[K*pc] - 
+                ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 
+                   2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+                ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                   3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+                ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                   57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                   62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+                ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                     3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                      Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[K*pc]) + 
+                   8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*r^8)/
+                 (340200*K^5))*(345 - 382*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4)) + 1078*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4)) - 870*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (14175*K^4)) + 245*E^((16*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4)) - (32*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                        Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                        4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                       (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                      Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                         (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                       r^6))/(42525*K^4))*Pi^2*r^4*((-28350*K^3*(2*K*pc + 
+                      Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc]))/
+                    Sqrt[K*pc] + 1890*K^2*(1 + 4*K*pc + 4*Sqrt[K*pc])*
+                    (34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^
+                       (3/2))*Pi*r^2 - 135*K*(2*K*pc + Sqrt[K*pc])*
+                    (3 + 580*K*pc + 25632*K^2*pc^2 + 57344*K^3*pc^3 + 
+                     24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*
+                    Pi^2*r^4 + (54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 
+                     2*K*pc*(669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 
+                       10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*
+                        Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*
+                    Pi^3*r^6))/(42525*K^5))))/(3270222401094140625*K^16) + 
+           (256*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                  Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*
+                  Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*
+                    pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                  Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                    (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                   32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/(14175*
+                K^4))*pc^3*Pi^3*r^6*(3*(64 + 279*Sqrt[K*pc])*Pi^4*r^8 + 2*K*
+                Pi^3*r^6*(-270*(4 + 53*Sqrt[K*pc]) + pc*(6275 + 85548*
+                    Sqrt[K*pc])*Pi*r^2) + 12*K^2*Pi^2*r^4*
+                (315*(4 + 45*Sqrt[K*pc]) - 30*pc*(649 + 3488*Sqrt[K*pc])*Pi*
+                  r^2 + 8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 36*K^3*
+                Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 
+                   252*Sqrt[K*pc])*Pi*r^2 - 80*pc^2*(1389 + 2444*Sqrt[K*pc])*
+                  Pi^2*r^4 + 32*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*r^6) + 
+               14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 
+                 368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*r^8))^3*
+             (-39 + 1407*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                   1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                       7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                     594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (42525*K^4)) - 2061*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                     Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                     4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                    (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (42525*K^4)) + 846*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                     Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                     4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                    (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (14175*K^4)) - 117*E^((16*Pi*r^2*(28350*K^3*(K*pc + 
+                     Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                     4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                    (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (42525*K^4)) + 189*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                     Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                     4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                    (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (8505*K^4)) - 315*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                     Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                     4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                    (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (14175*K^4)) + 90*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                     Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                     4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                    (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (6075*K^4)) - (16*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                      Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                      4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                     (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                    Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                        203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                      32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                  (42525*K^4))*(85 - 95*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                        Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                        4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                       (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                      Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                         (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                       r^6))/(42525*K^4)) + 44*E^((8*Pi*r^2*(28350*K^3*
+                       (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                        4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                      15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                         (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                       Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*
+                         pc^3*(-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 
+                          818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[
+                          K*pc]))*Pi^3*r^6))/(42525*K^4)))*Pi^2*r^4*
+                ((-28350*K^3*(2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*
+                   (1 + 2*Sqrt[K*pc]))/Sqrt[K*pc] + 1890*K^2*(1 + 4*K*pc + 
+                   4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 
+                   200*(K*pc)^(3/2))*Pi*r^2 - 135*K*(2*K*pc + Sqrt[K*pc])*
+                  (3 + 580*K*pc + 25632*K^2*pc^2 + 57344*K^3*pc^3 + 
+                   24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*
+                  Pi^2*r^4 + (54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 
+                   2*K*pc*(669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 
+                     10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*
+                      Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*
+                  Pi^3*r^6))/(42525*K^5) + (32*E^((8*Pi*r^2*(28350*K^3*
+                     (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                      4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                    15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                       (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                     Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*
+                       pc^3*(-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 
+                        818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[
+                          K*pc]))*Pi^3*r^6))/(42525*K^4))*Pi^2*r^4*
+                ((-28350*K^3*(2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*
+                   (1 + 2*Sqrt[K*pc]))/Sqrt[K*pc] + 5670*K^2*(1 + 4*K*pc + 
+                   4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 
+                   200*(K*pc)^(3/2))*Pi*r^2 - 675*K*(2*K*pc + Sqrt[K*pc])*
+                  (3 + 580*K*pc + 25632*K^2*pc^2 + 57344*K^3*pc^3 + 
+                   24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*
+                  Pi^2*r^4 + 7*(54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 
+                   2*K*pc*(669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 
+                     10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*
+                      Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*
+                  Pi^3*r^6))/(8505*K^5) - (128*E^((4*Pi*r^2*(28350*K^3*
+                     (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                      4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                    15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                       (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                     Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*
+                       pc^3*(-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 
+                        818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[
+                          K*pc]))*Pi^3*r^6))/(14175*K^4))*Pi^2*r^4*
+                ((-28350*K^3*(2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*
+                   (1 + 2*Sqrt[K*pc]))/Sqrt[K*pc] + 5670*K^2*(1 + 4*K*pc + 
+                   4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 
+                   200*(K*pc)^(3/2))*Pi*r^2 - 675*K*(2*K*pc + Sqrt[K*pc])*
+                  (3 + 580*K*pc + 25632*K^2*pc^2 + 57344*K^3*pc^3 + 
+                   24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*
+                  Pi^2*r^4 + 7*(54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 
+                   2*K*pc*(669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 
+                     10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*
+                      Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*
+                  Pi^3*r^6))/(42525*K^5) + 128*E^((8*Pi*r^2*(28350*K^3*
+                    (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                     4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                   15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                      (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                    Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*
+                      pc^3*(-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 
+                       818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*
+                    Pi^3*r^6))/(42525*K^4))*(-10 - 111*E^((4*Pi*r^2*
+                    (28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*
+                      (3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                     15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                        (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                      Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*
+                        pc^3*(-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 
+                         818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[
+                          K*pc]))*Pi^3*r^6))/(42525*K^4)) - 
+                10*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                      Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                         7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                       594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                       4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                      (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4)) + 10*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (14175*K^4)))*Pi^2*r^4*(pc + pc/Sqrt[K*pc] - 
+                 ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 
+                    2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+                 ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                    3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+                 ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                    57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                    62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+                 ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                      3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                       Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[
+                        K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*
+                   r^8)/(340200*K^5))^2 - 16*E^((4*Pi*r^2*(28350*K^3*
+                    (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                     4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                   15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                      (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                    Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*
+                      pc^3*(-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 
+                       818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*
+                    Pi^3*r^6))/(42525*K^4))*Pi*r^2*(pc + pc/Sqrt[K*pc] - 
+                ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 
+                   2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+                ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                   3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+                ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                   57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                   62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+                ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                     3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                      Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[K*pc]) + 
+                   8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*r^8)/
+                 (340200*K^5))*(-59 + 401*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4)) - 634*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4)) + 268*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (14175*K^4)) - 185*E^((16*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4)) + 49*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (8505*K^4)) - (8*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                        Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                        4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                       (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                      Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                         (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                       r^6))/(42525*K^4))*(17 + 4*E^((4*Pi*r^2*(28350*K^3*
+                         (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                          4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                        15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                          4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)))*Pi^2*r^4*
+                  ((-28350*K^3*(2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*
+                     (1 + 2*Sqrt[K*pc]))/Sqrt[K*pc] + 1890*K^2*(1 + 4*K*pc + 
+                     4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 
+                     200*(K*pc)^(3/2))*Pi*r^2 - 135*K*(2*K*pc + Sqrt[K*pc])*
+                    (3 + 580*K*pc + 25632*K^2*pc^2 + 57344*K^3*pc^3 + 
+                     24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*
+                    Pi^2*r^4 + (54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 
+                     2*K*pc*(669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 
+                       10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*
+                        Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*
+                    Pi^3*r^6))/(42525*K^5))))/(76901173453125*K^12) + 
+           (4*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                  Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*
+                  Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*
+                    pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                  Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                    (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                   32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*
+                K^4))*pc*Pi*r^2*(3*(64 + 279*Sqrt[K*pc])*Pi^4*r^8 + 
+              2*K*Pi^3*r^6*(-270*(4 + 53*Sqrt[K*pc]) + pc*(6275 + 
+                  85548*Sqrt[K*pc])*Pi*r^2) + 12*K^2*Pi^2*r^4*(
+                315*(4 + 45*Sqrt[K*pc]) - 30*pc*(649 + 3488*Sqrt[K*pc])*Pi*
+                 r^2 + 8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 
+              36*K^3*Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 
+                  252*Sqrt[K*pc])*Pi*r^2 - 80*pc^2*(1389 + 2444*Sqrt[K*pc])*
+                 Pi^2*r^4 + 32*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*r^6) + 
+              14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 
+                368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*r^8))*
+             (-8192*E^((16*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                   1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                       7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                     594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (42525*K^4))*(-89 + 29*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4)))*Pi^3*r^6*(pc + pc/Sqrt[K*pc] - 
+                 ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 
+                    2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+                 ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                    3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+                 ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                    57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                    62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+                 ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                      3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                       Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[
+                        K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*
+                   r^8)/(340200*K^5))^3 + 512*E^((8*Pi*r^2*(28350*K^3*
+                    (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                     4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                   15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                      (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                    Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*
+                      pc^3*(-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 
+                       818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*
+                    Pi^3*r^6))/(42525*K^4))*Pi^2*r^4*(pc + pc/Sqrt[K*pc] - 
+                 ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 
+                    2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+                 ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                    3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+                 ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                    57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                    62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+                 ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                      3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                       Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[
+                        K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*
+                   r^8)/(340200*K^5))^2*(-3 + 898*E^((4*Pi*r^2*
+                    (28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*
+                      (3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                     15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                        (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                      Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*
+                        pc^3*(-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 
+                         818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[
+                          K*pc]))*Pi^3*r^6))/(42525*K^4)) - 
+                1112*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                      Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                         7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                       594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                       4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                      (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4)) + 209*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (14175*K^4)) + 5*E^((16*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4)) + 3*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (8505*K^4)) - (16*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                        Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                        4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                       (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                      Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                         (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                       r^6))/(42525*K^4))*(8 + E^((4*Pi*r^2*(28350*K^3*
+                        (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                         4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                       15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                         4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)))*Pi^2*r^4*
+                  ((-28350*K^3*(2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*
+                     (1 + 2*Sqrt[K*pc]))/Sqrt[K*pc] + 1890*K^2*(1 + 4*K*pc + 
+                     4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 
+                     200*(K*pc)^(3/2))*Pi*r^2 - 135*K*(2*K*pc + Sqrt[K*pc])*
+                    (3 + 580*K*pc + 25632*K^2*pc^2 + 57344*K^3*pc^3 + 
+                     24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*
+                    Pi^2*r^4 + (54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 
+                     2*K*pc*(669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 
+                       10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*
+                        Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*
+                    Pi^3*r^6))/(42525*K^5)) - 64*E^((4*Pi*r^2*
+                  (28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*
+                    (3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                   15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                      (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                    Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*
+                      pc^3*(-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 
+                       818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*
+                    Pi^3*r^6))/(42525*K^4))*(-1 + E^((4*Pi*r^2*
+                   (28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*
+                     (3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                    15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                       (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                     Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*
+                       pc^3*(-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 
+                        818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[
+                          K*pc]))*Pi^3*r^6))/(42525*K^4)))*Pi*r^2*(pc + 
+                pc/Sqrt[K*pc] - ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*
+                  (1 + 2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+                ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                   3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+                ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                   57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                   62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+                ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                     3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                      Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[K*pc]) + 
+                   8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*r^8)/
+                 (340200*K^5))*(3 + 1185*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4)) - 1109*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4)) - 128*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (14175*K^4)) + 59*E^((16*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4)) - 17*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (8505*K^4)) + 7*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (14175*K^4)) - (8*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                        Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                        4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                       (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                      Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                         (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                       r^6))/(42525*K^4))*(-31 + 63*E^((4*Pi*r^2*(28350*K^3*
+                         (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                          4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                        15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                          4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)) + 
+                   4*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                         Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                          594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                          4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                        Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                         r^6))/(42525*K^4)))*Pi^2*r^4*((-28350*K^3*(2*K*pc + 
+                      Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc]))/
+                    Sqrt[K*pc] + 1890*K^2*(1 + 4*K*pc + 4*Sqrt[K*pc])*
+                    (34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^
+                       (3/2))*Pi*r^2 - 135*K*(2*K*pc + Sqrt[K*pc])*
+                    (3 + 580*K*pc + 25632*K^2*pc^2 + 57344*K^3*pc^3 + 
+                     24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*
+                    Pi^2*r^4 + (54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 
+                     2*K*pc*(669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 
+                       10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*
+                        Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*
+                    Pi^3*r^6))/(42525*K^5) - (32*E^((8*Pi*r^2*(28350*K^3*
+                       (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                        4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                      15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                         (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                       Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*
+                         pc^3*(-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 
+                          818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[
+                          K*pc]))*Pi^3*r^6))/(42525*K^4))*Pi^2*r^4*
+                  ((-28350*K^3*(2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*
+                     (1 + 2*Sqrt[K*pc]))/Sqrt[K*pc] + 5670*K^2*(1 + 4*K*pc + 
+                     4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 
+                     200*(K*pc)^(3/2))*Pi*r^2 - 675*K*(2*K*pc + Sqrt[K*pc])*
+                    (3 + 580*K*pc + 25632*K^2*pc^2 + 57344*K^3*pc^3 + 
+                     24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*
+                    Pi^2*r^4 + 7*(54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 
+                     2*K*pc*(669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 
+                       10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*
+                        Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*
+                    Pi^3*r^6))/(42525*K^5)) + (-1 + E^((4*Pi*r^2*
+                    (28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*
+                      (3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                     15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                        (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                      Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*
+                        pc^3*(-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 
+                         818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[
+                          K*pc]))*Pi^3*r^6))/(42525*K^4)))^2*(
+                3*(9 + 1080*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                       1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*
+                          (5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                        (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                       Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*
+                          Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*
+                        Pi^3*r^6))/(42525*K^4)) + 339*E^((8*Pi*r^2*
+                      (28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*
+                        (3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*
+                        r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*
+                          pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*
+                          Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*
+                          Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                         4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)) - 
+                  1534*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                       1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*
+                          (5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                        (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                       Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*
+                          Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*
+                        Pi^3*r^6))/(14175*K^4)) + 207*E^((16*Pi*r^2*
+                      (28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*
+                        (3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*
+                        r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*
+                          pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*
+                          Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*
+                          Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                         4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)) - 
+                  116*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                        Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                         594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                         4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                        (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                          203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                         32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                     (8505*K^4)) + 5*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                         Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[
+                          K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                       15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                         4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(14175*K^4)) + 
+                  10*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                        Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                         594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                         4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                        (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                          203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                         32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                     (6075*K^4))) - (64*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                        Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                        4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                       (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                      Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                         (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                       r^6))/(42525*K^4))*(-89 + 113*E^((4*Pi*r^2*
+                       (28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*
+                         (3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*
+                         r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 
+                          160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 
+                          582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 
+                          2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[
+                          K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*
+                          pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*
+                       K^4)) + 24*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[
+                          K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                          4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                         (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                        Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                         r^6))/(42525*K^4)))*Pi^2*r^4*((-28350*K^3*(2*K*pc + 
+                      Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc]))/
+                    Sqrt[K*pc] + 1890*K^2*(1 + 4*K*pc + 4*Sqrt[K*pc])*
+                    (34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^
+                       (3/2))*Pi*r^2 - 135*K*(2*K*pc + Sqrt[K*pc])*
+                    (3 + 580*K*pc + 25632*K^2*pc^2 + 57344*K^3*pc^3 + 
+                     24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*
+                    Pi^2*r^4 + (54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 
+                     2*K*pc*(669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 
+                       10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*
+                        Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*
+                    Pi^3*r^6))/(42525*K^5) - (128*E^((8*Pi*r^2*(28350*K^3*
+                       (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                        4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                      15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                         (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                       Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*
+                         pc^3*(-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 
+                          818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[
+                          K*pc]))*Pi^3*r^6))/(42525*K^4))*(-1 + 
+                   4*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                         Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                          594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                          4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                        Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                         r^6))/(42525*K^4)))*Pi^2*r^4*((-28350*K^3*(2*K*pc + 
+                      Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc]))/
+                    Sqrt[K*pc] + 5670*K^2*(1 + 4*K*pc + 4*Sqrt[K*pc])*
+                    (34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^
+                       (3/2))*Pi*r^2 - 675*K*(2*K*pc + Sqrt[K*pc])*
+                    (3 + 580*K*pc + 25632*K^2*pc^2 + 57344*K^3*pc^3 + 
+                     24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*
+                    Pi^2*r^4 + 7*(54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 
+                     2*K*pc*(669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 
+                       10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*
+                        Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*
+                    Pi^3*r^6))/(42525*K^5))))/(42525*K^4) + 
+           (16*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                  Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*
+                  Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*
+                    pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                  Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                    (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                   32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*
+                K^4))*pc^2*Pi^2*r^4*(3*(64 + 279*Sqrt[K*pc])*Pi^4*r^8 + 2*K*
+                Pi^3*r^6*(-270*(4 + 53*Sqrt[K*pc]) + pc*(6275 + 85548*
+                    Sqrt[K*pc])*Pi*r^2) + 12*K^2*Pi^2*r^4*
+                (315*(4 + 45*Sqrt[K*pc]) - 30*pc*(649 + 3488*Sqrt[K*pc])*Pi*
+                  r^2 + 8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 36*K^3*
+                Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 
+                   252*Sqrt[K*pc])*Pi*r^2 - 80*pc^2*(1389 + 2444*Sqrt[K*pc])*
+                  Pi^2*r^4 + 32*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*r^6) + 
+               14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 
+                 368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*r^8))^2*
+             (-118784*E^((16*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                   1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                       7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                     594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (42525*K^4))*Pi^3*r^6*(pc + pc/Sqrt[K*pc] - 
+                 ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 
+                    2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+                 ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                    3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+                 ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                    57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                    62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+                 ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                      3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                       Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[
+                        K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*
+                   r^8)/(340200*K^5))^3 + 256*E^((8*Pi*r^2*(28350*K^3*
+                    (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                     4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                   15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                      (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                    Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*
+                      pc^3*(-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 
+                       818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*
+                    Pi^3*r^6))/(42525*K^4))*Pi^2*r^4*(pc + pc/Sqrt[K*pc] - 
+                 ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 
+                    2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+                 ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                    3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+                 ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                    57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                    62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+                 ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                      3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                       Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[
+                        K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*
+                   r^8)/(340200*K^5))^2*(15 + 540*E^((4*Pi*r^2*
+                    (28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*
+                      (3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                     15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                        (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                      Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*
+                        pc^3*(-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 
+                         818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[
+                          K*pc]))*Pi^3*r^6))/(42525*K^4)) - 
+                154*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                      Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                         7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                       594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                       4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                      (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4)) + 15*E^((16*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4)) - (16*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                        Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                        4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                       (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                      Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                         (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                       r^6))/(42525*K^4))*Pi^2*r^4*((-28350*K^3*(2*K*pc + 
+                      Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc]))/
+                    Sqrt[K*pc] + 1890*K^2*(1 + 4*K*pc + 4*Sqrt[K*pc])*
+                    (34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^
+                       (3/2))*Pi*r^2 - 135*K*(2*K*pc + Sqrt[K*pc])*
+                    (3 + 580*K*pc + 25632*K^2*pc^2 + 57344*K^3*pc^3 + 
+                     24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*
+                    Pi^2*r^4 + (54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 
+                     2*K*pc*(669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 
+                       10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*
+                        Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*
+                    Pi^3*r^6))/(42525*K^5)) - 32*E^((4*Pi*r^2*
+                  (28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*
+                    (3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                   15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                      (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                    Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*
+                      pc^3*(-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 
+                       818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*
+                    Pi^3*r^6))/(42525*K^4))*Pi*r^2*(pc + pc/Sqrt[K*pc] - 
+                ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 
+                   2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+                ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                   3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+                ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                   57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                   62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+                ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                     3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                      Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[K*pc]) + 
+                   8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*r^8)/
+                 (340200*K^5))*(43 - 3349*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4)) + 5163*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4)) - 2072*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (14175*K^4)) + 349*E^((16*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4)) - 183*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (8505*K^4)) + 49*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (14175*K^4)) - (16*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                        Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                        4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                       (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                      Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                         (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                       r^6))/(42525*K^4))*(-97 + 55*E^((4*Pi*r^2*(28350*K^3*
+                         (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                          4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                        15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                          4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)) + 
+                   6*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                         Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                          594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                          4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                        Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                         r^6))/(42525*K^4)))*Pi^2*r^4*((-28350*K^3*(2*K*pc + 
+                      Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc]))/
+                    Sqrt[K*pc] + 1890*K^2*(1 + 4*K*pc + 4*Sqrt[K*pc])*
+                    (34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^
+                       (3/2))*Pi*r^2 - 135*K*(2*K*pc + Sqrt[K*pc])*
+                    (3 + 580*K*pc + 25632*K^2*pc^2 + 57344*K^3*pc^3 + 
+                     24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*
+                    Pi^2*r^4 + (54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 
+                     2*K*pc*(669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 
+                       10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*
+                        Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*
+                    Pi^3*r^6))/(42525*K^5) - (32*E^((8*Pi*r^2*(28350*K^3*
+                       (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                        4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                      15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                         (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                       Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*
+                         pc^3*(-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 
+                          818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[
+                          K*pc]))*Pi^3*r^6))/(42525*K^4))*Pi^2*r^4*
+                  ((-28350*K^3*(2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*
+                     (1 + 2*Sqrt[K*pc]))/Sqrt[K*pc] + 5670*K^2*(1 + 4*K*pc + 
+                     4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 
+                     200*(K*pc)^(3/2))*Pi*r^2 - 675*K*(2*K*pc + Sqrt[K*pc])*
+                    (3 + 580*K*pc + 25632*K^2*pc^2 + 57344*K^3*pc^3 + 
+                     24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*
+                    Pi^2*r^4 + 7*(54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 
+                     2*K*pc*(669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 
+                       10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*
+                        Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*
+                    Pi^3*r^6))/(42525*K^5)) + (-1 + E^((4*Pi*r^2*
+                   (28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*
+                     (3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                    15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                       (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                     Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*
+                       pc^3*(-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 
+                        818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[
+                          K*pc]))*Pi^3*r^6))/(42525*K^4)))*(
+                (-128*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                       Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                        594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                        4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                       (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                          203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                        32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                    (42525*K^4))*(-37 + 11*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                          Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[
+                          K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                        15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                          4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)) + 
+                   23*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                         Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                          594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                          4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                        Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                         r^6))/(42525*K^4)))*Pi^2*r^4*((-28350*K^3*(2*K*pc + 
+                      Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc]))/
+                    Sqrt[K*pc] + 1890*K^2*(1 + 4*K*pc + 4*Sqrt[K*pc])*
+                    (34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^
+                       (3/2))*Pi*r^2 - 135*K*(2*K*pc + Sqrt[K*pc])*
+                    (3 + 580*K*pc + 25632*K^2*pc^2 + 57344*K^3*pc^3 + 
+                     24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*
+                    Pi^2*r^4 + (54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 
+                     2*K*pc*(669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 
+                       10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*
+                        Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*
+                    Pi^3*r^6))/(42525*K^5) + 3*(-1 + E^((4*Pi*r^2*
+                     (28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*
+                       (3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*
+                       r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*
+                         pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*
+                          Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*
+                         Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                        4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)))*
+                 (-15 + 3610*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                       1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*
+                          (5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                        (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                       Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*
+                          Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*
+                        Pi^3*r^6))/(42525*K^4)) - 2285*E^((8*Pi*r^2*
+                      (28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*
+                        (3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*
+                        r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*
+                          pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*
+                          Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*
+                          Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                         4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)) + 
+                  100*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                        Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                         594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                         4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                        (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                          203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                         32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                     (14175*K^4)) - 273*E^((16*Pi*r^2*(28350*K^3*(K*pc + 
+                         Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[
+                          K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                       15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                         4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)) - 
+                  30*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                        Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                         594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                         4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                        (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                          203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                         32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                     (8505*K^4)) + 45*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                         Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[
+                          K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                       15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                         4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(14175*K^4)) - 
+                  (256*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                         Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                          594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                          4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                        Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                         r^6))/(42525*K^4))*Pi^2*r^4*((-28350*K^3*(2*K*pc + 
+                        Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc]))/
+                      Sqrt[K*pc] + 5670*K^2*(1 + 4*K*pc + 4*Sqrt[K*pc])*
+                      (34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^
+                         (3/2))*Pi*r^2 - 675*K*(2*K*pc + Sqrt[K*pc])*
+                      (3 + 580*K*pc + 25632*K^2*pc^2 + 57344*K^3*pc^3 + 
+                       24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 62080*(K*pc)^
+                         (5/2))*Pi^2*r^4 + 7*(54591488*K^5*pc^5 + 
+                       15*Sqrt[K*pc] - 2*K*pc*(669 + 3050*Sqrt[K*pc]) + 
+                       8704*K^4*pc^4*(7215 + 10492*Sqrt[K*pc]) + 384*K^3*pc^3*
+                        (13745 + 61476*Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 
+                         83508*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^5)))))/
+            (1808375625*K^8))*T - 
+         2*r*(-1 + E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*
+                r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                  (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*
+                r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                  (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+             (42525*K^4)) + (4*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                     7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                   594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                   4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                  (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                      Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                   32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*
+                K^4))*pc*Pi*r^2*(3*(64 + 279*Sqrt[K*pc])*Pi^4*r^8 + 
+              2*K*Pi^3*r^6*(-270*(4 + 53*Sqrt[K*pc]) + pc*(6275 + 
+                  85548*Sqrt[K*pc])*Pi*r^2) + 12*K^2*Pi^2*r^4*(
+                315*(4 + 45*Sqrt[K*pc]) - 30*pc*(649 + 3488*Sqrt[K*pc])*Pi*
+                 r^2 + 8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 
+              36*K^3*Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 
+                  252*Sqrt[K*pc])*Pi*r^2 - 80*pc^2*(1389 + 2444*Sqrt[K*pc])*
+                 Pi^2*r^4 + 32*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*r^6) + 
+              14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 
+                368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*r^8)))/(42525*K^4))*
+          ((-16*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                  Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*
+                  Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*
+                    pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                  Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                    (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                   32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*
+                K^4))*Pi^2*r^3*((-28350*K^3*(2*K*pc + Sqrt[K*pc])*
+                 (4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc]))/Sqrt[K*pc] + 1890*
+                K^2*(1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi*r^2 - 135*K*
+                (2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                 57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                 62080*(K*pc)^(5/2))*Pi^2*r^4 + (54591488*K^5*pc^5 + 
+                 15*Sqrt[K*pc] - 2*K*pc*(669 + 3050*Sqrt[K*pc]) + 
+                 8704*K^4*pc^4*(7215 + 10492*Sqrt[K*pc]) + 384*K^3*pc^3*
+                  (13745 + 61476*Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 
+                   83508*Sqrt[K*pc]))*Pi^3*r^6)^2*
+             (-1 + E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                   Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*
+                   Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*
+                     pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                        K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 
+                    256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 
+                      818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*
+                   Pi^3*r^6))/(42525*K^4)) + (4*E^((4*Pi*r^2*(28350*K^3*
+                     (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                      4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                    15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                       (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                     Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*
+                       pc^3*(-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 
+                        818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[
+                          K*pc]))*Pi^3*r^6))/(42525*K^4))*pc*Pi*r^2*
+                (3*(64 + 279*Sqrt[K*pc])*Pi^4*r^8 + 2*K*Pi^3*r^6*
+                  (-270*(4 + 53*Sqrt[K*pc]) + pc*(6275 + 85548*Sqrt[K*pc])*Pi*
+                    r^2) + 12*K^2*Pi^2*r^4*(315*(4 + 45*Sqrt[K*pc]) - 
+                   30*pc*(649 + 3488*Sqrt[K*pc])*Pi*r^2 + 8*pc^2*(12435 + 
+                     53804*Sqrt[K*pc])*Pi^2*r^4) + 36*K^3*Pi*r^2*
+                  (-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 252*Sqrt[K*pc])*
+                    Pi*r^2 - 80*pc^2*(1389 + 2444*Sqrt[K*pc])*Pi^2*r^4 + 
+                   32*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*r^6) + 
+                 14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 
+                   368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*r^8)))/(42525*
+                K^4))*((-1 + E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                     1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*
+                        (5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4)))^2*(1 + 6*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4)) + E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[
+                       K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                      4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                     (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                    Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                        203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                      32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                  (42525*K^4))) - 16*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                     Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                     4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                    (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (42525*K^4))*(-1 + E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                      Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                      4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                     (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                    Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                        203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                      32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                  (42525*K^4)))*Pi*r^2*(pc + pc/Sqrt[K*pc] - 
+                ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 
+                   2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+                ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                   3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+                ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                   57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                   62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+                ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                     3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                      Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[K*pc]) + 
+                   8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*r^8)/
+                 (340200*K^5)) + 64*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                     Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                     4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                    (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                     4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                    (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                        Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                     32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                 (42525*K^4))*Pi^2*r^4*(pc + pc/Sqrt[K*pc] - 
+                 ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 
+                    2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+                 ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                    3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+                 ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                    57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                    62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+                 ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                      3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                       Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[
+                        K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*
+                   r^8)/(340200*K^5))^2 + (128*E^((4*Pi*r^2*(28350*K^3*
+                     (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                      4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                    15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                       (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                     Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*
+                       pc^3*(-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 
+                        818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[
+                          K*pc]))*Pi^3*r^6))/(14175*K^4))*(-3 + 
+                 2*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                       Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                        594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                        4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                       (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                          203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                        32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                    (42525*K^4)))*pc^3*Pi^3*r^6*(3*(64 + 279*Sqrt[K*pc])*Pi^4*
+                   r^8 + 2*K*Pi^3*r^6*(-270*(4 + 53*Sqrt[K*pc]) + 
+                    pc*(6275 + 85548*Sqrt[K*pc])*Pi*r^2) + 12*K^2*Pi^2*r^4*
+                   (315*(4 + 45*Sqrt[K*pc]) - 30*pc*(649 + 3488*Sqrt[K*pc])*
+                     Pi*r^2 + 8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 
+                  36*K^3*Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 
+                      252*Sqrt[K*pc])*Pi*r^2 - 80*pc^2*(1389 + 2444*
+                       Sqrt[K*pc])*Pi^2*r^4 + 32*pc^3*(11897 + 18020*
+                       Sqrt[K*pc])*Pi^3*r^6) + 14*K^4*(6075 - 32400*pc*Pi*
+                     r^2 + 120960*pc^2*Pi^2*r^4 - 368640*pc^3*Pi^3*r^6 + 
+                    974848*pc^4*Pi^4*r^8))^3)/(76901173453125*K^12) + 
+              (256*E^((16*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                     Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                        7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                      594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                      4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                     (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                         Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                      32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                  (42525*K^4))*pc^4*Pi^4*r^8*(3*(64 + 279*Sqrt[K*pc])*Pi^4*
+                   r^8 + 2*K*Pi^3*r^6*(-270*(4 + 53*Sqrt[K*pc]) + 
+                    pc*(6275 + 85548*Sqrt[K*pc])*Pi*r^2) + 12*K^2*Pi^2*r^4*
+                   (315*(4 + 45*Sqrt[K*pc]) - 30*pc*(649 + 3488*Sqrt[K*pc])*
+                     Pi*r^2 + 8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 
+                  36*K^3*Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 
+                      252*Sqrt[K*pc])*Pi*r^2 - 80*pc^2*(1389 + 2444*
+                       Sqrt[K*pc])*Pi^2*r^4 + 32*pc^3*(11897 + 18020*
+                       Sqrt[K*pc])*Pi^3*r^6) + 14*K^4*(6075 - 32400*pc*Pi*
+                     r^2 + 120960*pc^2*Pi^2*r^4 - 368640*pc^3*Pi^3*r^6 + 
+                    974848*pc^4*Pi^4*r^8))^4)/(3270222401094140625*K^16) + 
+              (16*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                     Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                        7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                      594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                      4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                     (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                         Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                      32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                  (42525*K^4))*pc^2*Pi^2*r^4*(3*(64 + 279*Sqrt[K*pc])*Pi^4*
+                   r^8 + 2*K*Pi^3*r^6*(-270*(4 + 53*Sqrt[K*pc]) + 
+                    pc*(6275 + 85548*Sqrt[K*pc])*Pi*r^2) + 12*K^2*Pi^2*r^4*
+                   (315*(4 + 45*Sqrt[K*pc]) - 30*pc*(649 + 3488*Sqrt[K*pc])*
+                     Pi*r^2 + 8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 
+                  36*K^3*Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 
+                      252*Sqrt[K*pc])*Pi*r^2 - 80*pc^2*(1389 + 2444*
+                       Sqrt[K*pc])*Pi^2*r^4 + 32*pc^3*(11897 + 18020*
+                       Sqrt[K*pc])*Pi^3*r^6) + 14*K^4*(6075 - 32400*pc*Pi*
+                     r^2 + 120960*pc^2*Pi^2*r^4 - 368640*pc^3*Pi^3*r^6 + 
+                    974848*pc^4*Pi^4*r^8))^2*(7 - 8*E^((4*Pi*r^2*
+                     (28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*
+                       (3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*
+                       r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*
+                         pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*
+                          Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*
+                         Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                        4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)) + 
+                 6*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                       Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                        594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                        4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                       (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                          203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                        32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                    (42525*K^4)) - 16*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                        Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                        4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                       (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                      Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                         (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                       r^6))/(42525*K^4))*Pi*r^2*(pc + pc/Sqrt[K*pc] - 
+                   ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 
+                      2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+                   ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                      3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+                   ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                      57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                      62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+                   ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                        3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                         Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[
+                          K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*
+                     r^8)/(340200*K^5))))/(1808375625*K^8) + 
+              (8*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                     Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                        7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                      594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                      4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                     (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                         Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                      32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                  (42525*K^4))*pc*Pi*r^2*(3*(64 + 279*Sqrt[K*pc])*Pi^4*r^8 + 
+                 2*K*Pi^3*r^6*(-270*(4 + 53*Sqrt[K*pc]) + pc*(6275 + 
+                     85548*Sqrt[K*pc])*Pi*r^2) + 12*K^2*Pi^2*r^4*
+                  (315*(4 + 45*Sqrt[K*pc]) - 30*pc*(649 + 3488*Sqrt[K*pc])*Pi*
+                    r^2 + 8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 
+                 36*K^3*Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 
+                     252*Sqrt[K*pc])*Pi*r^2 - 80*pc^2*(1389 + 2444*
+                      Sqrt[K*pc])*Pi^2*r^4 + 32*pc^3*(11897 + 18020*
+                      Sqrt[K*pc])*Pi^3*r^6) + 14*K^4*(6075 - 32400*pc*Pi*
+                    r^2 + 120960*pc^2*Pi^2*r^4 - 368640*pc^3*Pi^3*r^6 + 
+                   974848*pc^4*Pi^4*r^8))*(3 - 6*E^((4*Pi*r^2*(28350*K^3*
+                       (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                        4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                      15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                         (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                       Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*
+                         pc^3*(-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 
+                          818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[
+                          K*pc]))*Pi^3*r^6))/(42525*K^4)) + 
+                 E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                      Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                         7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                       594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                       4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                      (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4)) + 2*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                        Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                        4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                       (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                      Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                         (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                       r^6))/(14175*K^4)) - 8*E^((4*Pi*r^2*(28350*K^3*
+                       (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                        4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                      15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                         (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                       Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*
+                         pc^3*(-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 
+                          818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[
+                          K*pc]))*Pi^3*r^6))/(42525*K^4))*(-3 + 
+                   2*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                         Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                          594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                          4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                        Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                         r^6))/(42525*K^4)))*Pi*r^2*(pc + pc/Sqrt[K*pc] - 
+                   ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 
+                      2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+                   ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                      3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+                   ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                      57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                      62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+                   ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                        3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                         Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[
+                          K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*
+                     r^8)/(340200*K^5))))/(42525*K^4))*T)/(1808375625*K^10) + 
+           2*(pc + pc/Sqrt[K*pc] - ((2*K*pc + Sqrt[K*pc])*(4*K*pc + 
+                Sqrt[K*pc])*(1 + 2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+             ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+             ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+             ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                  3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                   Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[K*pc]) + 
+                8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*r^8)/(340200*K^5))*
+            ((128*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                    Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*
+                    Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 
+                     160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 
+                       582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 
+                     2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                     4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                       2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4))*Pi^3*r^
+                5*((-28350*K^3*(2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*
+                   (1 + 2*Sqrt[K*pc]))/Sqrt[K*pc] + 1890*K^2*(1 + 4*K*pc + 
+                   4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 
+                   200*(K*pc)^(3/2))*Pi*r^2 - 135*K*(2*K*pc + Sqrt[K*pc])*
+                  (3 + 580*K*pc + 25632*K^2*pc^2 + 57344*K^3*pc^3 + 
+                   24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*
+                  Pi^2*r^4 + (54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 
+                   2*K*pc*(669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 
+                     10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*
+                      Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*
+                  Pi^3*r^6)^2*(-1 + E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                      Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                      4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                     (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                    Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                        203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                      32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                  (42525*K^4)) + (4*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                        Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                        4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                       (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                      Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                         (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                       r^6))/(42525*K^4))*pc*Pi*r^2*(3*(64 + 279*Sqrt[K*pc])*
+                    Pi^4*r^8 + 2*K*Pi^3*r^6*(-270*(4 + 53*Sqrt[K*pc]) + 
+                     pc*(6275 + 85548*Sqrt[K*pc])*Pi*r^2) + 12*K^2*Pi^2*r^4*
+                    (315*(4 + 45*Sqrt[K*pc]) - 30*pc*(649 + 3488*Sqrt[K*pc])*
+                      Pi*r^2 + 8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 
+                   36*K^3*Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*
+                      (107 + 252*Sqrt[K*pc])*Pi*r^2 - 80*pc^2*(1389 + 
+                       2444*Sqrt[K*pc])*Pi^2*r^4 + 32*pc^3*(11897 + 
+                       18020*Sqrt[K*pc])*Pi^3*r^6) + 14*K^4*(6075 - 
+                     32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 368640*pc^3*
+                      Pi^3*r^6 + 974848*pc^4*Pi^4*r^8)))/(42525*K^4))*(-1 + 
+                E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                     Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                        7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                      594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                      4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                     (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                         Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                      32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                  (42525*K^4)) - 8*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4))*Pi*r^2*(pc + pc/Sqrt[K*pc] - 
+                  ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 
+                     2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+                  ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                     3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+                  ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                     57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                     62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+                  ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                       3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                        Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[
+                         K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*
+                    r^8)/(340200*K^5)) + (4*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                        Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                        4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                       (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                      Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                         (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                       r^6))/(42525*K^4))*(-3 + 2*E^((4*Pi*r^2*(28350*K^3*
+                         (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                          4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                        15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                          4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)))*pc*Pi*
+                  r^2*(3*(64 + 279*Sqrt[K*pc])*Pi^4*r^8 + 2*K*Pi^3*r^6*
+                    (-270*(4 + 53*Sqrt[K*pc]) + pc*(6275 + 85548*Sqrt[K*pc])*
+                      Pi*r^2) + 12*K^2*Pi^2*r^4*(315*(4 + 45*Sqrt[K*pc]) - 
+                     30*pc*(649 + 3488*Sqrt[K*pc])*Pi*r^2 + 8*pc^2*(12435 + 
+                       53804*Sqrt[K*pc])*Pi^2*r^4) + 36*K^3*Pi*r^2*
+                    (-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 252*Sqrt[K*pc])*
+                      Pi*r^2 - 80*pc^2*(1389 + 2444*Sqrt[K*pc])*Pi^2*r^4 + 
+                     32*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*r^6) + 
+                   14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 
+                     368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*r^8)))/
+                 (42525*K^4) + (16*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[
+                         K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                        4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                       (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                      Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                         (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                       r^6))/(42525*K^4))*pc^2*Pi^2*r^4*
+                  (3*(64 + 279*Sqrt[K*pc])*Pi^4*r^8 + 2*K*Pi^3*r^6*
+                     (-270*(4 + 53*Sqrt[K*pc]) + pc*(6275 + 85548*Sqrt[K*pc])*
+                       Pi*r^2) + 12*K^2*Pi^2*r^4*(315*(4 + 45*Sqrt[K*pc]) - 
+                      30*pc*(649 + 3488*Sqrt[K*pc])*Pi*r^2 + 8*pc^2*(12435 + 
+                        53804*Sqrt[K*pc])*Pi^2*r^4) + 36*K^3*Pi*r^2*
+                     (-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 252*Sqrt[
+                          K*pc])*Pi*r^2 - 80*pc^2*(1389 + 2444*Sqrt[K*pc])*
+                       Pi^2*r^4 + 32*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*
+                       r^6) + 14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*
+                       Pi^2*r^4 - 368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*
+                       r^8))^2)/(1808375625*K^8)))/(1808375625*K^10) - 
+             (8*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                    Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*
+                    Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 
+                     160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 
+                       582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 
+                     2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                     4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                       2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4))*Pi*r*(
+                (-28350*K^3*(2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*
+                  (1 + 2*Sqrt[K*pc]))/Sqrt[K*pc] + 5670*K^2*(1 + 4*K*pc + 
+                  4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 
+                  200*(K*pc)^(3/2))*Pi*r^2 - 675*K*(2*K*pc + Sqrt[K*pc])*
+                 (3 + 580*K*pc + 25632*K^2*pc^2 + 57344*K^3*pc^3 + 
+                  24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*
+                 Pi^2*r^4 + 7*(54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 
+                  2*K*pc*(669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 
+                    10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*
+                     Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^3*
+                 r^6)*(-1 + E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                    1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*
+                       (5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                     (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                    Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                        203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                      32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                  (42525*K^4)) + (4*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                        Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                        4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                       (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                      Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                         (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                       r^6))/(42525*K^4))*pc*Pi*r^2*(3*(64 + 279*Sqrt[K*pc])*
+                    Pi^4*r^8 + 2*K*Pi^3*r^6*(-270*(4 + 53*Sqrt[K*pc]) + 
+                     pc*(6275 + 85548*Sqrt[K*pc])*Pi*r^2) + 12*K^2*Pi^2*r^4*
+                    (315*(4 + 45*Sqrt[K*pc]) - 30*pc*(649 + 3488*Sqrt[K*pc])*
+                      Pi*r^2 + 8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 
+                   36*K^3*Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*
+                      (107 + 252*Sqrt[K*pc])*Pi*r^2 - 80*pc^2*(1389 + 
+                       2444*Sqrt[K*pc])*Pi^2*r^4 + 32*pc^3*(11897 + 
+                       18020*Sqrt[K*pc])*Pi^3*r^6) + 14*K^4*(6075 - 
+                     32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 368640*pc^3*
+                      Pi^3*r^6 + 974848*pc^4*Pi^4*r^8)))/(42525*K^4))*(
+                (-1 + E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                        Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                         594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                         4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                        (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                          203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                         32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                     (42525*K^4)))^2*(1 + 6*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                         Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[
+                          K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                       15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                         4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)) + 
+                  E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                       Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                        594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                        4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                       (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                          203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                        32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                    (42525*K^4))) - 16*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4))*(-1 + E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                        Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                        4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                       (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                      Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                         (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                       r^6))/(42525*K^4)))*Pi*r^2*(pc + pc/Sqrt[K*pc] - 
+                  ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 
+                     2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+                  ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                     3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+                  ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                     57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                     62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+                  ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                       3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                        Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[
+                         K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*
+                    r^8)/(340200*K^5)) + 64*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4))*Pi^2*r^4*(pc + pc/Sqrt[K*pc] - 
+                   ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 
+                      2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+                   ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                      3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+                   ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                      57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                      62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+                   ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                        3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                         Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[
+                          K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*
+                     r^8)/(340200*K^5))^2 + (128*E^((4*Pi*r^2*(28350*K^3*
+                       (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                        4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                      15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                         (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                       Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*
+                         pc^3*(-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 
+                          818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[
+                          K*pc]))*Pi^3*r^6))/(14175*K^4))*(-3 + 
+                   2*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                         Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                          594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                          4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                        Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                         r^6))/(42525*K^4)))*pc^3*Pi^3*r^6*
+                  (3*(64 + 279*Sqrt[K*pc])*Pi^4*r^8 + 2*K*Pi^3*r^6*
+                     (-270*(4 + 53*Sqrt[K*pc]) + pc*(6275 + 85548*Sqrt[K*pc])*
+                       Pi*r^2) + 12*K^2*Pi^2*r^4*(315*(4 + 45*Sqrt[K*pc]) - 
+                      30*pc*(649 + 3488*Sqrt[K*pc])*Pi*r^2 + 8*pc^2*(12435 + 
+                        53804*Sqrt[K*pc])*Pi^2*r^4) + 36*K^3*Pi*r^2*
+                     (-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 252*Sqrt[
+                          K*pc])*Pi*r^2 - 80*pc^2*(1389 + 2444*Sqrt[K*pc])*
+                       Pi^2*r^4 + 32*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*
+                       r^6) + 14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*
+                       Pi^2*r^4 - 368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*
+                       r^8))^3)/(76901173453125*K^12) + 
+                (256*E^((16*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                       Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                        594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                        4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                       (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                          203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                        32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                    (42525*K^4))*pc^4*Pi^4*r^8*(3*(64 + 279*Sqrt[K*pc])*Pi^4*
+                     r^8 + 2*K*Pi^3*r^6*(-270*(4 + 53*Sqrt[K*pc]) + 
+                      pc*(6275 + 85548*Sqrt[K*pc])*Pi*r^2) + 12*K^2*Pi^2*r^4*
+                     (315*(4 + 45*Sqrt[K*pc]) - 30*pc*(649 + 3488*Sqrt[K*pc])*
+                       Pi*r^2 + 8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 
+                    36*K^3*Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*
+                       (107 + 252*Sqrt[K*pc])*Pi*r^2 - 80*pc^2*(1389 + 
+                        2444*Sqrt[K*pc])*Pi^2*r^4 + 32*pc^3*(11897 + 
+                        18020*Sqrt[K*pc])*Pi^3*r^6) + 14*K^4*(6075 - 
+                      32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 368640*pc^3*
+                       Pi^3*r^6 + 974848*pc^4*Pi^4*r^8))^4)/
+                 (3270222401094140625*K^16) + (16*E^((8*Pi*r^2*(28350*K^3*
+                       (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                        4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                      15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                         (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                       Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*
+                         pc^3*(-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 
+                          818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[
+                          K*pc]))*Pi^3*r^6))/(42525*K^4))*pc^2*Pi^2*r^4*
+                  (3*(64 + 279*Sqrt[K*pc])*Pi^4*r^8 + 2*K*Pi^3*r^6*
+                     (-270*(4 + 53*Sqrt[K*pc]) + pc*(6275 + 85548*Sqrt[K*pc])*
+                       Pi*r^2) + 12*K^2*Pi^2*r^4*(315*(4 + 45*Sqrt[K*pc]) - 
+                      30*pc*(649 + 3488*Sqrt[K*pc])*Pi*r^2 + 8*pc^2*(12435 + 
+                        53804*Sqrt[K*pc])*Pi^2*r^4) + 36*K^3*Pi*r^2*
+                     (-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 252*Sqrt[
+                          K*pc])*Pi*r^2 - 80*pc^2*(1389 + 2444*Sqrt[K*pc])*
+                       Pi^2*r^4 + 32*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*
+                       r^6) + 14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*
+                       Pi^2*r^4 - 368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*
+                       r^8))^2*(7 - 8*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                          Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[
+                          K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                        15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                          4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)) + 
+                   6*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                         Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                          594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                          4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                        Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                         r^6))/(42525*K^4)) - 16*E^((4*Pi*r^2*(28350*K^3*
+                         (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                          4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                        15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                          4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4))*Pi*r^2*
+                    (pc + pc/Sqrt[K*pc] - ((2*K*pc + Sqrt[K*pc])*(4*K*pc + 
+                        Sqrt[K*pc])*(1 + 2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*
+                       Sqrt[K*pc]) + ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 
+                        448*K^2*pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*
+                       r^4)/(90*K^3) - ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 
+                        25632*K^2*pc^2 + 57344*K^3*pc^3 + 24*Sqrt[K*pc] + 
+                        5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*Pi^3*r^6)/
+                      (1890*K^4) + ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 
+                        2*K*pc*(669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*
+                         (7215 + 10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 
+                          61476*Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*
+                          Sqrt[K*pc]))*Pi^4*r^8)/(340200*K^5))))/(1808375625*
+                  K^8) + (8*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                      1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*
+                         (5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                       (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                      Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                         (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                       r^6))/(42525*K^4))*pc*Pi*r^2*(3*(64 + 279*Sqrt[K*pc])*
+                    Pi^4*r^8 + 2*K*Pi^3*r^6*(-270*(4 + 53*Sqrt[K*pc]) + 
+                     pc*(6275 + 85548*Sqrt[K*pc])*Pi*r^2) + 12*K^2*Pi^2*r^4*
+                    (315*(4 + 45*Sqrt[K*pc]) - 30*pc*(649 + 3488*Sqrt[K*pc])*
+                      Pi*r^2 + 8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 
+                   36*K^3*Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*
+                      (107 + 252*Sqrt[K*pc])*Pi*r^2 - 80*pc^2*(1389 + 
+                       2444*Sqrt[K*pc])*Pi^2*r^4 + 32*pc^3*(11897 + 
+                       18020*Sqrt[K*pc])*Pi^3*r^6) + 14*K^4*(6075 - 
+                     32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 368640*pc^3*
+                      Pi^3*r^6 + 974848*pc^4*Pi^4*r^8))*(3 - 
+                   6*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                         Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                          594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                          4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                        Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                         r^6))/(42525*K^4)) + E^((8*Pi*r^2*(28350*K^3*
+                        (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                         4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                       15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                         4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)) + 
+                   2*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                         Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                          594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                          4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                        Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                         r^6))/(14175*K^4)) - 8*E^((4*Pi*r^2*(28350*K^3*
+                         (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                          4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                        15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                          4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4))*
+                    (-3 + 2*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                          1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*
+                          (5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                          (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                          Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                          r^6))/(42525*K^4)))*Pi*r^2*(pc + pc/Sqrt[K*pc] - 
+                     ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 
+                        2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+                     ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                        3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+                     ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                        57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                        62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+                     ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                          3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                          Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[
+                          K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*
+                       r^8)/(340200*K^5))))/(42525*K^4)))/(42525*K^5) + 
+             (Pi*r*((-28350*K^3*(2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*
+                  (1 + 2*Sqrt[K*pc]))/Sqrt[K*pc] + 1890*K^2*(1 + 4*K*pc + 
+                  4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 
+                  200*(K*pc)^(3/2))*Pi*r^2 - 135*K*(2*K*pc + Sqrt[K*pc])*
+                 (3 + 580*K*pc + 25632*K^2*pc^2 + 57344*K^3*pc^3 + 
+                  24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*
+                 Pi^2*r^4 + (54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 
+                  2*K*pc*(669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 
+                    10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*
+                     Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^3*
+                 r^6)*((-1 + E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                       1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*
+                          (5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                        (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                       Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*
+                          Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*
+                        Pi^3*r^6))/(42525*K^4)))^3*(1 - 
+                  39*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                        Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                         594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                         4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                        (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                          203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                         32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                     (42525*K^4)) - 290*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                         Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[
+                          K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                       15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                         4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)) - 
+                  50*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                        Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                         594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                         4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                        (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                          203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                         32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                     (14175*K^4)) + 9*E^((16*Pi*r^2*(28350*K^3*(K*pc + 
+                         Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[
+                          K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                       15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                         4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)) + 
+                  E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                       Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                        594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                        4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                       (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                          203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                        32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                    (8505*K^4))) + 8*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                       Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                       4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                      (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                     Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                         203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                       32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                   (42525*K^4))*(-1 + E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                         Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[
+                          K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                       15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                         4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)))^2*
+                 (-1 + 192*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                       1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*
+                          (5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                        (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                       Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*
+                          Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*
+                        Pi^3*r^6))/(42525*K^4)) + 286*E^((8*Pi*r^2*
+                      (28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*
+                        (3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*
+                        r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*
+                          pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*
+                          Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*
+                          Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                         4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)) + 
+                  40*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                        Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                         594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                         4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                        (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                          203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                         32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                     (14175*K^4)) + 3*E^((16*Pi*r^2*(28350*K^3*(K*pc + 
+                         Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[
+                          K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                       15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                         4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)))*Pi*r^2*
+                 (pc + pc/Sqrt[K*pc] - ((2*K*pc + Sqrt[K*pc])*(4*K*pc + 
+                     Sqrt[K*pc])*(1 + 2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*
+                    Sqrt[K*pc]) + ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 
+                     448*K^2*pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*
+                    r^4)/(90*K^3) - ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 
+                     25632*K^2*pc^2 + 57344*K^3*pc^3 + 24*Sqrt[K*pc] + 
+                     5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*Pi^3*r^6)/
+                   (1890*K^4) + ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 
+                     2*K*pc*(669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 
+                       10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*
+                        Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*
+                    Pi^4*r^8)/(340200*K^5)) - 512*E^((4*Pi*r^2*
+                    (28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*
+                      (3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                     15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                        (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                      Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*
+                        pc^3*(-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 
+                         818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[
+                          K*pc]))*Pi^3*r^6))/(14175*K^4))*(-24 + 
+                  15*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                        Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                         594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                         4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                        (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                          203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                         32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                     (42525*K^4)) + 8*E^((8*Pi*r^2*(28350*K^3*(K*pc + 
+                         Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[
+                          K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                       15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                         4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)) + 
+                  E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                       Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                        594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                        4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                       (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                          203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                        32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                    (14175*K^4)))*Pi^2*r^4*(pc + pc/Sqrt[K*pc] - 
+                   ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 
+                      2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+                   ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                      3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+                   ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                      57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                      62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+                   ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                        3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                         Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[
+                          K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*
+                     r^8)/(340200*K^5))^2 + 2048*E^((16*Pi*r^2*
+                    (28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*
+                      (3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                     15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                        (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*
+                      Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*
+                        pc^3*(-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 
+                         818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[
+                          K*pc]))*Pi^3*r^6))/(42525*K^4))*(11 + 
+                  E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                       Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                        594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                        4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                       (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                          203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                        32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                    (42525*K^4)))*Pi^3*r^6*(pc + pc/Sqrt[K*pc] - 
+                   ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 
+                      2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+                   ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                      3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+                   ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                      57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                      62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+                   ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                        3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                         Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[
+                          K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*
+                     r^8)/(340200*K^5))^3 + (16384*E^((4*Pi*r^2*
+                     (28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*
+                       (3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*
+                       r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*
+                         pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*
+                          Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*
+                         Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                        4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(6075*K^4))*
+                  (-9 + 8*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                        1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*
+                          (5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                         (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                        Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                         r^6))/(42525*K^4)))*pc^7*Pi^7*r^14*
+                  (3*(64 + 279*Sqrt[K*pc])*Pi^4*r^8 + 2*K*Pi^3*r^6*
+                     (-270*(4 + 53*Sqrt[K*pc]) + pc*(6275 + 85548*Sqrt[K*pc])*
+                       Pi*r^2) + 12*K^2*Pi^2*r^4*(315*(4 + 45*Sqrt[K*pc]) - 
+                      30*pc*(649 + 3488*Sqrt[K*pc])*Pi*r^2 + 8*pc^2*(12435 + 
+                        53804*Sqrt[K*pc])*Pi^2*r^4) + 36*K^3*Pi*r^2*
+                     (-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 252*Sqrt[
+                          K*pc])*Pi*r^2 - 80*pc^2*(1389 + 2444*Sqrt[K*pc])*
+                       Pi^2*r^4 + 32*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*
+                       r^6) + 14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*
+                       Pi^2*r^4 - 368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*
+                       r^8))^7)/(251483940096835422985235595703125*K^28) + 
+                (65536*E^((32*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                      1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*
+                         (5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                       (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                      Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                         (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                       r^6))/(42525*K^4))*pc^8*Pi^8*r^16*
+                  (3*(64 + 279*Sqrt[K*pc])*Pi^4*r^8 + 2*K*Pi^3*r^6*
+                     (-270*(4 + 53*Sqrt[K*pc]) + pc*(6275 + 85548*Sqrt[K*pc])*
+                       Pi*r^2) + 12*K^2*Pi^2*r^4*(315*(4 + 45*Sqrt[K*pc]) - 
+                      30*pc*(649 + 3488*Sqrt[K*pc])*Pi*r^2 + 8*pc^2*(12435 + 
+                        53804*Sqrt[K*pc])*Pi^2*r^4) + 36*K^3*Pi*r^2*
+                     (-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 252*Sqrt[
+                          K*pc])*Pi*r^2 - 80*pc^2*(1389 + 2444*Sqrt[K*pc])*
+                       Pi^2*r^4 + 32*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*
+                       r^6) + 14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*
+                       Pi^2*r^4 - 368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*
+                       r^8))^8)/(10694354552617926362447143707275390625*
+                  K^32) + (16384*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[
+                         K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                        4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                       (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                      Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                         (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                       r^6))/(14175*K^4))*pc^6*Pi^6*r^12*
+                  (3*(64 + 279*Sqrt[K*pc])*Pi^4*r^8 + 2*K*Pi^3*r^6*
+                     (-270*(4 + 53*Sqrt[K*pc]) + pc*(6275 + 85548*Sqrt[K*pc])*
+                       Pi*r^2) + 12*K^2*Pi^2*r^4*(315*(4 + 45*Sqrt[K*pc]) - 
+                      30*pc*(649 + 3488*Sqrt[K*pc])*Pi*r^2 + 8*pc^2*(12435 + 
+                        53804*Sqrt[K*pc])*Pi^2*r^4) + 36*K^3*Pi*r^2*
+                     (-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*(107 + 252*Sqrt[
+                          K*pc])*Pi*r^2 - 80*pc^2*(1389 + 2444*Sqrt[K*pc])*
+                       Pi^2*r^4 + 32*pc^3*(11897 + 18020*Sqrt[K*pc])*Pi^3*
+                       r^6) + 14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*
+                       Pi^2*r^4 - 368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*
+                       r^8))^6*(8 - 11*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                          Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[
+                          K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                        15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                          4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)) + 
+                   7*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                         Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                          594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                          4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                        Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                         r^6))/(42525*K^4)) - 2*E^((4*Pi*r^2*(28350*K^3*
+                         (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                          4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                        15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                          4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4))*Pi*r^2*
+                    (pc + pc/Sqrt[K*pc] - ((2*K*pc + Sqrt[K*pc])*(4*K*pc + 
+                        Sqrt[K*pc])*(1 + 2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*
+                       Sqrt[K*pc]) + ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 
+                        448*K^2*pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*
+                       r^4)/(90*K^3) - ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 
+                        25632*K^2*pc^2 + 57344*K^3*pc^3 + 24*Sqrt[K*pc] + 
+                        5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*Pi^3*r^6)/
+                      (1890*K^4) + ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 
+                        2*K*pc*(669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*
+                         (7215 + 10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 
+                          61476*Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*
+                          Sqrt[K*pc]))*Pi^4*r^8)/(340200*K^5))))/
+                 (5913790478467617236572265625*K^24) + 
+                (1024*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                       Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                        594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                        4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                       (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                          203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                        32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                    (8505*K^4))*pc^5*Pi^5*r^10*(3*(64 + 279*Sqrt[K*pc])*Pi^4*
+                     r^8 + 2*K*Pi^3*r^6*(-270*(4 + 53*Sqrt[K*pc]) + 
+                      pc*(6275 + 85548*Sqrt[K*pc])*Pi*r^2) + 12*K^2*Pi^2*r^4*
+                     (315*(4 + 45*Sqrt[K*pc]) - 30*pc*(649 + 3488*Sqrt[K*pc])*
+                       Pi*r^2 + 8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 
+                    36*K^3*Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*
+                       (107 + 252*Sqrt[K*pc])*Pi*r^2 - 80*pc^2*(1389 + 
+                        2444*Sqrt[K*pc])*Pi^2*r^4 + 32*pc^3*(11897 + 
+                        18020*Sqrt[K*pc])*Pi^3*r^6) + 14*K^4*(6075 - 
+                      32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 368640*pc^3*
+                       Pi^3*r^6 + 974848*pc^4*Pi^4*r^8))^5*(-59 + 
+                   82*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                         Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                          594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                          4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                        Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                         r^6))/(42525*K^4)) - 79*E^((8*Pi*r^2*(28350*K^3*
+                         (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                          4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                        15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                          4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)) + 
+                   56*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                         Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                          594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                          4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                        Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                         r^6))/(14175*K^4)) - 16*E^((4*Pi*r^2*(28350*K^3*
+                         (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                          4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                        15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                          4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4))*
+                    (-3 + E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                         1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*
+                          (5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                          (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                         Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                          r^6))/(42525*K^4)))*Pi*r^2*(pc + pc/Sqrt[K*pc] - 
+                     ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 
+                        2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+                     ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                        3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+                     ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                        57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                        62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+                     ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                          3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                          Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[
+                          K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*
+                       r^8)/(340200*K^5))))/(139066207606528330078125*K^20) + 
+                (512*E^((16*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                       Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                        594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                        4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                       (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                          203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                        32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                    (42525*K^4))*pc^4*Pi^4*r^8*(3*(64 + 279*Sqrt[K*pc])*Pi^4*
+                     r^8 + 2*K*Pi^3*r^6*(-270*(4 + 53*Sqrt[K*pc]) + 
+                      pc*(6275 + 85548*Sqrt[K*pc])*Pi*r^2) + 12*K^2*Pi^2*r^4*
+                     (315*(4 + 45*Sqrt[K*pc]) - 30*pc*(649 + 3488*Sqrt[K*pc])*
+                       Pi*r^2 + 8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 
+                    36*K^3*Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*
+                       (107 + 252*Sqrt[K*pc])*Pi*r^2 - 80*pc^2*(1389 + 
+                        2444*Sqrt[K*pc])*Pi^2*r^4 + 32*pc^3*(11897 + 
+                        18020*Sqrt[K*pc])*Pi^3*r^6) + 14*K^4*(6075 - 
+                      32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 368640*pc^3*
+                       Pi^3*r^6 + 974848*pc^4*Pi^4*r^8))^4*(30 - 
+                   17*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                         Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                          594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                          4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                        Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                         r^6))/(42525*K^4)) - 13*E^((8*Pi*r^2*(28350*K^3*
+                         (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                          4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                        15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                          4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)) - 
+                   25*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                         Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                          594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                          4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                        Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                         r^6))/(14175*K^4)) + 35*E^((16*Pi*r^2*(28350*K^3*
+                         (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                          4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                        15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                          4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)) + 
+                   20*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                         Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                          594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                          4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                        Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                         r^6))/(42525*K^4))*(-3 + 2*E^((4*Pi*r^2*(28350*K^3*
+                          (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                          4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                          15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                          4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)) + 
+                     E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                          Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                          594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                          4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                         Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                          r^6))/(42525*K^4)))*Pi*r^2*(pc + pc/Sqrt[K*pc] - 
+                     ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 
+                        2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+                     ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                        3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+                     ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                        57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                        62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+                     ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                          3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                          Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[
+                          K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*
+                       r^8)/(340200*K^5))))/(3270222401094140625*K^16) + 
+                (64*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                       Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                        594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                        4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                       (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                          203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                        32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                    (14175*K^4))*pc^3*Pi^3*r^6*(3*(64 + 279*Sqrt[K*pc])*Pi^4*
+                     r^8 + 2*K*Pi^3*r^6*(-270*(4 + 53*Sqrt[K*pc]) + 
+                      pc*(6275 + 85548*Sqrt[K*pc])*Pi*r^2) + 12*K^2*Pi^2*r^4*
+                     (315*(4 + 45*Sqrt[K*pc]) - 30*pc*(649 + 3488*Sqrt[K*pc])*
+                       Pi*r^2 + 8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 
+                    36*K^3*Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*
+                       (107 + 252*Sqrt[K*pc])*Pi*r^2 - 80*pc^2*(1389 + 
+                        2444*Sqrt[K*pc])*Pi^2*r^4 + 32*pc^3*(11897 + 
+                        18020*Sqrt[K*pc])*Pi^3*r^6) + 14*K^4*(6075 - 
+                      32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 368640*pc^3*
+                       Pi^3*r^6 + 974848*pc^4*Pi^4*r^8))^3*(-31 - 
+                   496*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                         Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                          594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                          4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                        Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                         r^6))/(42525*K^4)) + 810*E^((8*Pi*r^2*(28350*K^3*
+                         (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                          4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                        15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                          4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)) - 
+                   324*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                         Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                          594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                          4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                        Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                         r^6))/(14175*K^4)) + 25*E^((16*Pi*r^2*(28350*K^3*
+                         (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                          4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                        15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                          4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)) + 
+                   56*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                         Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                          594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                          4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                        Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                         r^6))/(8505*K^4)) + 32*E^((4*Pi*r^2*(28350*K^3*
+                         (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                          4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                        15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                          4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4))*
+                    (5 - 46*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                          1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*
+                          (5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                          (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                          Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                          r^6))/(42525*K^4)) + 7*E^((8*Pi*r^2*(28350*K^3*
+                          (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                          4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                          15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                          4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)) + 
+                     5*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                          Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                          594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                          4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                          Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                          r^6))/(14175*K^4)))*Pi*r^2*(pc + pc/Sqrt[K*pc] - 
+                     ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 
+                        2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+                     ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                        3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+                     ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                        57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                        62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+                     ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                          3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                          Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[
+                          K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*
+                       r^8)/(340200*K^5)) - 512*E^((4*Pi*r^2*(28350*K^3*
+                         (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                          4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                        15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                          4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(14175*K^4))*Pi^2*r^4*
+                    (pc + pc/Sqrt[K*pc] - ((2*K*pc + Sqrt[K*pc])*(4*K*pc + 
+                         Sqrt[K*pc])*(1 + 2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*
+                        Sqrt[K*pc]) + ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 
+                         448*K^2*pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*
+                        r^4)/(90*K^3) - ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*
+                          pc + 25632*K^2*pc^2 + 57344*K^3*pc^3 + 24*Sqrt[
+                          K*pc] + 5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*
+                        Pi^3*r^6)/(1890*K^4) + ((54591488*K^5*pc^5 + 
+                         15*Sqrt[K*pc] - 2*K*pc*(669 + 3050*Sqrt[K*pc]) + 
+                         8704*K^4*pc^4*(7215 + 10492*Sqrt[K*pc]) + 384*K^3*
+                          pc^3*(13745 + 61476*Sqrt[K*pc]) + 8*K^2*pc^2*
+                          (4313 + 83508*Sqrt[K*pc]))*Pi^4*r^8)/(340200*K^5))^
+                     2))/(76901173453125*K^12) + 
+                (64*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                       Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                        594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                        4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*
+                       (15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 
+                          203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+                        32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/
+                    (42525*K^4))*pc^2*Pi^2*r^4*(3*(64 + 279*Sqrt[K*pc])*Pi^4*
+                     r^8 + 2*K*Pi^3*r^6*(-270*(4 + 53*Sqrt[K*pc]) + 
+                      pc*(6275 + 85548*Sqrt[K*pc])*Pi*r^2) + 12*K^2*Pi^2*r^4*
+                     (315*(4 + 45*Sqrt[K*pc]) - 30*pc*(649 + 3488*Sqrt[K*pc])*
+                       Pi*r^2 + 8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 
+                    36*K^3*Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*
+                       (107 + 252*Sqrt[K*pc])*Pi*r^2 - 80*pc^2*(1389 + 
+                        2444*Sqrt[K*pc])*Pi^2*r^4 + 32*pc^3*(11897 + 
+                        18020*Sqrt[K*pc])*Pi^3*r^6) + 14*K^4*(6075 - 
+                      32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 368640*pc^3*
+                       Pi^3*r^6 + 974848*pc^4*Pi^4*r^8))^2*(1 + 
+                   290*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                         Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                          594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                          4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                        Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                         r^6))/(42525*K^4)) - 545*E^((8*Pi*r^2*(28350*K^3*
+                         (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                          4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                        15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                          4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)) + 
+                   352*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                         Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                          594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                          4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                        Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                         r^6))/(14175*K^4)) - 119*E^((16*Pi*r^2*(28350*K^3*
+                         (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                          4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                        15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                          4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)) + 
+                   14*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                         Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                          594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                          4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                        Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                         r^6))/(8505*K^4)) + 7*E^((8*Pi*r^2*(28350*K^3*
+                         (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                          4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                        15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                          4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(14175*K^4)) + 
+                   2*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                         Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                          594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                          4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                        Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                         r^6))/(42525*K^4))*(-15 + 264*E^((4*Pi*r^2*
+                         (28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*
+                          (3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*
+                          r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 
+                          160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 
+                          582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 
+                          2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[
+                          K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*
+                          pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*
+                         K^4)) - 174*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[
+                          K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                          4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                          (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                          Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                          r^6))/(42525*K^4)) + 84*E^((4*Pi*r^2*(28350*K^3*
+                          (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                          4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                          15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                          4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(14175*K^4)) + 
+                     25*E^((16*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                          1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*
+                          (5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                          (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                          Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                          r^6))/(42525*K^4)))*Pi*r^2*(pc + pc/Sqrt[K*pc] - 
+                     ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 
+                        2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+                     ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                        3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+                     ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+                        57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+                        62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+                     ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 
+                          3050*Sqrt[K*pc]) + 8704*K^4*pc^4*(7215 + 10492*
+                          Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 61476*Sqrt[
+                          K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*Pi^4*
+                       r^8)/(340200*K^5)) - 192*E^((4*Pi*r^2*(28350*K^3*
+                         (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                          4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                        15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                          4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(14175*K^4))*
+                    (3 + 2*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                          1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*
+                          (5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                          (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                          Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                          r^6))/(42525*K^4)))*Pi^2*r^4*(pc + pc/Sqrt[K*pc] - 
+                      ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 
+                         2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+                      ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                         3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/
+                       (90*K^3) - ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 
+                         25632*K^2*pc^2 + 57344*K^3*pc^3 + 24*Sqrt[K*pc] + 
+                         5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*Pi^3*r^6)/
+                       (1890*K^4) + ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 
+                         2*K*pc*(669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*
+                          (7215 + 10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 
+                          61476*Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*
+                          Sqrt[K*pc]))*Pi^4*r^8)/(340200*K^5))^2))/
+                 (1808375625*K^8) + (4*E^((4*Pi*r^2*(28350*K^3*(K*pc + 
+                        Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                        4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                       (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                      Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                         (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                       r^6))/(42525*K^4))*pc*Pi*r^2*(3*(64 + 279*Sqrt[K*pc])*
+                    Pi^4*r^8 + 2*K*Pi^3*r^6*(-270*(4 + 53*Sqrt[K*pc]) + 
+                     pc*(6275 + 85548*Sqrt[K*pc])*Pi*r^2) + 12*K^2*Pi^2*r^4*
+                    (315*(4 + 45*Sqrt[K*pc]) - 30*pc*(649 + 3488*Sqrt[K*pc])*
+                      Pi*r^2 + 8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 
+                   36*K^3*Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 210*pc*
+                      (107 + 252*Sqrt[K*pc])*Pi*r^2 - 80*pc^2*(1389 + 
+                       2444*Sqrt[K*pc])*Pi^2*r^4 + 32*pc^3*(11897 + 
+                       18020*Sqrt[K*pc])*Pi^3*r^6) + 14*K^4*(6075 - 
+                     32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 368640*pc^3*
+                      Pi^3*r^6 + 974848*pc^4*Pi^4*r^8))*
+                  ((-1 + E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                          1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*
+                          (5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                          (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                          Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                          r^6))/(42525*K^4)))^2*(3 + 584*E^((4*Pi*r^2*
+                         (28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*
+                          (3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*
+                          r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 
+                          160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 
+                          582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 
+                          2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[
+                          K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*
+                          pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*
+                         K^4)) + 30*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[
+                          K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                          4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                          (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                          Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                          r^6))/(42525*K^4)) - 216*E^((4*Pi*r^2*(28350*K^3*
+                          (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                          4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                          15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                          4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(14175*K^4)) + 
+                     47*E^((16*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                          1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*
+                          (5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                          (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                          Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                          r^6))/(42525*K^4)) + 8*E^((4*Pi*r^2*(28350*K^3*
+                          (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                          4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                          15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                          4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(8505*K^4))) + 
+                   16*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                         Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                          594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                          4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                        Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                         r^6))/(42525*K^4))*(3 + 507*E^((4*Pi*r^2*(28350*K^3*
+                          (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                          4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                          15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                          4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)) - 
+                     666*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                          1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*
+                          (5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                          (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                          Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                          r^6))/(42525*K^4)) + 102*E^((4*Pi*r^2*(28350*K^3*
+                          (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                          4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                          15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                          4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(14175*K^4)) + 
+                     47*E^((16*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                          1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*
+                          (5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                          (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                          Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                          r^6))/(42525*K^4)) + 7*E^((4*Pi*r^2*(28350*K^3*
+                          (K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 
+                          4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+                          15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                          (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[
+                          K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[
+                          K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[K*pc]) + 
+                          4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*pc^2*(557 + 
+                          2576*Sqrt[K*pc]))*Pi^3*r^6))/(8505*K^4)))*Pi*r^2*
+                    (pc + pc/Sqrt[K*pc] - ((2*K*pc + Sqrt[K*pc])*(4*K*pc + 
+                        Sqrt[K*pc])*(1 + 2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*
+                       Sqrt[K*pc]) + ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 
+                        448*K^2*pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*
+                       r^4)/(90*K^3) - ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 
+                        25632*K^2*pc^2 + 57344*K^3*pc^3 + 24*Sqrt[K*pc] + 
+                        5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*Pi^3*r^6)/
+                      (1890*K^4) + ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 
+                        2*K*pc*(669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*
+                         (7215 + 10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 
+                          61476*Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*
+                          Sqrt[K*pc]))*Pi^4*r^8)/(340200*K^5)) - 
+                   256*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*
+                         Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 
+                          7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*(27 - 
+                          594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 
+                          4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                        Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                         r^6))/(14175*K^4))*(-71 + 25*E^((4*Pi*r^2*
+                         (28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*
+                          (3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*
+                          r^2 + 15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 
+                          160*K^2*pc^2*(3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 
+                          582*Sqrt[K*pc]))*Pi^2*r^4 - Sqrt[K*pc]*(15 - 
+                          2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*Sqrt[
+                          K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*K^2*
+                          pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*
+                         K^4)) + 6*E^((8*Pi*r^2*(28350*K^3*(K*pc + Sqrt[
+                          K*pc]) - 1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 
+                          4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                          (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                          Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                          r^6))/(42525*K^4)))*Pi^2*r^4*(pc + pc/Sqrt[K*pc] - 
+                      ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 
+                         2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+                      ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                         3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/
+                       (90*K^3) - ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 
+                         25632*K^2*pc^2 + 57344*K^3*pc^3 + 24*Sqrt[K*pc] + 
+                         5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*Pi^3*r^6)/
+                       (1890*K^4) + ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 
+                         2*K*pc*(669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*
+                          (7215 + 10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 
+                          61476*Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*
+                          Sqrt[K*pc]))*Pi^4*r^8)/(340200*K^5))^2 + 
+                   2048*E^((16*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 
+                        1890*K^2*Sqrt[K*pc]*(3 + 4*Sqrt[K*pc] + 4*K*pc*
+                          (5 + 7*Sqrt[K*pc]))*Pi*r^2 + 15*K*Sqrt[K*pc]*
+                         (27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*(3 + 28*Sqrt[
+                          K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+                        Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                          (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[
+                          K*pc]) - 32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*
+                         r^6))/(42525*K^4))*Pi^3*r^6*(pc + pc/Sqrt[K*pc] - 
+                      ((2*K*pc + Sqrt[K*pc])*(4*K*pc + Sqrt[K*pc])*(1 + 
+                         2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+                      ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 
+                         3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/
+                       (90*K^3) - ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 
+                         25632*K^2*pc^2 + 57344*K^3*pc^3 + 24*Sqrt[K*pc] + 
+                         5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*Pi^3*r^6)/
+                       (1890*K^4) + ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 
+                         2*K*pc*(669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*
+                          (7215 + 10492*Sqrt[K*pc]) + 384*K^3*pc^3*(13745 + 
+                          61476*Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*
+                          Sqrt[K*pc]))*Pi^4*r^8)/(340200*K^5))^3))/
+                 (42525*K^4)))/(42525*K^5))*T))))/
+     (-1 + E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*
+            (3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+           15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+              (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*r^4 - 
+           Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*(-310 + 203*
+                Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 
+             32*K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4)) + 
+       (4*E^((4*Pi*r^2*(28350*K^3*(K*pc + Sqrt[K*pc]) - 1890*K^2*Sqrt[K*pc]*
+              (3 + 4*Sqrt[K*pc] + 4*K*pc*(5 + 7*Sqrt[K*pc]))*Pi*r^2 + 
+             15*K*Sqrt[K*pc]*(27 - 594*Sqrt[K*pc] + 160*K^2*pc^2*
+                (3 + 28*Sqrt[K*pc]) - 4*K*pc*(365 + 582*Sqrt[K*pc]))*Pi^2*
+              r^4 - Sqrt[K*pc]*(15 - 2442*Sqrt[K*pc] + 256*K^3*pc^3*
+                (-310 + 203*Sqrt[K*pc]) + 4*K*pc*(407 + 818*Sqrt[K*pc]) - 32*
+                K^2*pc^2*(557 + 2576*Sqrt[K*pc]))*Pi^3*r^6))/(42525*K^4))*pc*
+         Pi*r^2*(3*(64 + 279*Sqrt[K*pc])*Pi^4*r^8 + 2*K*Pi^3*r^6*
+           (-270*(4 + 53*Sqrt[K*pc]) + pc*(6275 + 85548*Sqrt[K*pc])*Pi*r^2) + 
+          12*K^2*Pi^2*r^4*(315*(4 + 45*Sqrt[K*pc]) - 
+            30*pc*(649 + 3488*Sqrt[K*pc])*Pi*r^2 + 
+            8*pc^2*(12435 + 53804*Sqrt[K*pc])*Pi^2*r^4) + 
+          36*K^3*Pi*r^2*(-1575*(1 + 6*Sqrt[K*pc]) + 
+            210*pc*(107 + 252*Sqrt[K*pc])*Pi*r^2 - 80*pc^2*
+             (1389 + 2444*Sqrt[K*pc])*Pi^2*r^4 + 32*pc^3*
+             (11897 + 18020*Sqrt[K*pc])*Pi^3*r^6) + 
+          14*K^4*(6075 - 32400*pc*Pi*r^2 + 120960*pc^2*Pi^2*r^4 - 
+            368640*pc^3*Pi^3*r^6 + 974848*pc^4*Pi^4*r^8)))/(42525*K^4))^6
+ 
+S\[Eta]2APoly3 = (-2*a0*K*pc^3*(4206592*K^5*pc^5 + 27*(1 + 41*Sqrt[K*pc]) + 
+       512*K^4*pc^4*(43919 + 28650*Sqrt[K*pc]) + 
+       K*pc*(18934 + 181425*Sqrt[K*pc]) + 4*K^2*pc^2*
+        (272302 + 1076321*Sqrt[K*pc]) + 16*K^3*pc^3*
+        (712071 + 1251224*Sqrt[K*pc]))*Pi*r^2*T)/(25*E^(\[Nu]c/2)*
+      (4*K*pc + Sqrt[K*pc])^6)
+ 
+S\[Eta]2APoly5 = -1/2480625*(a0*pc^4*Sqrt[K*pc]*Pi*r^2*
+       (3*(15167 + 1654376*Sqrt[K*pc])*Pi^2*r^4 + 
+        2*K*Pi*r^2*(-46575*(11 + 876*Sqrt[K*pc]) + 
+          8*pc*(9606925 + 125352923*Sqrt[K*pc])*Pi*r^2) + 
+        234881024*K^10*pc^8*(14557725 - 109252800*pc*Pi*r^2 + 
+          330270304*pc^2*Pi^2*r^4) + 2097152*K^9*pc^7*
+         (99225*(189193 + 81948*Sqrt[K*pc]) - 5400*pc*(23874423 + 
+            10764268*Sqrt[K*pc])*Pi*r^2 + 64*pc^2*(3050558787 + 
+            2114799052*Sqrt[K*pc])*Pi^2*r^4) + 262144*K^8*pc^6*
+         (99225*(2104191 + 2150498*Sqrt[K*pc]) - 18900*pc*
+           (73256799 + 75461020*Sqrt[K*pc])*Pi*r^2 + 
+          16*pc^2*(-41238454951 + 51392062480*Sqrt[K*pc])*Pi^2*r^4) - 
+        6*K^2*(-893025*(1 + 65*Sqrt[K*pc]) + 3600*pc*(129913 + 
+            2658074*Sqrt[K*pc])*Pi*r^2 + pc^2*(-437657773 + 
+            55118550232*Sqrt[K*pc])*Pi^2*r^4) - 16384*K^7*pc^5*
+         (-99225*(12944433 + 24037268*Sqrt[K*pc]) + 
+          27000*pc*(338517193 + 596702028*Sqrt[K*pc])*Pi*r^2 + 
+          32*pc^2*(804118146273 + 816077624324*Sqrt[K*pc])*Pi^2*r^4) - 
+        10*K^3*pc*(-19845*(51982 + 936081*Sqrt[K*pc]) + 
+          810*pc*(98565199 + 1001568512*Sqrt[K*pc])*Pi*r^2 + 
+          4*pc^2*(156341498707 + 1686467916028*Sqrt[K*pc])*Pi^2*r^4) - 
+        32*K^5*pc^3*(-694575*(6142611 + 31593268*Sqrt[K*pc]) + 
+          5400*pc*(10998681643 + 44171880924*Sqrt[K*pc])*Pi*r^2 + 
+          832*pc^2*(499114058207 + 1758895052556*Sqrt[K*pc])*Pi^2*r^4) - 
+        40*K^4*pc^2*(-19845*(2877052 + 25660141*Sqrt[K*pc]) + 
+          270*pc*(5835744517 + 35727530676*Sqrt[K*pc])*Pi*r^2 + 
+          8*pc^2*(1606058805361 + 9256540928496*Sqrt[K*pc])*Pi^2*r^4) - 
+        512*K^6*pc^4*(-297675*(18389141 + 57174168*Sqrt[K*pc]) + 
+          10800*pc*(4549913469 + 12303786916*Sqrt[K*pc])*Pi*r^2 + 
+          32*pc^2*(7874579051425 + 16628078038176*Sqrt[K*pc])*Pi^2*r^4))*T)/
+      (E^(\[Nu]c/2)*(4*K*pc + Sqrt[K*pc])^8*(1 + 4*Sqrt[K*pc])*
+       (12*K*pc + 64*K^2*pc^2 + Sqrt[K*pc] + 48*(K*pc)^(3/2)))
+ 
+TOV = Derivative[1][p][r] == ((m[r] + 4*Pi*r^3*p[r])*(-p[r] - \[Rho][r]))/
+      (r*(r - 2*m[r]))
+ 
+TOVPoly = 2*r*(p2 + 2*p4*r^2 + 3*p6*r^4 + 4*p8*r^6) == 
+     (4*Pi*r*(pc + p2*r^2 + p4*r^4 + p6*r^6 + p8*r^8 + r^2*\[Rho]2 + 
+        r^4*\[Rho]4 + r^6*\[Rho]6 + r^8*\[Rho]8 + \[Rho]c)*
+       (315*pc + 315*p2*r^2 + 315*p4*r^4 + 315*p6*r^6 + 315*p8*r^8 + 
+        63*r^2*\[Rho]2 + 45*r^4*\[Rho]4 + 35*r^6*\[Rho]6 + 105*\[Rho]c))/
+      (-315 + 8*Pi*(63*r^4*\[Rho]2 + 45*r^6*\[Rho]4 + 35*r^8*\[Rho]6 + 
+         105*r^2*\[Rho]c))
+ 
+wlFile = "/Users/sztk.ch/Work/grad-school/Research/TLN-TDN \
+Project/Programs/Equation Solver/TOVPolynomials.wl"
+ 
+\[ScriptCapitalL][h00_, w0_][r_] := A1[r]*h00[r] + 
+     A2[r]*Derivative[1][h00][r] + Derivative[2][h00][r] + A4[r]*w0[r]
+ 
+\[Eta]ppSub = 2*T
+ 
+\[Eta]pSub = 2*(pc + pc/Sqrt[K*pc] - ((2*K*pc + Sqrt[K*pc])*
+        (4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc])*Pi*r^2)/(3*K^2*Sqrt[K*pc]) + 
+      ((1 + 4*K*pc + 4*Sqrt[K*pc])*(34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 
+         200*(K*pc)^(3/2))*Pi^2*r^4)/(90*K^3) - 
+      ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+         57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+         62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+      ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 3050*Sqrt[K*pc]) + 
+         8704*K^4*pc^4*(7215 + 10492*Sqrt[K*pc]) + 384*K^3*pc^3*
+          (13745 + 61476*Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*
+        Pi^4*r^8)/(340200*K^5))*T
+ 
+\[Eta]Sub = (pc + pc/Sqrt[K*pc] - ((2*K*pc + Sqrt[K*pc])*
+         (4*K*pc + Sqrt[K*pc])*(1 + 2*Sqrt[K*pc])*Pi*r^2)/
+        (3*K^2*Sqrt[K*pc]) + ((1 + 4*K*pc + 4*Sqrt[K*pc])*
+         (34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2*r^4)/
+        (90*K^3) - ((2*K*pc + Sqrt[K*pc])*(3 + 580*K*pc + 25632*K^2*pc^2 + 
+          57344*K^3*pc^3 + 24*Sqrt[K*pc] + 5552*(K*pc)^(3/2) + 
+          62080*(K*pc)^(5/2))*Pi^3*r^6)/(1890*K^4) + 
+       ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 2*K*pc*(669 + 3050*Sqrt[K*pc]) + 
+          8704*K^4*pc^4*(7215 + 10492*Sqrt[K*pc]) + 384*K^3*pc^3*
+           (13745 + 61476*Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*
+         Pi^4*r^8)/(340200*K^5))^2*T
+ 
+\[Lambda]Sub = r^2*\[Lambda]2 + r^4*\[Lambda]4 + r^6*\[Lambda]6 + 
+     r^8*\[Lambda]8 + \[Lambda]c
+ 
+\[Nu]Sub = r^2*\[Nu]2 + r^4*\[Nu]4 + r^6*\[Nu]6 + r^8*\[Nu]8 + \[Nu]c
+ 
+\[Rho]2Sub = {\[Rho]2 -> (p2*Sqrt[K*pc]*(1 + 2*Sqrt[K*pc]))/(2*K*pc)}
+ 
+\[Rho]2Subpc = {\[Rho]2 -> -1/3*(Sqrt[K*pc]*(1 + 2*Sqrt[K*pc])*
+         (pc + (K*pc + Sqrt[K*pc])/K)*(3*pc + (K*pc + Sqrt[K*pc])/K)*Pi)/
+        (K*pc)}
+ 
+\[Rho]4Sub = {\[Rho]4 -> (8*K*p4*pc^2 - p2^2*Sqrt[K*pc] + 4*p4*pc*Sqrt[K*pc])/
+       (8*K*pc^2)}
+ 
+\[Rho]4Subpc = {\[Rho]4 -> ((1 + 4*K*pc + 4*Sqrt[K*pc])*
+        (34*K*pc + 448*K^2*pc^2 + 3*Sqrt[K*pc] + 200*(K*pc)^(3/2))*Pi^2)/
+       (90*K^3)}
+ 
+\[Rho]6Sub = {\[Rho]6 -> (16*K*p6*pc^3 + p2^3*Sqrt[K*pc] - 
+        4*p2*p4*pc*Sqrt[K*pc] + 8*p6*pc^2*Sqrt[K*pc])/(16*K*pc^3)}
+ 
+\[Rho]6Subpc = {\[Rho]6 -> -1/1890*((2*K*pc + Sqrt[K*pc])*
+         (3 + 580*K*pc + 25632*K^2*pc^2 + 57344*K^3*pc^3 + 24*Sqrt[K*pc] + 
+          5552*(K*pc)^(3/2) + 62080*(K*pc)^(5/2))*Pi^3)/K^4}
+ 
+\[Rho]8Sub = {\[Rho]8 -> (128*K*p8*pc^4 - 5*p2^4*Sqrt[K*pc] + 
+        24*p2^2*p4*pc*Sqrt[K*pc] - 16*p4^2*pc^2*Sqrt[K*pc] - 
+        32*p2*p6*pc^2*Sqrt[K*pc] + 64*p8*pc^3*Sqrt[K*pc])/(128*K*pc^4)}
+ 
+\[Rho]8Subpc = {\[Rho]8 -> ((54591488*K^5*pc^5 + 15*Sqrt[K*pc] - 
+         2*K*pc*(669 + 3050*Sqrt[K*pc]) + 8704*K^4*pc^4*
+          (7215 + 10492*Sqrt[K*pc]) + 384*K^3*pc^3*
+          (13745 + 61476*Sqrt[K*pc]) + 8*K^2*pc^2*(4313 + 83508*Sqrt[K*pc]))*
+        Pi^4)/(340200*K^5)}
+ 
+\[Rho]cSub = {\[Rho]c -> (K*pc + Sqrt[K*pc])/K}
+ 
+\[Rho]EOS = (K*pc + Sqrt[K*pc])/K + (p2*Sqrt[K*pc]*(1 + 2*Sqrt[K*pc])*r^2)/
+      (2*K*pc) + (((K*p2^2)/pc + (-1/2*p2^2/pc^2 + (2*p4)/pc)*Sqrt[K*pc]*
+         (1 + 2*Sqrt[K*pc]))*r^4)/(4*K) + 
+     ((K*p2*(-1/2*p2^2/pc^2 + (2*p4)/pc) + 
+        (2*((3*p6)/pc - (3*p2*(-1/2*p2^2/pc^2 + (2*p4)/pc))/(4*pc))*
+          Sqrt[K*pc]*(1 + 2*Sqrt[K*pc]))/3)*r^6)/(4*K) + 
+     (((2*K*p2*((3*p6)/pc - (3*p2*(-1/2*p2^2/pc^2 + (2*p4)/pc))/(4*pc)))/3 + 
+        (K*(-1/2*p2^2/pc^2 + (2*p4)/pc)^2*pc)/4 + 
+        (((p2*p6)/(2*pc^2) + (4*p8)/pc - (p4*(-1/2*p2^2/pc^2 + (2*p4)/pc))/
+            (2*pc) - (5*p2*((3*p6)/pc - (3*p2*(-1/2*p2^2/pc^2 + (2*p4)/pc))/(
+                4*pc)))/(6*pc))*Sqrt[K*pc]*(1 + 2*Sqrt[K*pc]))/2)*r^8)/(4*K)
+ 
+\[Rho]Sub = r^2*\[Rho]2 + r^4*\[Rho]4 + r^6*\[Rho]6 + r^8*\[Rho]8 + \[Rho]c
