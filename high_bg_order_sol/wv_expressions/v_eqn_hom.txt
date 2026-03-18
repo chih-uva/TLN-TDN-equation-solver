@@ -1,0 +1,7 @@
+-(((-3 + E^\[Lambda][r] + 
+     8 E^\[Lambda][r] \[Pi] r^2 p0[r]) V\[Epsilon]\[Omega]0[r])/r) + 
+ 1/24 W\[Epsilon]\[Omega]0[
+   r] ((24 E^(\[Lambda][r]/2))/r - 
+    64 E^(\[Lambda][r]/2) \[Pi] r p0[r] - 
+    64 E^(\[Lambda][r]/2) \[Pi] r \[Rho]0[r]) + 
+ Derivative[1][V\[Epsilon]\[Omega]0][r]

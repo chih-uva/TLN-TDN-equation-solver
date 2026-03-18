@@ -1,0 +1,44 @@
+(E^(-(\[Lambda][r]/
+    2)) (H\[Epsilon]\[Omega]0[
+       r] (512 E^(
+         3 \[Lambda][r]) \[Pi]^3 r^6 p0[
+          r]^4 + (1 - 7 E^\[Lambda][r] + 5 E^(2 \[Lambda][r]) + E^(
+           3 \[Lambda][r])) \[Rho]0[r] - 
+        8 E^\[Lambda][r] (-1 + E^\[Lambda][r]) \[Pi] r^2 \[Rho]0[
+          r]^2 + 64 E^(
+         2 \[Lambda][r]) \[Pi]^2 r^4 p0[
+          r]^3 (-4 + 3 E^\[Lambda][r] + 
+           8 E^\[Lambda][r] \[Pi] r^2 \[Rho]0[r]) + 
+        8 E^\[Lambda][r] \[Pi] r^2 p0[
+          r]^2 (2 + E^\[Lambda][r] + 3 E^(2 \[Lambda][r]) + 
+           8 E^\[Lambda][r] (-5 + 3 E^\[Lambda][r]) \[Pi] r^2 \[Rho]0[
+             r]) + p0[
+          r] (1 - 7 E^\[Lambda][r] + 5 E^(2 \[Lambda][r]) + E^(
+           3 \[Lambda][r]) + 
+           24 E^\[Lambda][
+             r] (1 + E^(2 \[Lambda][r])) \[Pi] r^2 \[Rho]0[r] - 
+           64 E^(2 \[Lambda][r]) \[Pi]^2 r^4 \[Rho]0[r]^2) - 
+        4 E^\[Lambda][r] r Derivative[1][\[Rho]0][r]) + (-1 + 
+        E^\[Lambda][r] + 
+        8 E^\[Lambda][r] \[Pi] r^2 p0[r]) (24 E^\[Lambda][
+          r] V\[Epsilon]\[Omega]0[r] \[Rho]0[r] + 
+        12 E^(\[Lambda][r]/2) W\[Epsilon]\[Omega]0[r] \[Rho]0[r] + 
+        8 E^\[Lambda][r] \[Pi] r^3 p0[r]^2 Derivative[1][
+          H\[Epsilon]\[Omega]0][r] - 
+        r \[Rho]0[r] Derivative[1][H\[Epsilon]\[Omega]0][r] + 
+        E^\[Lambda][r] r \[Rho]0[r] Derivative[1][
+          H\[Epsilon]\[Omega]0][r] + 
+        4 E^(\[Lambda][r]/2)
+          r \[Rho]0[r] Derivative[1][W\[Epsilon]\[Omega]0][r] + 
+        p0[r] (24 E^\[Lambda][r] V\[Epsilon]\[Omega]0[r] + 
+           12 E^(\[Lambda][r]/2) W\[Epsilon]\[Omega]0[r] - 
+           r Derivative[1][H\[Epsilon]\[Omega]0][r] + 
+           E^\[Lambda][r] r Derivative[1][H\[Epsilon]\[Omega]0][r] + 
+           8 E^\[Lambda][r] \[Pi] r^3 \[Rho]0[r] Derivative[1][
+             H\[Epsilon]\[Omega]0][r] + 
+           4 E^(\[Lambda][r]/2)
+             r Derivative[1][W\[Epsilon]\[Omega]0][r]) + 
+        4 E^(\[Lambda][r]/2)
+          r W\[Epsilon]\[Omega]0[r] Derivative[1][\[Rho]0][
+          r])))/(4 r (-1 + E^\[Lambda][r] + 
+     8 E^\[Lambda][r] \[Pi] r^2 p0[r]) (p0[r] + \[Rho]0[r]))

@@ -42,3 +42,4 @@ class PolytropeEOS_n1(EOS):
     def rest_mass_density(self, p: float) -> float:
         # rho0(p) = (p/K)^(n/(n+1))
         return (p / self.K) ** (self.n / (self.n + 1.0))
+

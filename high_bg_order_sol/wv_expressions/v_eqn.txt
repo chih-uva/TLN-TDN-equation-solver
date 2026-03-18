@@ -1,0 +1,24 @@
+1/24 (-((
+    24 (-3 + E^\[Lambda][r] + 
+       8 E^\[Lambda][r] \[Pi] r^2 p0[r]) V\[Epsilon]\[Omega]0[r])/
+    r) + (24 E^(\[Lambda][r]/2) W\[Epsilon]\[Omega]0[r])/r - 
+   64 E^(\[Lambda][r]/2) \[Pi] r p0[r] W\[Epsilon]\[Omega]0[r] - 
+   64 E^(\[Lambda][r]/2) \[Pi] r W\[Epsilon]\[Omega]0[r] \[Rho]0[r] - 
+   1/rE^-\[Lambda][r] H\[Epsilon]\[Omega]0[
+     r] (3 + 3 E^\[Lambda][r] - 7 E^(2 \[Lambda][r]) + E^(
+      3 \[Lambda][r]) + 
+      192 E^(2 \[Lambda][r]) (-2 + E^\[Lambda][r]) \[Pi]^2 r^4 p0[
+        r]^2 + 512 E^(3 \[Lambda][r]) \[Pi]^3 r^6 p0[r]^3 - 
+      8 E^\[Lambda][r] (-3 + E^\[Lambda][r]) \[Pi] r^2 \[Rho]0[r] + 
+      8 E^\[Lambda][r] \[Pi] r^2 p0[
+        r] (8 - 13 E^\[Lambda][r] + 3 E^(2 \[Lambda][r]) - 
+         8 E^\[Lambda][r] \[Pi] r^2 \[Rho]0[r])) + 
+   12 Derivative[1][H\[Epsilon]\[Omega]0][r] - 
+   3 E^-\[Lambda][r] Derivative[1][H\[Epsilon]\[Omega]0][r] - 
+   E^\[Lambda][r] Derivative[1][H\[Epsilon]\[Omega]0][r] + 
+   32 \[Pi] r^2 p0[r] Derivative[1][H\[Epsilon]\[Omega]0][r] - 
+   16 E^\[Lambda][r] \[Pi] r^2 p0[r] Derivative[1][
+     H\[Epsilon]\[Omega]0][r] - 
+   64 E^\[Lambda][r] \[Pi]^2 r^4 p0[r]^2 Derivative[1][
+     H\[Epsilon]\[Omega]0][r] + 
+   24 Derivative[1][V\[Epsilon]\[Omega]0][r])

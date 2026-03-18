@@ -1,0 +1,5 @@
+(6 E^(\[Lambda][r]/2) V\[Epsilon]\[Omega]0[r])/r + 
+ Derivative[1][W\[Epsilon]\[Omega]0][r] + (
+ W\[Epsilon]\[Omega]0[
+   r] (3 p0[r] + 3 \[Rho]0[r] + r Derivative[1][\[Rho]0][r]))/(
+ r p0[r] + r \[Rho]0[r])

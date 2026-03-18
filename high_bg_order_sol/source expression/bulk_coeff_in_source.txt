@@ -1,0 +1,8 @@
+(16 I E^(
+ 1/2 (\[Lambda][r] - \[Nu][r])) \[Pi] r^2 (-E^((\[Lambda][r]/2))
+      H\[Epsilon]\[Omega]0[
+     r] + (-1 + E^\[Lambda][r] + 
+      8 E^\[Lambda][r] \[Pi] r^2 p0[r]) W\[Epsilon]\[Omega]0[
+     r]) Derivative[1][\[Rho]0][
+  r]^2)/((-1 + E^\[Lambda][r] + 
+   8 E^\[Lambda][r] \[Pi] r^2 p0[r])^2 (p0[r] + \[Rho]0[r])^2)
